@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "RYM Redesign",
+    "version": "1.0",
+    "description": "A modern redesign of RateYourMusic's UI.",
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts": [
+      {
+        "matches": ["*://*.rateyourmusic.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ]
+  }

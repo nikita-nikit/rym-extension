@@ -1,0 +1,316 @@
+#page_header {
+  background: linear-gradient(90deg, #121212 0%, #1e1e1e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1em;
+  gap: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header_logo {
+  flex: 0 0 auto;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.header_logo:hover {
+  transform: scale(1.01);
+}
+
+.header_search {
+  flex: 1;
+  max-width: 22em;
+  margin: 0 1em;
+  padding-left: 10px;
+}
+
+.header_links {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-left: auto;
+}
+
+a.header_item,
+.header_item,
+.header_mod_roles,
+.header_theme_buttons,
+.main.header_item.sonemic {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: transparent !important;
+  text-decoration: none;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+a.header_item:hover,
+.header_item:hover,
+.main.header_item.sonemic:hover {
+  color: white !important;
+  background-color: transparent !important;
+  box-shadow:rgba(255, 255, 255, 0.1);
+}
+
+a.header_icon_link,
+.header_icon_link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 8px;
+  border-radius: 4px;
+  position: relative;
+}
+
+a.header_icon_link:hover,
+.header_icon_link:hover {
+  color: white !important;
+  background-color: transparent !important;
+  box-shadow:rgba(255, 255, 255, 0.1);
+}
+
+div.divider {
+  display: none !important;
+}
+
+
+a.header_icon_link.header_icon_link_artist_profiles.hide-for-small[href="/submissions/"],
+#header_icon_link_bars {
+  position: relative; /* Ensure the dropdown is positioned relative to this container */
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: white !important;
+  background-color: transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+#header_profile_username {
+  display: true;
+}
+
+
+.header_user_img {
+ display: none !important;
+}
+
+.header_profile {
+  right: 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+#header_icon_link_bars i.fa.fa-bars {
+  display: none !important; /* Hide hamburger icon inside #header_icon_link_bars */
+}
+
+
+.header_menu_profile_img {
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.header_menu_profile_img:hover {
+  transform: scale(1.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header_extended_section.header_extended_more_menu {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  margin-top: 1px;
+  left: 5px;
+  right: auto;
+  border: none;
+  overflow: hidden;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+  transform-origin: top left;
+  position: absolute;
+  top: 100%;
+}
+
+/* Show the menu when parent has .active class */
+#header_icon_link_bars.active .header_extended_section.header_extended_more_menu {
+  display: flex;
+  animation: fadeIn 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Menu items */
+.header_extended_more_menu .header_item {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: block;
+  line-height: 1.2;
+  position: relative;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  border: none !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+/* Hover effect - more noticeable but without indent */
+.header_extended_more_menu .header_item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important; /* Restore the background color */
+  color: #fff !important;
+  padding-left: 20px; /* Keep the padding shift effect */
+  /* Remove the box-shadow since we're using background-color again */
+}
+
+/* Remove BR element */
+.header_extended_more_menu br {
+  display: none !important;
+}
+
+/* Remove section dividers */
+.header_extended_more_menu .header_item:nth-child(5) {
+  border-bottom: none !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Special styling for the "New" badge */
+.header_extended_more_menu .header_item span {
+  background-color: #e74c3c; /* Red background */
+  color: white;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-left: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Theme toggle section - more compact and seamless */
+.header_extended_more_menu .header_item:nth-last-child(2),
+.header_extended_more_menu .header_item:nth-last-child(3) {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 6px 0;
+  box-sizing: border-box;
+  border: none !important;
+  margin: 0 !important;
+  background-color: transparent !important; /* Remove gray background */
+}
+
+/* Log out button styling - cleaner and seamless */
+.header_extended_more_menu .header_item:last-child {
+  color: #e74c3c !important; /* Red color for logout */
+  cursor: pointer !important;
+  text-align: center;
+  font-weight: 500;
+  border: none !important;
+  margin: 0 !important;
+  padding: 8px 0;
+  background-color: transparent !important; /* Remove gray background */
+  position: relative;
+}
+
+.header_extended_more_menu .header_item:last-child:hover {
+  color: #ff6b6b !important; /* Brighter red on hover */
+  background-color: #333 !important; /* Restore the background color */
+  /* Remove the box-shadow since we're using background-color again */
+}
+
+/* Additional selector to override any other styles that might be causing lines */
+.header_extended_more_menu a,
+.header_extended_more_menu div,
+.header_extended_more_menu span {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Target any potential list items that might have borders */
+.header_extended_more_menu li,
+.header_extended_more_menu ul {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Force override any border styles that might be coming from the original site */
+.header_extended_more_menu * {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Remove any horizontal rules or dividers */
+.header_extended_more_menu hr,
+.header_extended_more_menu .divider {
+  display: none !important;
+}
+
+.profile_num_messages {
+display: none !important;
+}
+
+/* Add spacing between logo_name and logo_header */
+.logo_name {
+  margin-right: 12px !important;
+  display: inline-block;
+  vertical-align: middle !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Improve logo_header vertical alignment - align with RYM text */
+div.logo_header {
+  margin-bottom: 2.5px !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+/* Ensure logo elements are displayed inline with proper alignment */
+.main.header_item.sonemic {
+  padding-right: 8px !important;
+  display: flex !important;
+  align-items: center !important; /* Center all children vertically */
+  gap: 5px; /* Space between elements */
+}
