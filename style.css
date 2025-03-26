@@ -1,0 +1,876 @@
+#page_header {
+  background: linear-gradient(90deg, #121212 0%, #1e1e1e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1em;
+  gap: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header_logo {
+  flex: 0 0 auto;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.header_logo:hover {
+  transform: scale(1.01);
+}
+
+.header_search {
+  flex: 1;
+  max-width: 22em;
+  margin: 0 1em;
+  padding-left: 10px;
+}
+
+.header_links {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-left: auto;
+}
+
+a.header_item,
+.header_item,
+.header_mod_roles,
+.header_theme_buttons,
+.main.header_item.sonemic {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: transparent !important;
+  text-decoration: none;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+a.header_item:hover,
+.header_item:hover,
+.main.header_item.sonemic:hover {
+  color: white !important;
+  background-color: transparent !important;
+  box-shadow:rgba(255, 255, 255, 0.1);
+}
+
+a.header_icon_link,
+.header_icon_link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 8px;
+  border-radius: 4px;
+  position: relative;
+}
+
+a.header_icon_link:hover,
+.header_icon_link:hover {
+  color: white !important;
+  background-color: transparent !important;
+  box-shadow:rgba(255, 255, 255, 0.1);
+}
+
+div.divider {
+  display: none !important;
+}
+
+
+a.header_icon_link.header_icon_link_artist_profiles.hide-for-small[href="/submissions/"],
+#header_icon_link_bars {
+  position: relative; /* Ensure the dropdown is positioned relative to this container */
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: white !important;
+  background-color: transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+#header_profile_username {
+  display: true;
+}
+
+
+.header_user_img {
+ display: none !important;
+}
+
+.header_profile {
+  right: 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+#header_icon_link_bars i.fa.fa-bars {
+  display: none !important; /* Hide hamburger icon inside #header_icon_link_bars */
+}
+
+
+.header_menu_profile_img {
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.header_menu_profile_img:hover {
+  transform: scale(1.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header_extended_section.header_extended_more_menu {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  margin-top: 1px;
+  left: 5px;
+  right: auto;
+  border: none;
+  overflow: hidden;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+  transform-origin: top left;
+  position: absolute;
+  top: 100%;
+}
+
+/* Show the menu when parent has .active class */
+#header_icon_link_bars.active .header_extended_section.header_extended_more_menu {
+  display: flex;
+  animation: fadeIn 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Menu items */
+.header_extended_more_menu .header_item {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: block;
+  line-height: 1.2;
+  position: relative;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  border: none !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+/* Hover effect - more noticeable but without indent */
+.header_extended_more_menu .header_item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important; /* Restore the background color */
+  color: #fff !important;
+  padding-left: 20px; /* Keep the padding shift effect */
+  /* Remove the box-shadow since we're using background-color again */
+}
+
+/* Remove BR element */
+.header_extended_more_menu br {
+  display: none !important;
+}
+
+/* Remove section dividers */
+.header_extended_more_menu .header_item:nth-child(5) {
+  border-bottom: none !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Special styling for the "New" badge */
+.header_extended_more_menu .header_item span {
+  background-color: #e74c3c; /* Red background */
+  color: white;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-left: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Theme toggle section - more compact and seamless */
+.header_extended_more_menu .header_item:nth-last-child(2),
+.header_extended_more_menu .header_item:nth-last-child(3) {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 6px 0;
+  box-sizing: border-box;
+  border: none !important;
+  margin: 0 !important;
+  background-color: transparent !important; /* Remove gray background */
+}
+
+/* Log out button styling - cleaner and seamless */
+.header_extended_more_menu .header_item:last-child {
+  color: #e74c3c !important; /* Red color for logout */
+  cursor: pointer !important;
+  text-align: center;
+  font-weight: 500;
+  border: none !important;
+  margin: 0 !important;
+  padding: 8px 0;
+  background-color: transparent !important; /* Remove gray background */
+  position: relative;
+}
+
+.header_extended_more_menu .header_item:last-child:hover {
+  color: #ff6b6b !important; /* Brighter red on hover */
+  background-color: #333 !important; /* Restore the background color */
+  /* Remove the box-shadow since we're using background-color again */
+}
+
+/* Additional selector to override any other styles that might be causing lines */
+.header_extended_more_menu a,
+.header_extended_more_menu div,
+.header_extended_more_menu span {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Target any potential list items that might have borders */
+.header_extended_more_menu li,
+.header_extended_more_menu ul {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Force override any border styles that might be coming from the original site */
+.header_extended_more_menu * {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Remove any horizontal rules or dividers */
+.header_extended_more_menu hr,
+.header_extended_more_menu .divider {
+  display: none !important;
+}
+
+.profile_num_messages {
+display: none !important;
+}
+
+/* Add spacing between logo_name and logo_header */
+.logo_name {
+  margin-right: 12px !important;
+  display: inline-block;
+  vertical-align: middle !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Improve logo_header vertical alignment - align with RYM text */
+div.logo_header {
+  margin-bottom: 2.5px !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+/* Ensure logo elements are displayed inline with proper alignment */
+.main.header_item.sonemic {
+  padding-right: 8px !important;
+  display: flex !important;
+  align-items: center !important; /* Center all children vertically */
+  gap: 5px; /* Space between elements */
+}
+
+.ui_search {
+  position: relative !important;
+  background: rgba(37, 36, 36, 0.144) !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  max-width: 360px !important;
+  width: 100% !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.ui_search:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.07) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ui_search:focus-within {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  border-width: 1.5px !important;
+}
+
+.ui_search_rest {
+  margin-top: .5em;
+  width: 35em !important;
+  background: rgb(26, 26, 26) !important;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  border-radius: 15px !important;
+  display: none;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#ui_search_input_main_search {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 15px !important;
+  width: 300px !important;
+  overflow: hidden !important;
+  padding: 8px 12px !important;
+  margin-left: 24px !important;
+  outline: none !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.3px !important;
+  height: 100% !important;
+  transition: all 0.2s ease !important;
+}
+
+#ui_search_input_main_search::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-weight: 300 !important;
+  transition: all 0.3s ease !important;
+}
+
+#ui_search_main_search:focus-within #ui_search_input_main_search::placeholder {
+  opacity: 0.7 !important;
+  transform: translateX(3px) !important;
+}
+
+#ui_search_icon_main_search {
+  position: absolute !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 15px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+#ui_clear_icon_main_search {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 0 !important;
+  backdrop-filter: blur(4px) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+#ui_search_main_search:hover #ui_search_icon_main_search,
+#ui_search_main_search:focus-within #ui_search_icon_main_search {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+#ui_clear_icon_main_search:hover {
+  color: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-50%) scale(1.15) rotate(90deg) !important;
+}
+
+#ui_search_input_main_search:not(:placeholder-shown) + #ui_clear_icon_main_search {
+  opacity: 1 !important;
+}
+
+/* Add smooth focus ring */
+#ui_search_main_search:focus-within::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  pointer-events: none !important;
+  animation: focusRing 0.3s ease-out !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+}
+@keyframes focusRing {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Styling for ui_search_type */
+.ui_search_type {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border-radius: 12px 12px 12px 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  width: 100% !important;
+  max-width: none !important;
+  transition: all 0.2s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Search object label (like "Search:") */
+.ui_search_object_label {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500 !important;
+  margin-right: 8px !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Object selector (dropdown-like menu) */
+.ui_search_object_selector {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+/* Individual selector items (like Music, Film, Games) */
+.ui_search_scope_selector_item {
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  margin: 0 2px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Hover state for selector items */
+.ui_search_scope_selector_item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Active/selected selector item */
+.ui_search_scope_selector_item.ui_search_active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Add shine effect on hover */
+.ui_search_scope_selector_item:after {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -60% !important;
+  width: 20% !important;
+  height: 200% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: rotate(30deg) !important;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  opacity: 0 !important;
+}
+
+.ui_search_scope_selector_item:hover:after {
+  left: 120% !important;
+  opacity: 1 !important;
+}
+
+/* Styling for search results frame to match ui_search_type */
+.ui_search_results_frame {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border-radius: 10px 10px 12px 12px !important;
+  padding: 10px 0 !important;
+  margin-top: 2px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(15px) !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.1) !important;
+  animation: resultsFadeIn 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+@keyframes resultsFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-12px); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Custom scrollbar styling */
+.ui_search_results_frame::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.ui_search_results_frame::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+.ui_search_results_frame::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  background-clip: content-box !important;
+}
+
+.ui_search_results_frame::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Search results container */
+.ui_search_results {
+  width: 100% !important;
+  padding: 0 !important;
+  max-height: 90vh !important;
+}
+
+/* Individual search result items (if they exist) */
+.ui_search_results > div, 
+.ui_search_results > a {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ui_search_results > div:last-child, 
+.ui_search_results > a:last-child {
+  border-bottom: none !important;
+}
+
+.ui_search_results > div:hover, 
+.ui_search_results > a:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: white !important;
+  transform: translateX(3px) !important;
+  padding-left: 20px !important;
+}
+
+/* Add subtle highlight line on the left side of result items when hovering */
+.ui_search_results > div:before, 
+.ui_search_results > a:before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 0 !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%) !important;
+  transition: all 0.2s ease !important;
+}
+
+.ui_search_results > div:hover:before, 
+.ui_search_results > a:hover:before {
+  width: 4px !important;
+}
+
+/* Result item image styling (if they exist) */
+.ui_search_results img {
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  margin-right: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.25s ease !important;
+  filter: brightness(0.95) !important;
+}
+
+.ui_search_results > div:hover img, 
+.ui_search_results > a:hover img {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+  filter: brightness(1.05) !important;
+}
+
+/* Result item text container */
+.ui_search_results .result_text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Result title */
+.ui_search_results .result_title {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  margin-bottom: 3px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  transition: all 0.2s ease !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ui_search_results > div:hover .result_title, 
+.ui_search_results > a:hover .result_title {
+  color: white !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Result description/subtitle */
+.ui_search_results .result_description {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+.ui_search_results > div:hover .result_description, 
+.ui_search_results > a:hover .result_description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Selected/active result */
+.ui_search_results .selected, 
+.ui_search_results .active {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-left: 3px solid rgba(255, 255, 255, 0.3) !important;
+  padding-left: 19px !important;
+}
+
+.ui_search_results .selected .result_title, 
+.ui_search_results .active .result_title {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* Empty results message */
+.ui_search_results .empty_results {
+  padding: 20px !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-style: italic !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  margin: 10px 15px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+#ui_search_scope_selector_music_main_search {
+  border-color: rgb(24, 68, 165) !important;
+}
+
+#ui_search_scope_selector_film_main_search {
+  border-color: rgb(199, 123, 10) !important;
+}
+
+#ui_search_scope_selector_film_main_search:hover {
+  color: rgb(199, 123, 10) !important;
+}
+
+/* Styling for the ui_search_object_select dropdown */
+.ui_search_object_select {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  padding: 6px 30px 6px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  outline: none !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.6)' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: calc(100% - 10px) center !important;
+  backdrop-filter: blur(8px) !important;
+  max-width: 180px !important;
+  height: auto !important;
+  text-overflow: ellipsis !important;
+}
+
+.ui_search_object_select:hover {
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.07) !important;
+  transform: translateY(-1px) !important;
+  color: white !important;
+}
+
+.ui_search_object_select:focus {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.07) !important;
+  background-color: rgba(50, 50, 50, 0.95) !important;
+  transform: translateY(-1px) !important;
+  border-width: 1.5px !important;
+  color: white !important;
+}
+
+/* Styling for the option groups */
+.ui_search_object_select optgroup {
+  background-color: #1a1a1a !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  padding: 10px !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Styling for the options */
+.ui_search_object_select option {
+  background-color: #1a1a1a !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 10px 12px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 400 !important;
+}
+
+/* Hover state for options - this doesn't work in all browsers but adding for those that support it */
+.ui_search_object_select option:hover,
+.ui_search_object_select option:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+/* Selected option */
+.ui_search_object_select option:checked {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* For Firefox which doesn't support styling options well */
+@-moz-document url-prefix() {
+  .ui_search_object_select {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(30, 30, 30, 0.95) !important;
+  }
+  
+  .ui_search_object_select option,
+  .ui_search_object_select optgroup {
+    background-color: #1a1a1a !important;
+  }
+}
+
+/* Custom scrollbar for the dropdown in WebKit browsers */
+.ui_search_object_select::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.ui_search_object_select::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+.ui_search_object_select::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  background-clip: content-box !important;
+}
+
+/* Focus styling */
+.ui_search_object_select:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Add focus ring animation similar to the search input */
+.ui_search_object_select:focus::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  border-radius: 10px !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  pointer-events: none !important;
+  animation: focusRing 0.3s ease-out !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Style when dropdown is open */
+.ui_search_object_select.active,
+.ui_search_object_select:active {
+  background-color: rgba(50, 50, 50, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Make dropdown more visible when open */
+.ui_search_object_select[aria-expanded="true"],
+.ui_search_object_select.expanded {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+}
+
