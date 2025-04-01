@@ -1,0 +1,177 @@
+/* Styling for the header listening element */
+.header_listening {
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(145, 252, 252, 0.05), rgba(3, 29, 83, 0.1)), rgba(37, 36, 36, 0.144);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 460px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+  
+  .header_listening:hover {
+    background: linear-gradient(135deg, rgba(145, 252, 252, 0.08), rgba(3, 29, 83, 0.15)), rgba(255, 255, 255, 0.08);
+    border-color: rgba(145, 252, 252, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.07);
+    transform: translateX(-50%) translateY(-1px);
+  }
+  
+  .header_listening_art {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 4px;
+  }
+  
+  /* Define the vinyl spinning animation */
+  @keyframes vinylSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Create a pseudo-element for the spinning layer so the center dot stays fixed */
+  .header_listening_art::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    animation: vinylSpin 8s linear infinite;
+    animation-play-state: paused;
+    z-index: 0;
+  }
+  
+  .header_listening:hover .header_listening_art::before {
+    animation-play-state: running;
+  }
+  
+  /* Vinyl center hole */
+  .header_listening_art::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.5);
+  }
+  
+  /* Vinyl center ring */
+  .header_listening_art .vinyl-ring {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Scale effect on hover */
+  .header_listening:hover .header_listening_art {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header_listening_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 12px;
+    max-width: calc(100% - 48px);
+    overflow: hidden;
+    gap: 8px;
+  }
+  
+  .header_listening_label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11.5px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-right: 8px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  .header_listening_title {
+    color: #ffffff;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .header_listening_title a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .header_listening_title a:hover {
+    color: rgba(145, 252, 252, 0.9);
+    text-decoration: underline;
+  }
+  
+  .header_listening_title span {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+  }
+  
+  /* Make responsive adjustments */
+  @media (max-width: 1200px) {
+    .header_listening {
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .header_listening {
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 850px) {
+    .header_listening {
+      display: none;
+    }
+  }
