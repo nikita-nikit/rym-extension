@@ -1,177 +1,505 @@
-/* Styling for the header listening element */
+/* Base styles for the header listening element */
 .header_listening {
-    display: flex;
-    align-items: center;
-    padding: 4px 16px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.05), rgba(3, 29, 83, 0.1)), rgba(37, 36, 36, 0.144);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    max-width: 460px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height: 42px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-  }
-  
-  .header_listening:hover {
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.08), rgba(3, 29, 83, 0.15)), rgba(255, 255, 255, 0.08);
-    border-color: rgba(145, 252, 252, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.07);
-    transform: translateX(-50%) translateY(-1px);
-  }
-  
-  .header_listening_art {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 4px;
-  }
-  
-  /* Define the vinyl spinning animation */
-  @keyframes vinylSpin {
+    --transition-timing: 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    --primary-text: #f0f0f0 !important;
+    --secondary-text: rgba(240, 240, 240, 0.85) !important;
+    --accent-color: rgba(255, 255, 255, 0.95) !important;
+    --container-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgb(2, 1, 15)) !important;
+    --container-hover-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(17, 1, 1, 0.85)) !important;
+    --border-color: rgba(255, 255, 255, 0.1) !important;
+    --button-bg: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(20, 20, 20, 0.8)) !important;
+    --button-hover-bg: linear-gradient(135deg, rgba(50, 50, 50, 0.95), rgba(30, 30, 30, 0.9)) !important;
+    
+    /* Core layout - optimized spacing */
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important; /* Increased from 8px for better spacing */
+    padding: 6px 12px !important; /* Increased horizontal padding for better content breathing room */
+    height: 40px !important;
+    
+    /* Positioning */
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 5 !important;
+    
+    /* Styling */
+    border-radius: 20px !important;
+    background: var(--container-bg) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-color) !important;
+    
+    /* Content handling - optimized widths */
+    min-width: 420px !important; /* Reduced from 450px for better proportions */
+    max-width: 720px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    
+    /* Animation */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    animation: subtle-pulse 3s infinite ease-in-out !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Hover state */
+.header_listening:hover {
+    background: var(--container-hover-bg) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.07) !important;
+    max-width: 900px !important; /* Increased from 650px to match the default width increase */
+    animation: none !important; /* Stop pulsing on hover */
+    transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) !important; /* Smoother elastic effect */
+}
+
+/* Album artwork styling - optimized spacing */
+.header_listening_art,
+.header_listening .play_history_item_art {
+    /* Core layout */
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+    margin-right: 8px !important; /* Reduced from 10px for better overall spacing */
+    
+    /* Styling */
+    border-radius: 50% !important;
+    background-size: cover !important;
+    background-position: center !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    
+    /* Positioning context */
+    position: relative !important;
+    overflow: hidden !important;
+    
+    /* Animation */
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+/* Vinyl spin animation */
+@keyframes vinylSpin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-  }
-  
-  /* Create a pseudo-element for the spinning layer so the center dot stays fixed */
-  .header_listening_art::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    animation: vinylSpin 8s linear infinite;
-    animation-play-state: paused;
-    z-index: 0;
-  }
-  
-  .header_listening:hover .header_listening_art::before {
-    animation-play-state: running;
-  }
-  
-  /* Vinyl center hole */
-  .header_listening_art::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    background-color: #333;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 2;
-    box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.5);
-  }
-  
-  /* Vinyl center ring */
-  .header_listening_art .vinyl-ring {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  /* Scale effect on hover */
-  .header_listening:hover .header_listening_art {
-    transform: scale(1.05);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  .header_listening_info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 12px;
-    max-width: calc(100% - 48px);
-    overflow: hidden;
-    gap: 8px;
-  }
-  
-  .header_listening_label {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 11.5px;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-right: 8px;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  
-  .header_listening_title {
-    color: #ffffff;
-    font-size: 12.5px;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .header_listening_title a {
-    color: white;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .header_listening_title a:hover {
-    color: rgba(145, 252, 252, 0.9);
-    text-decoration: underline;
-  }
-  
-  .header_listening_title span {
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
-  }
-  
-  /* Make responsive adjustments */
-  @media (max-width: 1200px) {
-    .header_listening {
-      max-width: 400px;
+}
+
+.header_listening:hover .header_listening_art,
+.header_listening:hover .play_history_item_art {
+    animation: vinylSpin 8s linear infinite !important;
+    transform: scale(1.05) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.profile_listening_container {
+  margin: 0 0 0 0 !important;
+}
+
+/* Play history item container - improved layout */
+.header_listening .play_history_item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important; /* Increased from 6px for better content separation */
+    flex: 1 !important;
+    min-width: 0 !important;
+    position: relative !important;
+    padding-left: 0 !important; /* Removed 2px padding that was causing alignment issues */
+}
+
+/* Album and artist info container - improved spacing */
+.header_listening .play_history_item_info {
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    flex-grow: 1 !important;
+    max-width: calc(100% - 40px) !important; /* Optimized width calculation */
+    transition: max-width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Adjust info width when hovering to make room for buttons - optimized calculation */
+.header_listening:hover .play_history_item_info {
+    max-width: calc(100% - 140px) !important; /* Increased space for buttons */
+    transition: max-width 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s !important;
+}
+
+/* Add a vertical line separator after "LISTENING TO" text - improved spacing */
+.header_listening .profile_set_listening_box {
+    font-size: 10px !important;
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    position: relative !important;
+    padding-right: 8px !important; /* Increased from 6px */
+    margin-right: 8px !important; /* Increased from 4px */
+    margin-left: 0px !important;
+    white-space: nowrap !important;
+    aria-label: "Currently listening to";
+}
+
+/* Add vertical line after "LISTENING TO" text */
+.header_listening .profile_set_listening_box::after {
+    content: '' !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: 14px !important;
+    width: 1px !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Album title styling - optimized width */
+.header_listening .play_history_item_info_album {
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 2px !important; /* Increased from 1px for better spacing between title and artist */
+    max-width: 380px !important; /* Adjusted from 400px */
+}
+
+.header_listening .play_history_item_info_album a {
+    color: var(--primary-text) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: color 0.2s ease !important;
+}
+
+.header_listening .play_history_item_info_album a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    opacity: 1 !important;
+}
+
+/* Artist name styling - optimized width */
+.header_listening .play_history_item_info_artist {
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 380px !important; /* Adjusted from 400px */
+}
+
+.header_listening .play_history_item_info_artist a {
+    color: var(--secondary-text) !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    transition: color 0.2s ease !important;
+}
+
+.header_listening .play_history_item_info_artist a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    opacity: 1 !important;
+}
+
+/* Hide set listening button by default */
+.header_listening .profile_set_listening_btn {
+    opacity: 0 !important;
+    transform: translateX(10px) !important;
+    transition: opacity 0.6s ease 0.15s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s !important;
+    margin-left: 8px !important;
+    position: absolute !important;
+    right: 8px !important;
+    pointer-events: none !important;
+}
+
+/* Hide play history button by default */
+.header_listening .profile_view_play_history_btn {
+    opacity: 0 !important;
+    transform: translateX(10px) !important;
+    transition: opacity 0.6s ease 0.15s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s !important;
+    margin-left: 5px !important;
+    position: absolute !important;
+    right: 10px !important;
+    pointer-events: none !important;
+}
+
+/* Show buttons on hover */
+.header_listening:hover .header_listening_buttons {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    position: relative !important;
+    right: auto !important;
+    pointer-events: auto !important;
+    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
+}
+
+/* Show set listening button on hover */
+.header_listening:hover .profile_set_listening_btn {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    position: relative !important;
+    right: auto !important;
+    pointer-events: auto !important;
+    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
+}
+
+/* Show play history button on hover */
+.header_listening:hover .profile_view_play_history_btn {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    position: relative !important;
+    right: auto !important;
+    pointer-events: auto !important;
+    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
+}
+
+/* Hide the Play history text */
+.header_listening .profile_view_play_history_btn a span,
+.header_listening .profile_view_play_history_btn a text {
+    display: none !important;
+    font-size: 0 !important;
+}
+
+/* Reset font-size for the set button */
+.header_listening .profile_set_listening_box .profile_set_listening_btn {
+    font-size: 11px !important;
+}
+
+.play_history_item_date {
+   display: none !important;
+}
+
+/* Responsive adjustments - optimized breakpoints */
+@media (max-width: 1200px) {
+    .header_listening:hover {
+        max-width: 720px !important; /* Reduced from 750px for consistency */
     }
-  }
-  
-  @media (max-width: 1000px) {
-    .header_listening {
-      max-width: 300px;
+    
+    .header_listening .play_history_item_info {
+        max-width: calc(100% - 120px) !important; /* Adjusted for better proportions */
     }
-  }
-  
-  @media (max-width: 850px) {
+}
+
+@media (max-width: 1000px) {
     .header_listening {
-      display: none;
+        max-width: 420px !important; /* Reduced from 450px to match the default width */
     }
-  }
+    
+    .header_listening:hover {
+        max-width: 620px !important; /* Reduced from 650px for better proportions */
+    }
+    
+    .header_listening .play_history_item_info {
+        max-width: calc(100% - 110px) !important; /* Adjusted from 100px */
+    }
+}
+
+@media (max-width: 850px) {
+    .header_listening {
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .header_listening {
+        max-width: 350px !important; /* Default width for very small screens */
+    }
+    
+    .header_listening:hover {
+        max-width: 550px !important; /* Increased from 400px */
+    }
+}
+
+/* Button Styling - improved spacing */
+.header_listening .btn,
+.header_listening .blue_btn,
+.header_listening .btn_small {
+    /* Core layout */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px 12px !important; /* Increased horizontal padding from 10px */
+    height: 24px !important;
+    min-width: 50px !important;
+    
+    /* Typography */
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0.3px !important;
+    
+    /* Colors and Background */
+    color: rgba(255, 255, 255, 0.9) !important;
+    background: var(--button-bg) !important;
+    
+    /* Border and Shape */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    
+    /* Effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(8px) !important;
+    
+    /* Transitions */
+    transition: all var(--transition-timing) !important;
+    text-decoration: none !important;
+}
+
+/* Button Hover State */
+.header_listening .btn:hover,
+.header_listening .blue_btn:hover,
+.header_listening .btn_small:hover {
+    background: var(--button-hover-bg) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Button Active State */
+.header_listening .btn:active,
+.header_listening .blue_btn:active,
+.header_listening .btn_small:active {
+    background: rgba(20, 20, 20, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+                inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Button container styles - optimized positioning */
+.header_listening_buttons {
+    display: flex !important;
+    gap: 8px !important; /* Increased from 6px */
+    margin-left: auto !important;
+    position: absolute !important;
+    right: 10px !important; /* Adjusted from 12px */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.6s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Direct text color overrides for play history items */
+.header_listening .play_history_item_release,
+.header_listening .play_history_item_release a,
+.header_listening .play_history_item_artist a,
+.header_listening .play_history_separator {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.header_listening .play_history_item_artist a {
+    opacity: 0.9 !important;
+}
+
+.header_listening .play_history_separator {
+    opacity: 0.7 !important;
+}
+
+.header_listening .play_history_item_release a:hover,
+.header_listening .play_history_item_artist a:hover {
+    opacity: 1 !important;
+    text-decoration: underline !important;
+}
+
+/* Play history button specific styles */
+.header_listening .profile_view_play_history_btn {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.header_listening .profile_view_play_history_btn a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px !important;
+    height: 24px !important;
+    width: 24px !important;
+    min-width: unset !important;
+    font-size: 11px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all var(--transition-timing) !important;
+}
+
+/* Add a triangle for history button */
+.header_listening .profile_view_play_history_btn a::after {
+    content: '▶' !important;
+    font-size: 8px !important;
+    transform: rotate(90deg) !important;
+}
+
+.header_listening .profile_view_play_history_btn a:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+/* Ensure text truncation works properly */
+.header_listening .play_history_item_release {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.play_history_artbox {
+    min-width: auto !important; /* Remove minimum width */
+    max-height: 30px !important;
+    margin-right: 0 !important; /* Remove margin, we'll handle it elsewhere */
+}
+
+.play_history_item {
+    min-width: auto !important; /* Remove minimum width constraint */
+}
+
+/* Add pulsing animation for Dynamic Island feel - smoother and more subtle */
+@keyframes subtle-pulse {
+    0% { 
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05);
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.08);
+        transform: translateX(-50%) scale(1.015); /* Slightly more subtle scale effect */
+    }
+    100% { 
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05);
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Vinyl ring style */
+.vinyl-ring {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5) !important;
+    z-index: 2 !important;
+    transition: all 0.3s ease !important;
+}
+
+.header_listening:hover .vinyl-ring {
+    width: 12px !important;
+    height: 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7) !important;
+}
+
+.header_listening:hover .play_history_item_info_album {
+    max-width: 620px !important; /* Reduced from 650px to match max-width of container */
+}
+
+.header_listening:hover .play_history_item_info_artist {
+    max-width: 620px !important; /* Reduced from 650px to match max-width of container */
+}
+
+.profile_play_history_container {
+    max-height: 44px !important;
+}
