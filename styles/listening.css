@@ -1,505 +1,536 @@
-/* Base styles for the header listening element */
-.header_listening {
-    --transition-timing: 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    --primary-text: #f0f0f0 !important;
-    --secondary-text: rgba(240, 240, 240, 0.85) !important;
-    --accent-color: rgba(255, 255, 255, 0.95) !important;
-    --container-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgb(2, 1, 15)) !important;
-    --container-hover-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(17, 1, 1, 0.85)) !important;
-    --border-color: rgba(255, 255, 255, 0.1) !important;
-    --button-bg: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(20, 20, 20, 0.8)) !important;
-    --button-hover-bg: linear-gradient(135deg, rgba(50, 50, 50, 0.95), rgba(30, 30, 30, 0.9)) !important;
-    
-    /* Core layout - optimized spacing */
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important; /* Increased from 8px for better spacing */
-    padding: 6px 12px !important; /* Increased horizontal padding for better content breathing room */
-    height: 40px !important;
-    
-    /* Positioning */
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 5 !important;
-    
-    /* Styling */
-    border-radius: 20px !important;
-    background: var(--container-bg) !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid var(--border-color) !important;
-    
-    /* Content handling - optimized widths */
-    min-width: 420px !important; /* Reduced from 450px for better proportions */
-    max-width: 720px !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    text-overflow: ellipsis !important;
-    
-    /* Animation */
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    animation: subtle-pulse 3s infinite ease-in-out !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+/* RYM Redesign Extension - Listening Component Styles */
+
+.profile_set_listening_box {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  max-width: 62px !important;
+  justify-content: flex-start !important;
 }
 
-/* Hover state */
-.header_listening:hover {
-    background: var(--container-hover-bg) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.07) !important;
-    max-width: 900px !important; /* Increased from 650px to match the default width increase */
-    animation: none !important; /* Stop pulsing on hover */
-    transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) !important; /* Smoother elastic effect */
+.profile_set_listening_btn {
+  margin-left: 12px !important;
 }
 
-/* Album artwork styling - optimized spacing */
-.header_listening_art,
-.header_listening .play_history_item_art {
-    /* Core layout */
-    width: 28px !important;
-    height: 28px !important;
-    flex-shrink: 0 !important;
-    margin-right: 8px !important; /* Reduced from 10px for better overall spacing */
-    
-    /* Styling */
-    border-radius: 50% !important;
-    background-size: cover !important;
-    background-position: center !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    
-    /* Positioning context */
-    position: relative !important;
-    overflow: hidden !important;
-    
-    /* Animation */
-    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+.profile_set_listening_btn .blue_btn {
+  background: rgba(10, 132, 255, 0.8) !important;
+  border-radius: 20px !important;
+  border: none !important;
+  padding: 6px 16px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.3) !important;
+  color: white !important;
+  font-weight: 500 !important;
 }
 
-/* Vinyl spin animation */
-@keyframes vinylSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.profile_set_listening_btn .blue_btn:hover {
+  background: rgba(10, 132, 255, 1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4) !important;
 }
 
-.header_listening:hover .header_listening_art,
-.header_listening:hover .play_history_item_art {
-    animation: vinylSpin 8s linear infinite !important;
-    transform: scale(1.05) !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
-}
-
-.profile_listening_container {
-  margin: 0 0 0 0 !important;
-}
-
-/* Play history item container - improved layout */
-.header_listening .play_history_item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important; /* Increased from 6px for better content separation */
-    flex: 1 !important;
-    min-width: 0 !important;
-    position: relative !important;
-    padding-left: 0 !important; /* Removed 2px padding that was causing alignment issues */
-}
-
-/* Album and artist info container - improved spacing */
-.header_listening .play_history_item_info {
-    display: flex !important;
-    flex-direction: column !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    flex-grow: 1 !important;
-    max-width: calc(100% - 40px) !important; /* Optimized width calculation */
-    transition: max-width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-/* Adjust info width when hovering to make room for buttons - optimized calculation */
-.header_listening:hover .play_history_item_info {
-    max-width: calc(100% - 140px) !important; /* Increased space for buttons */
-    transition: max-width 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s !important;
-}
-
-/* Add a vertical line separator after "LISTENING TO" text - improved spacing */
-.header_listening .profile_set_listening_box {
-    font-size: 10px !important;
-    display: flex !important;
-    flex-flow: row nowrap !important;
-    align-items: center !important;
-    text-transform: uppercase !important;
-    font-weight: 700 !important;
-    position: relative !important;
-    padding-right: 8px !important; /* Increased from 6px */
-    margin-right: 8px !important; /* Increased from 4px */
-    margin-left: 0px !important;
-    white-space: nowrap !important;
-    aria-label: "Currently listening to";
-}
-
-/* Add vertical line after "LISTENING TO" text */
-.header_listening .profile_set_listening_box::after {
-    content: '' !important;
-    position: absolute !important;
-    right: 0 !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    height: 14px !important;
-    width: 1px !important;
-    background-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Album title styling - optimized width */
-.header_listening .play_history_item_info_album {
-    display: block !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    margin-bottom: 2px !important; /* Increased from 1px for better spacing between title and artist */
-    max-width: 380px !important; /* Adjusted from 400px */
-}
-
-.header_listening .play_history_item_info_album a {
-    color: var(--primary-text) !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-    transition: color 0.2s ease !important;
-}
-
-.header_listening .play_history_item_info_album a:hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-    opacity: 1 !important;
-}
-
-/* Artist name styling - optimized width */
-.header_listening .play_history_item_info_artist {
-    display: block !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    max-width: 380px !important; /* Adjusted from 400px */
-}
-
-.header_listening .play_history_item_info_artist a {
-    color: var(--secondary-text) !important;
-    text-decoration: none !important;
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    transition: color 0.2s ease !important;
-}
-
-.header_listening .play_history_item_info_artist a:hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-    opacity: 1 !important;
-}
-
-/* Hide set listening button by default */
-.header_listening .profile_set_listening_btn {
-    opacity: 0 !important;
-    transform: translateX(10px) !important;
-    transition: opacity 0.6s ease 0.15s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s !important;
-    margin-left: 8px !important;
-    position: absolute !important;
-    right: 8px !important;
-    pointer-events: none !important;
-}
-
-/* Hide play history button by default */
-.header_listening .profile_view_play_history_btn {
-    opacity: 0 !important;
-    transform: translateX(10px) !important;
-    transition: opacity 0.6s ease 0.15s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s !important;
-    margin-left: 5px !important;
-    position: absolute !important;
-    right: 10px !important;
-    pointer-events: none !important;
-}
-
-/* Show buttons on hover */
-.header_listening:hover .header_listening_buttons {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
-    position: relative !important;
-    right: auto !important;
-    pointer-events: auto !important;
-    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
-}
-
-/* Show set listening button on hover */
-.header_listening:hover .profile_set_listening_btn {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
-    position: relative !important;
-    right: auto !important;
-    pointer-events: auto !important;
-    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
-}
-
-/* Show play history button on hover */
-.header_listening:hover .profile_view_play_history_btn {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
-    position: relative !important;
-    right: auto !important;
-    pointer-events: auto !important;
-    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s !important;
-}
-
-/* Hide the Play history text */
-.header_listening .profile_view_play_history_btn a span,
-.header_listening .profile_view_play_history_btn a text {
-    display: none !important;
-    font-size: 0 !important;
-}
-
-/* Reset font-size for the set button */
-.header_listening .profile_set_listening_box .profile_set_listening_btn {
-    font-size: 11px !important;
-}
-
-.play_history_item_date {
-   display: none !important;
-}
-
-/* Responsive adjustments - optimized breakpoints */
-@media (max-width: 1200px) {
-    .header_listening:hover {
-        max-width: 720px !important; /* Reduced from 750px for consistency */
-    }
-    
-    .header_listening .play_history_item_info {
-        max-width: calc(100% - 120px) !important; /* Adjusted for better proportions */
-    }
-}
-
-@media (max-width: 1000px) {
-    .header_listening {
-        max-width: 420px !important; /* Reduced from 450px to match the default width */
-    }
-    
-    .header_listening:hover {
-        max-width: 620px !important; /* Reduced from 650px for better proportions */
-    }
-    
-    .header_listening .play_history_item_info {
-        max-width: calc(100% - 110px) !important; /* Adjusted from 100px */
-    }
-}
-
-@media (max-width: 850px) {
-    .header_listening {
-        display: none !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .header_listening {
-        max-width: 350px !important; /* Default width for very small screens */
-    }
-    
-    .header_listening:hover {
-        max-width: 550px !important; /* Increased from 400px */
-    }
-}
-
-/* Button Styling - improved spacing */
-.header_listening .btn,
-.header_listening .blue_btn,
-.header_listening .btn_small {
-    /* Core layout */
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 4px 12px !important; /* Increased horizontal padding from 10px */
-    height: 24px !important;
-    min-width: 50px !important;
-    
-    /* Typography */
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    text-transform: none !important;
-    letter-spacing: 0.3px !important;
-    
-    /* Colors and Background */
-    color: rgba(255, 255, 255, 0.9) !important;
-    background: var(--button-bg) !important;
-    
-    /* Border and Shape */
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 12px !important;
-    
-    /* Effects */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 
-                inset 0 1px 2px rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: blur(8px) !important;
-    
-    /* Transitions */
-    transition: all var(--transition-timing) !important;
-    text-decoration: none !important;
-}
-
-/* Button Hover State */
-.header_listening .btn:hover,
-.header_listening .blue_btn:hover,
-.header_listening .btn_small:hover {
-    background: var(--button-hover-bg) !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25),
-                inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Button Active State */
-.header_listening .btn:active,
-.header_listening .blue_btn:active,
-.header_listening .btn_small:active {
-    background: rgba(20, 20, 20, 0.95) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
-                inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Button container styles - optimized positioning */
-.header_listening_buttons {
-    display: flex !important;
-    gap: 8px !important; /* Increased from 6px */
-    margin-left: auto !important;
-    position: absolute !important;
-    right: 10px !important; /* Adjusted from 12px */
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity 0.6s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* Direct text color overrides for play history items */
-.header_listening .play_history_item_release,
-.header_listening .play_history_item_release a,
-.header_listening .play_history_item_artist a,
-.header_listening .play_history_separator {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    transition: opacity 0.2s ease !important;
-}
-
-.header_listening .play_history_item_artist a {
-    opacity: 0.9 !important;
-}
-
-.header_listening .play_history_separator {
-    opacity: 0.7 !important;
-}
-
-.header_listening .play_history_item_release a:hover,
-.header_listening .play_history_item_artist a:hover {
-    opacity: 1 !important;
-    text-decoration: underline !important;
-}
-
-/* Play history button specific styles */
-.header_listening .profile_view_play_history_btn {
-    display: flex !important;
-    align-items: center !important;
-}
-
-.header_listening .profile_view_play_history_btn a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 4px !important;
-    height: 24px !important;
-    width: 24px !important;
-    min-width: unset !important;
-    font-size: 11px !important;
-    border-radius: 12px !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    transition: all var(--transition-timing) !important;
-}
-
-/* Add a triangle for history button */
-.header_listening .profile_view_play_history_btn a::after {
-    content: '▶' !important;
-    font-size: 8px !important;
-    transform: rotate(90deg) !important;
-}
-
-.header_listening .profile_view_play_history_btn a:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-}
-
-/* Ensure text truncation works properly */
-.header_listening .play_history_item_release {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-    flex: 1 !important;
-    min-width: 0 !important;
-}
-
-.play_history_artbox {
-    min-width: auto !important; /* Remove minimum width */
-    max-height: 30px !important;
-    margin-right: 0 !important; /* Remove margin, we'll handle it elsewhere */
+#profile_play_history_container {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin: 0 8px !important;
+  position: relative !important;
+  padding: 0 4px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
 }
 
 .play_history_item {
-    min-width: auto !important; /* Remove minimum width constraint */
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 4px 0 !important;
+  gap: 12px !important;
+  width: 100% !important;
 }
 
-/* Add pulsing animation for Dynamic Island feel - smoother and more subtle */
+.play_history_item a:first-child {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.play_history_item a:first-child:hover {
+  box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.5) !important;
+}
+
+.play_history_item img {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.play_history_item img:hover {
+  transform: scale(1.1) !important;
+}
+
+.play_history_text {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  min-width: 0 !important;
+  flex-grow: 1 !important;
+}
+
+.play_history_date {
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  margin-bottom: 2px !important;
+  font-weight: 400 !important;
+  width: 100% !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+.play_history_content {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-top: 0 !important;
+  width: 100% !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+.play_history_content a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  display: inline-block !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.play_history_content a:hover {
+  color: rgba(10, 132, 255, 1) !important;
+  text-shadow: 0 0 8px rgba(10, 132, 255, 0.4) !important;
+}
+
+/* Play history buttons */
+.profile_view_play_history_btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.profile_view_play_history_btn .btn {
+  font-size: 0 !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  background: rgba(34, 33, 33, 0.8) !important;
+}
+
+.profile_view_play_history_btn .btn::after {
+  content: '▼' !important;
+  font-size: 10px !important;
+  color: white !important;
+  display: inline-block !important;
+}
+
+.profile_view_play_history_btn .btn:hover {
+  background: rgba(34, 33, 33, 0.8) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.4) !important;
+}
+
+.play_history_btn_container {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 30px !important;
+  justify-content: flex-end !important;
+}
+
+.play_history_btn {
+  background: rgba(60, 60, 60, 0.8) !important;
+  border-radius: 50% !important;
+  width: 28px !important;
+  height: 28px !important;
+  color: #ffffff !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  font-size: 0 !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.play_history_btn::after {
+  content: '▼' !important;
+  font-size: 10px !important;
+  color: white !important;
+  display: inline-block !important;
+}
+
+.play_history_btn:hover {
+  background: rgba(80, 80, 80, 0.9) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dynamic island styles */
+.dynamic_island {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(0, 0, 0) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 1.5px 8px rgba(0,0,0,0.18) !important;
+  backdrop-filter: blur(18px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.2) !important;
+  border: 1.5px solid rgba(255,255,255,0.12) !important;
+  padding: 8px 12px !important;
+  margin: 0 18px !important;
+  min-width: 200px !important;
+  max-width: fit-content !important;
+  width: auto !important;
+  height: 44px !important;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+  z-index: 10 !important;
+  overflow: hidden !important;
+  animation: subtle-pulse 3s ease-in-out infinite !important;
+}
+
+.dynamic_island::before {
+  position: absolute !important;
+  top: 0 !important; 
+  left: 0 !important; 
+  right: 0 !important; 
+  bottom: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01)) !important;
+  opacity: 0.12 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.dynamic_island::after {
+  position: absolute !important;
+  top: 0 !important; 
+  right: 0 !important; 
+  bottom: 0 !important; 
+  left: 0 !important;
+  border-radius: 999px !important;
+  border: 0px solid rgba(255, 255, 255, 0) !important;
+  transition: border-color 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+.dynamic_island > * {
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition: opacity 0.3s ease, transform 0.35s ease !important;
+}
+
+/* Expanded state styles */
+.dynamic_island:hover,
+.dynamic_island.expanded {
+  padding: 8px 8px 8px 16px !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  position: relative !important;
+  animation: none !important;
+}
+
+.dynamic_island:hover::after,
+.dynamic_island.expanded::after {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Play history buttons - updated to properly hide in idle state */
+.dynamic_island .play_history_btn_container,
+.dynamic_island .profile_view_play_history_btn,
+.dynamic_island .play_history_btn {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+.dynamic_island:hover .play_history_btn_container,
+.dynamic_island:hover .profile_view_play_history_btn,
+.dynamic_island:hover .play_history_btn,
+.dynamic_island.expanded .play_history_btn_container,
+.dynamic_island.expanded .profile_view_play_history_btn,
+.dynamic_island.expanded .play_history_btn {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: 48px !important;
+}
+
+/* Dynamic island container adaptations */
+.dynamic_island #profile_play_history_container {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-height: 38px !important;
+  overflow: visible !important;
+  text-overflow: ellipsis !important;
+  width: 100% !important;
+  flex: 1 !important;
+  position: relative !important;
+  left: 0 !important;
+  transform: translateX(0) !important;
+  margin: 0 2px !important;
+  padding: 0 !important;
+}
+
+.dynamic_island:hover #profile_play_history_container,
+.dynamic_island.expanded #profile_play_history_container {
+  justify-content: flex-start !important;
+  margin: 0 2px !important;
+  width: calc(100% - 8px) !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+.dynamic_island .play_history_btn_container {
+  min-width: 28px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+.dynamic_island:hover .play_history_btn_container,
+.dynamic_island.expanded .play_history_btn_container {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.dynamic_island .profile_view_play_history_btn {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Dynamic island item styles */
+.dynamic_island .play_history_item {
+  gap: 10px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex: 1 !important;
+  margin: 0 !important;
+}
+
+.dynamic_island .play_history_item a:first-child {
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.dynamic_island:hover .play_history_item a:first-child,
+.dynamic_island.expanded .play_history_item a:first-child {
+  margin-right: 6px !important;
+}
+
+.dynamic_island .play_history_item img {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 55% !important;
+}
+
+/* Dynamic island text styles */
+.dynamic_island .play_history_text {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  max-width: 100% !important;
+  flex: 1 !important;
+}
+
+.dynamic_island .play_history_date {
+  font-size: 10px !important;
+  margin: 0 !important;
+  order: 2 !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.dynamic_island:hover .play_history_date,
+.dynamic_island.expanded .play_history_date {
+  opacity: 1 !important;
+}
+
+.dynamic_island .play_history_content {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  order: 1 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  flex: 1 !important;
+}
+
+.dynamic_island .play_history_content a {
+  color: #ffffff !important;
+  font-size: 12px !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: inline-block !important;
+}
+
+/* Styling for the release information */
+.dynamic_island .play_history_item_release {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  max-width: none !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  height: auto !important;
+  max-height: 20px !important;
+}
+
+.dynamic_island .play_history_item_artist {
+  display: inline-block !important;
+  max-width: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 10px !important;
+}
+
+.dynamic_island .play_history_item_artist a {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.dynamic_island .play_history_separator {
+  margin: 0 2px !important;
+  font-size: 9px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  flex-shrink: 0 !important;
+}
+
+.dynamic_island a.album.play_history_item_release {
+  font-size: 10px !important;
+  max-width: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none !important;
+}
+
+/* Expanded state adjustments */
+.dynamic_island:hover .play_history_item_release,
+.dynamic_island.expanded .play_history_item_release {
+  max-width: 280px !important;
+  font-size: 11px !important;
+}
+
+.dynamic_island:hover .play_history_item_artist,
+.dynamic_island.expanded .play_history_item_artist {
+  max-width: 120px !important;
+  font-size: 11px !important;
+}
+
+.dynamic_island:hover .play_history_item_artist a,
+.dynamic_island.expanded .play_history_item_artist a {
+  font-size: 11px !important;
+}
+
+.dynamic_island:hover .play_history_separator,
+.dynamic_island.expanded .play_history_separator {
+  font-size: 10px !important;
+}
+
+.dynamic_island:hover a.album.play_history_item_release,
+.dynamic_island.expanded a.album.play_history_item_release {
+  max-width: 150px !important;
+  font-size: 11px !important;
+}
+
+/* Profile listening box (the "listening to" text) */
+.dynamic_island .profile_set_listening_box {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.dynamic_island:hover .profile_set_listening_box,
+.dynamic_island.expanded .profile_set_listening_box {
+  opacity: 1 !important;
+}
+
+/* Compact mode styles - modified to show album art and track info */
+.dynamic_island:not(.expanded):not(:hover) .profile_set_listening_box,
+.dynamic_island:not(.expanded):not(:hover) .play_history_btn_container,
+.dynamic_island:not(.expanded):not(:hover) .play_history_date {
+  display: none !important;
+}
+
+.dynamic_island:not(.expanded):not(:hover) .play_history_item img {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 55% !important;
+}
+
+/* Keyframes */
 @keyframes subtle-pulse {
-    0% { 
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05);
-        transform: translateX(-50%) scale(1);
-    }
-    50% { 
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.08);
-        transform: translateX(-50%) scale(1.015); /* Slightly more subtle scale effect */
-    }
-    100% { 
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.05);
-        transform: translateX(-50%) scale(1);
-    }
+  0% { transform: scale(1) !important; }
+  50% { transform: scale(1.03) !important; }
+  100% { transform: scale(1) !important; }
 }
 
-/* Vinyl ring style */
-.vinyl-ring {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 10px !important;
-    height: 10px !important;
-    border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.8) !important;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5) !important;
-    z-index: 2 !important;
-    transition: all 0.3s ease !important;
+/* When expanded/hovered, align to flex-start for better layout */
+.dynamic_island:hover .play_history_item,
+.dynamic_island.expanded .play_history_item {
+  justify-content: flex-start !important;
 }
 
-.header_listening:hover .vinyl-ring {
-    width: 12px !important;
-    height: 12px !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7) !important;
-}
-
-.header_listening:hover .play_history_item_info_album {
-    max-width: 620px !important; /* Reduced from 650px to match max-width of container */
-}
-
-.header_listening:hover .play_history_item_info_artist {
-    max-width: 620px !important; /* Reduced from 650px to match max-width of container */
-}
-
-.profile_play_history_container {
-    max-height: 44px !important;
-}
