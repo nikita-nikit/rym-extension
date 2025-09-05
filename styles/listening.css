@@ -81,6 +81,7 @@
 
 .play_history_item img:hover {
   transform: scale(1.1) !important;
+  animation: vinyl-spin 1s linear infinite !important;
 }
 
 .play_history_text {
@@ -207,7 +208,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: rgb(0, 0, 0) !important;
+  background: rgba(0, 0, 0, 0.404) !important;
   border-radius: 999px !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 1.5px 8px rgba(0,0,0,0.18) !important;
   backdrop-filter: blur(18px) saturate(1.2) !important;
@@ -218,8 +219,8 @@
   min-width: 200px !important;
   max-width: fit-content !important;
   width: auto !important;
-  height: 44px !important;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  height: 42px !important;
+  transition: all 2.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   z-index: 10 !important;
   overflow: hidden !important;
   animation: subtle-pulse 3s ease-in-out infinite !important;
@@ -246,7 +247,7 @@
   left: 0 !important;
   border-radius: 999px !important;
   border: 0px solid rgba(255, 255, 255, 0) !important;
-  transition: border-color 0.3s ease !important;
+  transition: border-color 1.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
   pointer-events: none !important;
 }
 
@@ -255,7 +256,7 @@
   z-index: 2 !important;
   opacity: 1 !important;
   transform: translateX(0) !important;
-  transition: opacity 0.3s ease, transform 0.35s ease !important;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Expanded state styles */
@@ -266,7 +267,7 @@
   max-width: 400px !important;
   position: relative !important;
   animation: none !important;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transition: all 2.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island:hover::after,
@@ -281,7 +282,7 @@
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island:hover .play_history_btn_container,
@@ -294,6 +295,7 @@
   opacity: 1 !important;
   visibility: visible !important;
   max-width: 48px !important;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, visibility 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s !important;
 }
 
 /* Dynamic island container adaptations */
@@ -333,7 +335,7 @@
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
   pointer-events: none !important;
 }
 
@@ -343,6 +345,7 @@
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, visibility 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, transform 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island .profile_view_play_history_btn {
@@ -352,7 +355,7 @@
 
 /* Dynamic island item styles */
 .dynamic_island .play_history_item {
-  gap: 10px !important;
+  gap: 5px !important;
   padding: 0 !important;
   justify-content: center !important;
   align-items: center !important;
@@ -376,6 +379,15 @@
   border-radius: 55% !important;
 }
 
+.dynamic_island:hover .play_history_item img,
+.dynamic_island.expanded .play_history_item img {
+  animation: vinyl-spin 2s linear infinite !important;
+}
+
+.dynamic_island .play_history_item img:hover {
+  animation: vinyl-spin 1s linear infinite !important;
+}
+
 /* Dynamic island text styles */
 .dynamic_island .play_history_text {
   flex-direction: row !important;
@@ -390,12 +402,13 @@
   margin: 0 !important;
   order: 2 !important;
   opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island:hover .play_history_date,
 .dynamic_island.expanded .play_history_date {
   opacity: 1 !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s !important;
 }
 
 .dynamic_island .play_history_content {
@@ -422,7 +435,7 @@
 
 /* Styling for the release information */
 .dynamic_island .play_history_item_release {
-  font-size: 11px !important;
+  font-size: 12px !important;
   line-height: 1.2 !important;
   display: inline-flex !important;
   flex-wrap: nowrap !important;
@@ -433,6 +446,8 @@
   text-overflow: ellipsis !important;
   height: auto !important;
   max-height: 20px !important;
+  color: mintcream !important;
+
 }
 
 .dynamic_island .play_history_item_artist {
@@ -456,6 +471,7 @@
   font-size: 9px !important;
   color: rgba(255, 255, 255, 0.6) !important;
   flex-shrink: 0 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island a.album.play_history_item_release {
@@ -465,7 +481,7 @@
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   display: inline-block !important;
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: mintcream !important;
   text-decoration: none !important;
 }
 
@@ -490,6 +506,15 @@
 .dynamic_island:hover .play_history_separator,
 .dynamic_island.expanded .play_history_separator {
   font-size: 10px !important;
+  margin: 0 6px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+  top: -1px !important;
+  left: -1px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .dynamic_island:hover a.album.play_history_item_release,
@@ -501,12 +526,14 @@
 /* Profile listening box (the "listening to" text) */
 .dynamic_island .profile_set_listening_box {
   opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .dynamic_island:hover .profile_set_listening_box,
 .dynamic_island.expanded .profile_set_listening_box {
   opacity: 1 !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s !important;
+  color: mintcream !important;
 }
 
 /* Compact mode styles - modified to show album art and track info */
@@ -535,3 +562,174 @@
   justify-content: flex-start !important;
 }
 
+.play_history_item_comment_only {
+  max-height: 25px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.play_history_infobox{
+  max-height: 41px !important;
+  display: flex !important;
+  flex-direction: column wrap !important;
+  overflow: hidden !important;
+}
+
+/* Play history infobox styles - integrated with dynamic island */
+.play_history_infobox {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  flex-grow: 1 !important;
+  max-height: 41px !important;
+  overflow: hidden !important;
+  gap: 0px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.play_history_item_date {
+  font-size: 10px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  width: 100% !important;
+}
+
+.play_history_infobox_lower {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  gap: 1px !important;
+}
+
+.play_history_comment {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  width: 100% !important;
+  display: inline-block !important;
+}
+
+.play_history_comment .rendered_text {
+  color: #ffffff !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: inline-block !important;
+  max-width: 100% !important;
+}
+
+/* Dynamic island specific styles for infobox */
+.dynamic_island .play_history_infobox {
+  flex: 1 !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+}
+
+.dynamic_island .play_history_item_date {
+  font-size: 9px !important;
+  opacity: 0 !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.dynamic_island:hover .play_history_item_date,
+.dynamic_island.expanded .play_history_item_date {
+  opacity: 1 !important;
+  font-size: 10px !important;
+  transition: opacity 2.1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s !important;
+}
+
+.dynamic_island .play_history_comment {
+  font-size: 11px !important;
+  max-width: 100% !important;
+}
+
+.dynamic_island:hover .play_history_comment,
+.dynamic_island.expanded .play_history_comment {
+  font-size: 12px !important;
+  max-width: 280px !important;
+}
+
+.dynamic_island .play_history_comment .rendered_text {
+  font-size: inherit !important;
+  max-width: 100% !important;
+}
+
+/* Compact mode for dynamic island - hide date in collapsed state */
+.dynamic_island:not(.expanded):not(:hover) .play_history_item_date {
+  display: none !important;
+}
+
+.dynamic_island:not(.expanded):not(:hover) .play_history_infobox {
+  justify-content: center !important;
+  max-height: 36px !important;
+}
+
+.dynamic_island:not(.expanded):not(:hover) .play_history_comment {
+  font-size: 11px !important;
+  text-align: center !important;
+}
+
+.play_history_artbox {
+margin-right: 0em !important;
+}
+
+/* Vinyl spinning animation */
+@keyframes vinyl-spin {
+  0% { 
+    transform: rotate(0deg) !important; 
+  }
+  100% { 
+    transform: rotate(360deg) !important; 
+  }
+}
+
+/* Accessibility - respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .play_history_item img {
+    animation: none !important;
+  }
+  .dynamic_island .play_history_item img {
+    animation: none !important;
+  }
+}
+
+/* Vinyl spinning animation for album art images - Hover only */
+img.play_history_item_art,
+.dynamic_island img.play_history_item_art {
+  transition: transform 0.3s ease !important;
+}
+
+img.play_history_item_art:hover {
+  animation: vinyl-spin 1.5s linear infinite !important;
+}
+
+.dynamic_island:hover img.play_history_item_art,
+.dynamic_island.expanded img.play_history_item_art {
+  animation: vinyl-spin 2s linear infinite !important;
+}
+
+.dynamic_island img.play_history_item_art:hover {
+  animation: vinyl-spin 1s linear infinite !important;
+}

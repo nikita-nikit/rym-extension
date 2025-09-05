@@ -1,0 +1,997 @@
+/* Profile header layout adjustments - reverse order to show username first */
+.bubble_header.profile_header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: left !important;
+    padding-right: 0px !important;
+}
+
+.bubble_header.profile_header #profilename {
+    order: -1 !important;
+    margin-bottom: 8px !important;
+    padding-right: 0em !important;
+    color: var(--mono-0) !important;
+    font-size: 2.4em !important;
+    margin-left: 0em !important;
+    font-family: "Trebuchet MS", Arial, Verdana, sans-serif !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hide RSS link from profile header */
+.bubble_header.profile_header a[href*="rss"] {
+    display: none !important;
+}
+
+div.bubble_header.profile_header {
+    font-size: .7em !important;
+    font-weight: normal !important;
+    padding: 5px !important;
+    margin-bottom: -8px !important;
+}
+
+/* Username container with Sonemic logo */
+.bubble_header.profile_header #profilename {
+    display: inline-block !important;
+}
+
+/* Style for the repositioned platform logos (Sonemic, Glitchwave, etc.) */
+.bubble_header.profile_header a img[src*="sonemic"],
+.bubble_header.profile_header a img[src*="glitchwave"],
+.bubble_header.profile_header a img[src*="-64.png"] {
+    width: 1.8em !important;
+    height: 1.8em !important;
+    vertical-align: middle !important;
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+    transition: opacity 0.2s ease !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+}
+
+.bubble_header.profile_header a:hover img[src*="sonemic"],
+.bubble_header.profile_header a:hover img[src*="glitchwave"],
+.bubble_header.profile_header a:hover img[src*="-64.png"] {
+    opacity: 0.8 !important;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* ============================================ */
+/* MINIMAL USER INFO COLUMN */
+/* ============================================ */
+
+/* Main profile info container - Clean minimal design */
+.profilehii {
+    background: linear-gradient(135deg, rgba(28, 32, 44, 0.95), rgba(20, 24, 35, 0.98)) !important;
+    border: 1px solid rgba(66, 165, 245, 0.25) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    max-width: 240px !important;
+    min-width: auto !important;
+    height: auto !important;
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(66, 165, 245, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.profilehii:hover {
+    border-color: rgba(66, 165, 245, 0.4) !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 3px 12px rgba(66, 165, 245, 0.15) !important;
+}
+
+/* Remove table styling completely */
+.profilehii .mbgen {
+    background: rgba(28, 32, 44, 0.98) !important;
+    border: 1px solid rgba(66, 165, 245, 0.18) !important;
+    border-radius: 10px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: table !important;
+    box-shadow: 0 2px 12px rgba(66, 165, 245, 0.08) !important;
+    overflow: hidden !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif !important;
+}
+
+.profilehii .mbgen tbody {
+    display: table-row-group !important;
+}
+
+.profilehii .mbgen tr {
+    display: table-row !important;
+    background: transparent !important;
+    transition: background 0.2s;
+}
+
+.profilehii .mbgen tr:hover {
+    background: rgba(66, 165, 245, 0.08) !important;
+}
+
+.profilehii .mbgen tr:last-child {
+    margin-bottom: 0 !important;
+}
+
+.profilehii .mbgen td {
+    display: table-cell !important;
+    background: none !important;
+    border-bottom: 1px solid rgba(66, 165, 245, 0.10) !important;
+    padding: 10px 12px !important;
+    text-align: center !important;
+    color: #e3f2fd !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    transition: color 0.2s, background 0.2s !important;
+    vertical-align: middle !important;
+}
+
+.profilehii .mbgen tr:last-child td {
+    border-bottom: none !important;
+}
+
+.profilehii .mbgen tr:first-child td {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    background: linear-gradient(90deg, rgba(66, 165, 245, 0.13), rgba(66, 165, 245, 0.07)) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 10px 10px 0 0 !important;
+    padding: 14px 12px !important;
+    border-bottom: 1px solid rgba(66, 165, 245, 0.15) !important;
+}
+
+.profilehii .mbgen tr:nth-child(2) td,
+.profilehii .mbgen tr:nth-child(3) td {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    background: none !important;
+    padding: 10px 12px !important;
+}
+
+/* Username - perfectly centered and prominent */
+.profilehii .mbgen tr:first-child td {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 8px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    padding: 8px 0 !important;
+}
+
+/* Age and gender - consistent spacing */
+.profilehii .mbgen tr:nth-child(2) td {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    padding: 6px 0 !important;
+}
+
+/* Location row - uniform alignment */
+.profilehii .mbgen tr:nth-child(3) td {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    padding: 6px 0 !important;
+}
+
+/* Hide globe icon for minimal look */
+.profilehii .icon_globe {
+    display: none !important;
+}
+
+/* Location link - simple styling without movement */
+.profilehii a[href*="/location/"] {
+    color: rgba(255, 255, 255, 0.65) !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    transition: color 0.2s ease !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+}
+
+.profilehii a[href*="/location/"]:hover {
+    color: rgba(66, 165, 245, 0.9) !important;
+    background: rgba(66, 165, 245, 0.1) !important;
+}
+
+/* Hide empty table cells */
+td[colspan="4"]:empty,
+td[colspan="4"]:has(> :only-child:empty) {
+    display: none !important;
+    height: 0px !important;
+}
+
+/* Rate Your Music Extension - Profile Styling */
+
+/* Main profile container - Compact spacing and symmetry */
+.rym-ext-profile-container {
+    /* Sleek glassmorphism: blue-violet/teal gradient, more blur, white overlay */
+    background: linear-gradient(135deg, rgba(72, 61, 139, 0.92) 0%, rgba(0, 191, 255, 0.92) 100%), 
+                linear-gradient(120deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 100%)!important;
+    border: 1.5px solid rgba(72, 61, 139, 0.22) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 32px rgba(72, 61, 139, 0.18), 0 2px 8px rgba(0, 191, 255, 0.10), 0 1.5px 0 rgba(255,255,255,0.08) inset !important;
+    backdrop-filter: blur(18px) !important;
+    font-family: 'Inter', 'Segoe UI', 'system-ui', Arial, sans-serif !important;
+    color: #f5f7fa !important;
+    min-width: 260px !important;
+    max-width: 275px !important;
+    padding: 28px 20px !important;
+    margin: 18px !important;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s !important;
+}
+
+.rym-ext-profile-container:hover {
+    border-color: rgba(0, 191, 255, 0.45) !important;
+    box-shadow: 0 12px 36px rgba(72, 61, 139, 0.22), 0 4px 16px rgba(0, 191, 255, 0.18), 0 2px 0 rgba(255,255,255,0.10) inset !important;
+    background: linear-gradient(135deg, rgba(72, 61, 139, 0.97) 0%, rgba(0, 191, 255, 0.97) 100%),
+                linear-gradient(120deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.07) 100%);
+}
+
+/* Profile table styling - Compact structure */
+.rym-ext-profile-table {
+    width: 100% !important;
+    background-color: transparent !important;
+    border-collapse: separate !important;
+    border-spacing: 0 4px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif !important;
+}
+
+/* Username row - Symmetrical and prominent */
+.rym-ext-profile-username-row {
+    background: linear-gradient(90deg, 
+        rgba(66, 165, 245, 0.12), 
+        rgba(66, 165, 245, 0.08)) !important;
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
+    border-radius: 8px !important;
+}
+
+.rym-ext-profile-username-row td {
+    font-size: 1.25em !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: linear-gradient(90deg, rgba(72, 61, 139, 0.18), rgba(0, 191, 255, 0.10)) !important;
+    text-shadow: 0 2px 6px rgba(72, 61, 139, 0.18) !important;
+    border-radius: 10px 10px 0 0 !important;
+    padding: 16px 12px !important;
+    border-bottom: 1px solid rgba(0, 191, 255, 0.13) !important;
+}
+
+/* Demographics row - Consistent spacing */
+.rym-ext-profile-demographics-row {
+    background-color: transparent !important;
+}
+
+.rym-ext-profile-demographics-row td {
+    color: #000000 !important;
+    font-size: 1em !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+    padding: 10px 16px !important;
+}
+
+/* Location row - Uniform alignment */
+.rym-ext-profile-location-row {
+    background-color: transparent !important;
+}
+
+.rym-ext-profile-location-row td {
+    color: #a3b8e0 !important;
+    font-size: 0.95em !important;
+    opacity: 0.88 !important;
+    padding: 10px 16px !important;
+}
+
+/* Links row - Clean separation */
+.rym-ext-profile-links-row {
+    background-color: transparent !important;
+    border-top: 1px solid rgba(66, 165, 245, 0.15) !important;
+}
+
+.rym-ext-profile-links-row td {
+    padding: 12px 16px !important;
+    text-align: center !important;
+}
+
+/* Profile links styling - No movement, clean hover */
+.rym-ext-profile-link {
+    color: #00bfff !important;
+    background: rgba(72, 61, 139, 0.10) !important;
+    font-weight: 500 !important;
+    font-size: 0.95em !important;
+    border-radius: 8px !important;
+    padding: 7px 14px !important;
+    margin: 3px !important;
+    transition: color 0.2s, background 0.2s !important;
+}
+
+.rym-ext-profile-link:hover {
+    color: #fff !important;
+    background: rgba(0, 191, 255, 0.18) !important;
+}
+
+/* Rendered text styling */
+.rym-ext-rendered-text {
+    display: inline-block !important;
+    word-break: break-all !important;
+}
+
+/* Button Row Styling - Perfect symmetry and spacing */
+.rym-ext-profile-container .rym-ext-button-row {
+    background-color: transparent !important;
+    border-top: 1px solid rgba(66, 165, 245, 0.2) !important;
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+.rym-ext-profile-container .rym-ext-button-cell {
+    padding: 0 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    flex: none !important;
+    border: none !important;
+    background: none !important;
+    display: inline-flex !important;
+}
+
+/* Action Button Styling - Clean, no movement */
+.rym-ext-profile-container .rym-ext-action-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(66, 165, 245, 0.3) !important;
+    background: linear-gradient(135deg, 
+        rgba(66, 165, 245, 0.12), 
+        rgba(66, 165, 245, 0.08)) !important;
+    color: #42A5F5 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    min-width: 36px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.rym-ext-profile-container .rym-ext-action-button:hover {
+    background: linear-gradient(135deg, 
+        rgba(66, 165, 245, 0.25), 
+        rgba(66, 165, 245, 0.15)) !important;
+    border-color: rgba(66, 165, 245, 0.6) !important;
+    color: #64B5F6 !important;
+    box-shadow: 0 4px 12px rgba(66, 165, 245, 0.2) !important;
+}
+
+.rym-ext-profile-container .rym-ext-action-button:active {
+    box-shadow: 0 2px 6px rgba(66, 165, 245, 0.15) !important;
+}
+
+/* Specific Button Type Styling - Enhanced colors without movement */
+.rym-ext-profile-container .rym-ext-follow-button {
+    background: linear-gradient(135deg, rgba(0, 255, 191, 0.13), rgba(0, 191, 255, 0.09)) !important;
+    border-color: rgba(0, 255, 191, 0.25) !important;
+    color: #00ffbf !important;
+}
+
+.rym-ext-profile-container .rym-ext-follow-button:hover {
+    background: linear-gradient(135deg, rgba(0, 255, 191, 0.22), rgba(0, 191, 255, 0.13)) !important;
+    border-color: rgba(0, 255, 191, 0.45) !important;
+    color: #fff !important;
+}
+
+.rym-ext-profile-container .rym-ext-block-button {
+    background: linear-gradient(135deg, rgba(255, 99, 132, 0.13), rgba(72, 61, 139, 0.09)) !important;
+    border-color: rgba(255, 99, 132, 0.25) !important;
+    color: #ff6384 !important;
+}
+
+.rym-ext-profile-container .rym-ext-block-button:hover {
+    background: linear-gradient(135deg, rgba(255, 99, 132, 0.22), rgba(72, 61, 139, 0.13)) !important;
+    border-color: rgba(255, 99, 132, 0.45) !important;
+    color: #fff !important;
+}
+
+.rym-ext-profile-container .rym-ext-comment-button {
+    background: linear-gradient(135deg, rgba(255, 221, 51, 0.13), rgba(0, 191, 255, 0.09)) !important;
+    border-color: rgba(255, 221, 51, 0.25) !important;
+    color: #ffdd33 !important;
+}
+
+.rym-ext-profile-container .rym-ext-comment-button:hover {
+    background: linear-gradient(135deg, rgba(255, 221, 51, 0.22), rgba(0, 191, 255, 0.13)) !important;
+    border-color: rgba(255, 221, 51, 0.45) !important;
+    color: #fff !important;
+}
+
+.rym-ext-profile-container .rym-ext-message-button {
+    background: linear-gradient(135deg, rgba(186, 104, 200, 0.13), rgba(0, 191, 255, 0.09)) !important;
+    border-color: rgba(186, 104, 200, 0.25) !important;
+    color: #ba68c8 !important;
+}
+
+.rym-ext-profile-container .rym-ext-message-button:hover {
+    background: linear-gradient(135deg, rgba(186, 104, 200, 0.22), rgba(0, 191, 255, 0.13)) !important;
+    border-color: rgba(186, 104, 200, 0.45) !important;
+    color: #fff !important;
+}
+
+.rym-ext-profile-container .rym-ext-music-button {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.13), rgba(0, 191, 255, 0.09)) !important;
+    border-color: rgba(255, 140, 0, 0.25) !important;
+    color: #ff8c00 !important;
+}
+
+.rym-ext-profile-container .rym-ext-music-button:hover {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.22), rgba(0, 191, 255, 0.13)) !important;
+    border-color: rgba(255, 140, 0, 0.45) !important;
+    color: #fff !important;
+}
+
+/* Specific profile containers by ID */
+#rym-ext-profile-1,
+#rym-ext-profile-2 {
+    position: relative !important;
+}
+
+/* Cell-specific styling */
+.rym-ext-profile-cell-0 {
+    font-weight: 600 !important;
+    background: black !important;
+}
+
+/* Hover effects for the entire profile container - No movement */
+.rym-ext-profile-container:hover {
+    border-color: rgba(66, 165, 245, 0.5) !important;
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.3),
+        0 3px 12px rgba(66, 165, 245, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Enhanced responsive design with consistent spacing */
+@media screen and (max-width: 768px) {
+    .rym-ext-profile-container {
+        margin: 12px !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
+        min-width: 240px !important;
+        max-width: 280px !important;
+    }
+    
+    .rym-ext-profile-table {
+        font-size: 0.9em !important;
+        border-spacing: 0 6px !important;
+    }
+    
+    .rym-ext-profile-container .rym-ext-action-button {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+    }
+    
+    .rym-ext-profile-container .rym-ext-button-row {
+        gap: 10px !important;
+        margin-top: 16px !important;
+        padding-top: 16px !important;
+    }
+    
+    .profilehii {
+        max-width: 200px !important;
+        min-height: 280px !important;
+        padding: 16px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rym-ext-profile-container {
+        margin: 8px !important;
+        padding: 16px !important;
+        min-width: 200px !important;
+        max-width: 240px !important;
+    }
+    
+    .rym-ext-profile-container .rym-ext-action-button {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 12px !important;
+        border-radius: 8px !important;
+    }
+    
+    .rym-ext-profile-container .rym-ext-button-row {
+        gap: 8px !important;
+    }
+    
+    .profilehii {
+        max-width: 180px !important;
+        min-height: 250px !important;
+        padding: 12px !important;
+    }
+}
+
+/* Additional utility classes for fine-tuning */
+.rym-ext-profile-container.highlighted {
+    border-color: #42A5F5 !important;
+    background: linear-gradient(135deg, 
+        rgba(66, 165, 245, 0.18), 
+        rgba(66, 165, 245, 0.12)) !important;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 4px 15px rgba(66, 165, 245, 0.3) !important;
+}
+
+.rym-ext-profile-container.compact {
+    padding: 16px !important;
+    margin: 8px !important;
+    border-radius: 12px !important;
+}
+
+.rym-ext-profile-container.large {
+    padding: 32px !important;
+    font-size: 1.05em !important;
+    border-radius: 20px !important;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    .rym-ext-profile-container {
+        box-shadow: 
+            0 4px 20px rgba(0, 0, 0, 0.4),
+            0 2px 8px rgba(66, 165, 245, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    }
+}
+
+/* Accessibility improvements */
+.rym-ext-profile-container .rym-ext-action-button:focus {
+    outline: 2px solid #42A5F5 !important;
+    outline-offset: 2px !important;
+}
+
+/* Clean, symmetrical design without animations */
+.rym-ext-profile-container {
+    /* Perfect grid alignment */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+.rym-ext-profile-table tr {
+    /* Consistent row spacing */
+    margin: 0 !important;
+}
+
+.rym-ext-profile-table td {
+    /* Uniform cell padding */
+    vertical-align: middle !important;
+}
+
+/* JS-injected: .rym-ext-profile-picture for extension profile image restyle (wider, centered caption, white border) */
+
+/* --- Enhanced Light Theme with Color Accents --- */
+.rym-ext-profile-container {
+    border-radius: 8px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(102, 187, 255, 0.25) !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(102, 187, 255, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.8) inset !important;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%) !important;
+    padding: 22px 14px !important;
+    margin: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.rym-ext-profile-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, 
+        rgba(102, 187, 255, 0.8) 0%, 
+        rgba(147, 112, 219, 0.8) 50%, 
+        rgba(255, 107, 129, 0.8) 100%) !important;
+    z-index: 1 !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.rym-ext-profile-container:hover {
+    border-color: rgba(102, 187, 255, 0.4) !important;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(102, 187, 255, 0.2),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset !important;
+    background: linear-gradient(145deg, #fafbfc 0%, #f1f3f4 100%) !important;
+    transform: translateY(-2px) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.rym-ext-profile-table {
+    background-color: transparent !important;
+}
+.rym-ext-profile-username-row,
+.rym-ext-profile-username-row td {
+    border-radius: 6px !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.08) 0%, 
+        rgba(147, 112, 219, 0.06) 100%) !important;
+    position: relative !important;
+}
+.rym-ext-profile-username-row td {
+    font-size: 1.25em !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.08) 0%, 
+        rgba(147, 112, 219, 0.06) 100%) !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(102, 187, 255, 0.1) !important;
+    border-radius: 6px 6px 0 0 !important;
+    padding: 16px 12px !important;
+    border-bottom: 1px solid rgba(102, 187, 255, 0.15) !important;
+}
+.rym-ext-profile-demographics-row td,
+.rym-ext-profile-location-row td {
+    color: #000000 !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(102, 187, 255, 0.03) 100%) !important;
+    font-size: 1em !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.rym-ext-profile-demographics-row:hover td,
+.rym-ext-profile-location-row:hover td {
+    color: rgba(26, 26, 26, 0.9) !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.06) 0%, 
+        rgba(147, 112, 219, 0.04) 100%) !important;
+}
+.rym-ext-profile-links-row {
+    background-color: transparent !important;
+    border-top: 1px solid rgba(102, 187, 255, 0.15) !important;
+}
+.rym-ext-profile-links-row td {
+    padding: 12px 12px !important;
+    text-align: center !important;
+}
+.rym-ext-profile-link {
+    color: rgba(26, 26, 26, 0.8) !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.08) 0%, 
+        rgba(147, 112, 219, 0.05) 100%) !important;
+    font-weight: 500 !important;
+    font-size: 0.95em !important;
+    border-radius: 6px !important;
+    padding: 8px 14px !important;
+    margin: 3px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1px solid rgba(102, 187, 255, 0.2) !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.rym-ext-profile-link::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 0, 0, 0.05), 
+        transparent) !important;
+    transition: left 0.6s !important;
+}
+
+.rym-ext-profile-link:hover::before {
+    left: 100% !important;
+}
+
+.rym-ext-profile-link:hover {
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.15) 0%, 
+        rgba(147, 112, 219, 0.12) 100%) !important;
+    color: rgba(26, 26, 26, 0.95) !important;
+    border-color: rgba(102, 187, 255, 0.4) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(102, 187, 255, 0.12) !important;
+}
+.rym-ext-profile-container .rym-ext-button-row {
+    border-top: 1px solid rgba(102, 187, 255, 0.15) !important;
+    background: none !important;
+    gap: 8px !important;
+    padding-top: 12px !important;
+    margin-top: 8px !important;
+}
+.rym-ext-profile-container .rym-ext-action-button {
+    border-radius: 6px !important;
+    border-width: 1px !important;
+    border-color: rgba(102, 187, 255, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.06) 0%, 
+        rgba(147, 112, 219, 0.04) 100%) !important;
+    color: rgba(26, 26, 26, 0.8) !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    font-size: 13px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.rym-ext-profile-container .rym-ext-action-button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    transition: width 0.3s, height 0.3s !important;
+}
+
+.rym-ext-profile-container .rym-ext-action-button:hover::before {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.rym-ext-profile-container .rym-ext-action-button:hover {
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.12) 0%, 
+        rgba(147, 112, 219, 0.08) 100%) !important;
+    color: rgba(26, 26, 26, 0.95) !important;
+    border-color: rgba(102, 187, 255, 0.4) !important;
+    box-shadow: 0 6px 16px rgba(102, 187, 255, 0.15) !important;
+    transform: translateY(-1px) scale(1.02) !important;
+}
+.rym-ext-profile-container .rym-ext-action-button:active {
+    box-shadow: 0 2px 8px rgba(102, 187, 255, 0.12) !important;
+    transform: translateY(0) scale(0.98) !important;
+}
+/* Specific button types with unique color accents - Light Theme */
+.rym-ext-profile-container .rym-ext-follow-button {
+    border-color: rgba(76, 175, 80, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(76, 175, 80, 0.06) 0%, 
+        rgba(102, 187, 255, 0.04) 100%) !important;
+}
+
+.rym-ext-profile-container .rym-ext-follow-button:hover {
+    border-color: rgba(76, 175, 80, 0.5) !important;
+    background: linear-gradient(135deg, 
+        rgba(76, 175, 80, 0.12) 0%, 
+        rgba(102, 187, 255, 0.08) 100%) !important;
+    box-shadow: 0 6px 16px rgba(76, 175, 80, 0.15) !important;
+}
+
+.rym-ext-profile-container .rym-ext-block-button {
+    border-color: rgba(244, 67, 54, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(244, 67, 54, 0.06) 0%, 
+        rgba(102, 187, 255, 0.04) 100%) !important;
+}
+
+.rym-ext-profile-container .rym-ext-block-button:hover {
+    border-color: rgba(244, 67, 54, 0.5) !important;
+    background: linear-gradient(135deg, 
+        rgba(244, 67, 54, 0.12) 0%, 
+        rgba(102, 187, 255, 0.08) 100%) !important;
+    box-shadow: 0 6px 16px rgba(244, 67, 54, 0.15) !important;
+}
+
+.rym-ext-profile-container .rym-ext-comment-button {
+    border-color: rgba(255, 193, 7, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.06) 0%, 
+        rgba(102, 187, 255, 0.04) 100%) !important;
+}
+
+.rym-ext-profile-container .rym-ext-comment-button:hover {
+    border-color: rgba(255, 193, 7, 0.5) !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.12) 0%, 
+        rgba(102, 187, 255, 0.08) 100%) !important;
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.15) !important;
+}
+
+.rym-ext-profile-container .rym-ext-message-button {
+    border-color: rgba(156, 39, 176, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(156, 39, 176, 0.06) 0%, 
+        rgba(102, 187, 255, 0.04) 100%) !important;
+}
+
+.rym-ext-profile-container .rym-ext-message-button:hover {
+    border-color: rgba(156, 39, 176, 0.5) !important;
+    background: linear-gradient(135deg, 
+        rgba(156, 39, 176, 0.12) 0%, 
+        rgba(102, 187, 255, 0.08) 100%) !important;
+    box-shadow: 0 6px 16px rgba(156, 39, 176, 0.15) !important;
+}
+
+.rym-ext-profile-container .rym-ext-music-button {
+    border-color: rgba(255, 87, 34, 0.25) !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 87, 34, 0.06) 0%, 
+        rgba(102, 187, 255, 0.04) 100%) !important;
+}
+
+.rym-ext-profile-container .rym-ext-music-button:hover {
+    border-color: rgba(255, 87, 34, 0.5) !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 87, 34, 0.12) 0%, 
+        rgba(102, 187, 255, 0.08) 100%) !important;
+    box-shadow: 0 6px 16px rgba(255, 87, 34, 0.15) !important;
+}
+.rym-ext-profile-container .rym-ext-action-button:focus {
+    outline: 2px solid rgba(102, 187, 255, 0.6) !important;
+    outline-offset: 2px !important;
+}
+
+.rym-ext-profile-container.highlighted {
+    border-color: rgba(102, 187, 255, 0.5) !important;
+    background: linear-gradient(145deg, #f5f6fa 0%, #e8eaf6 100%) !important;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 6px 20px rgba(102, 187, 255, 0.2),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset !important;
+}
+
+.rym-ext-profile-container.highlighted::before {
+    background: linear-gradient(90deg, 
+        rgba(102, 187, 255, 0.9) 0%, 
+        rgba(147, 112, 219, 0.9) 50%, 
+        rgba(255, 107, 129, 0.9) 100%) !important;
+    height: 4px !important;
+}
+
+.rym-ext-profile-container.compact {
+    border-radius: 6px !important;
+    background: linear-gradient(145deg, #fafafa 0%, #f0f0f0 100%) !important;
+}
+
+.rym-ext-profile-container.large {
+    border-radius: 10px !important;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%) !important;
+}
+
+/* --- Light Theme Profile Restyle for .profilehii --- */
+.profilehii {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border: 1px solid rgba(102, 187, 255, 0.25) !important;
+    border-radius: 6px !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(102, 187, 255, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.8) inset !important;
+    color: #1a1a1a !important;
+    padding: 22px 14px !important;
+    margin: 12px !important;
+    max-width: fit-content !important;
+    min-width: auto !important;
+    height: auto !important;
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.profilehii::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, 
+        rgba(102, 187, 255, 0.8) 0%, 
+        rgba(147, 112, 219, 0.8) 50%, 
+        rgba(255, 107, 129, 0.8) 100%) !important;
+    z-index: 1 !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.profilehii:hover {
+    border-color: rgba(102, 187, 255, 0.4) !important;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(102, 187, 255, 0.2),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset !important;
+    background: linear-gradient(145deg, #fafbfc 0%, #f1f3f4 100%) !important;
+    transform: translateY(-2px) !important;
+}
+.profilehii .mbgen {
+    background: transparent !important;
+    border: 1px solid rgba(102, 187, 255, 0.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(102, 187, 255, 0.08) !important;
+    overflow: hidden !important;
+}
+.profilehii .mbgen tr:first-child td {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.08) 0%, 
+        rgba(147, 112, 219, 0.06) 100%) !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 
+                 0 0 10px rgba(102, 187, 255, 0.1) !important;
+    border-radius: 4px 4px 0 0 !important;
+    padding: 8px 5px !important;
+    border-bottom: 1px solid rgba(102, 187, 255, 0.15) !important;
+}
+.profilehii .mbgen td {
+    color: #000000 !important;
+    font-size: 14px !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(102, 187, 255, 0.03) 100%) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 7px 10px !important;
+    transition: all 0.2s ease !important;
+}
+.profilehii .mbgen tr:last-child td {
+    border-bottom: none !important;
+}
+.profilehii .mbgen tr:hover td {
+    color: rgba(26, 26, 26, 0.9) !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.06) 0%, 
+        rgba(147, 112, 219, 0.04) 100%) !important;
+}
+.profilehii a[href*="/location/"] {
+    color: rgba(26, 26, 26, 0.7) !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+    border-radius: 2px !important;
+    padding: 2px 4px !important;
+    display: inline-block !important;
+}
+.profilehii a[href*="/location/"]:hover {
+    color: rgba(26, 26, 26, 0.95) !important;
+    background: linear-gradient(135deg, 
+        rgba(102, 187, 255, 0.1) 0%, 
+        rgba(147, 112, 219, 0.08) 100%) !important;
+    border: 1px solid rgba(102, 187, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(102, 187, 255, 0.1) !important;
+}

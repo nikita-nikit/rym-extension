@@ -1,0 +1,6 @@
+/* Seattle Sweet Pink gradient background */
+body, #page_body {
+   /* background: linear-gradient(130deg, #559dfb 0%, #fd9fa4 100%) !important; */
+   background: #f0f0f0 !important;
+    background-attachment: fixed !important;
+}

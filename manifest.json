@@ -4,11 +4,17 @@
     "version": "1.0",
     "description": "A modern redesign of RateYourMusic's UI.",
     "permissions": ["activeTab", "scripting"],
-    "content_scripts": [
-      {
-        "matches": ["*://*.rateyourmusic.com/*"],
-        "js": ["content.js"],
-        "css": ["style.css"]
-      }
-    ]
+      "content_scripts": [
+    {
+      "matches": ["*://*.rateyourmusic.com/*"],
+      "js": ["three.min.js", "musicmap-debug.js", "enhanced-globe.js", "musicmap.js", "content.js"],
+      "css": ["styles/header.css", "styles/search.css", "styles/listening.css", "styles/profile.css", "styles/body.css", "styles/musicmap.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles/*.css", "three.min.js", "musicmap-debug.js", "enhanced-globe.js", "musicmap.js"],
+      "matches": ["*://*.rateyourmusic.com/*"]
+    }
+  ]
   }

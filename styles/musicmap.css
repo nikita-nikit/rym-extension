@@ -1,0 +1,195 @@
+/* RYM Music Globe Styles */
+
+/* Globe container styling */
+.rym-music-globe-container {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+    box-shadow: 
+        0 8px 32px rgba(33, 148, 206, 0.18),
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        0 1px 0 rgba(255, 255, 255, 0.08) inset !important;
+    border: 1px solid rgba(33, 148, 206, 0.2) !important;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+    cursor: grab !important;
+}
+
+.rym-music-globe-container:hover {
+    box-shadow: 
+        0 12px 40px rgba(33, 148, 206, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.12) inset !important;
+    transform: translateY(-2px) !important;
+}
+
+.rym-music-globe-container:active {
+    cursor: grabbing !important;
+}
+
+/* Globe canvas styling */
+.rym-music-globe-container canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px !important;
+}
+
+/* Hide original leaflet maps */
+.leaflet-container,
+#music_map,
+[class*="leaflet"] {
+    transition: opacity 0.3s ease !important;
+}
+
+.leaflet-container[style*="display: none"],
+#music_map[style*="display: none"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rym-music-globe-container {
+        border-radius: 8px !important;
+        box-shadow: 
+            0 4px 16px rgba(33, 148, 206, 0.15),
+            0 1px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .rym-music-globe-container:hover {
+        transform: none !important;
+        box-shadow: 
+            0 6px 20px rgba(33, 148, 206, 0.2),
+            0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    }
+}
+
+/* Loading indicator (optional) */
+.rym-music-globe-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(33, 148, 206, 0.2);
+    border-top: 3px solid #2194ce;
+    border-radius: 50%;
+    animation: globe-loading 1s linear infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rym-music-globe-container.loading::before {
+    opacity: 1;
+}
+
+@keyframes globe-loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Integration with existing RYM styles */
+.bubble_content .rym-music-globe-container,
+.profile_content .rym-music-globe-container {
+    margin: 12px 0 !important;
+    width: 100% !important;
+    min-height: 300px !important;
+}
+
+/* Globe overlay info (for future location data) */
+.rym-globe-overlay {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(10, 10, 15, 0.8);
+    color: #e3f2fd;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(33, 148, 206, 0.2);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Globe controls hint */
+.rym-globe-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(10, 10, 15, 0.8);
+    color: rgba(227, 242, 253, 0.7);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(33, 148, 206, 0.15);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rym-music-globe-container:hover .rym-globe-controls {
+    opacity: 1;
+}
+
+/* Globe tooltip styling */
+.rym-globe-tooltip {
+    position: fixed;
+    background: rgba(10, 10, 15, 0.95);
+    color: #e3f2fd;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(33, 148, 206, 0.3);
+    box-shadow: 
+        0 8px 24px rgba(10, 10, 15, 0.6),
+        0 2px 8px rgba(33, 148, 206, 0.2);
+    pointer-events: none;
+    z-index: 10000;
+    display: none;
+    transform: translateY(-100%);
+    max-width: 200px;
+}
+
+.rym-globe-tooltip .tooltip-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.rym-globe-tooltip .tooltip-artists {
+    font-size: 12px;
+    color: rgba(227, 242, 253, 0.8);
+    font-style: italic;
+}
+
+/* Location markers glow animation */
+@keyframes marker-pulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* Marker hover effects (applied via JavaScript) */
+.rym-music-globe-container canvas:hover {
+    cursor: grab;
+}
+
+/* Controls hint is now set via JavaScript to allow dynamic content */
