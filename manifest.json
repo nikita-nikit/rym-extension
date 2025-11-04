@@ -7,13 +7,13 @@
       "content_scripts": [
     {
       "matches": ["*://*.rateyourmusic.com/*"],
-      "js": ["three.min.js", "musicmap-debug.js", "enhanced-globe.js", "musicmap.js", "content.js"],
-      "css": ["styles/header.css", "styles/search.css", "styles/listening.css", "styles/profile.css", "styles/body.css", "styles/musicmap.css"]
+      "js": ["three.min.js", "enhanced-globe.js", "content.js"],
+      "css": ["styles/themes.css", "styles/rym-elements.css", "styles/header.css", "styles/search.css", "styles/listening.css", "styles/profile.css", "styles/body.css", "styles/musicmap.css", "styles/ratings-polish.css"]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["styles/*.css", "three.min.js", "musicmap-debug.js", "enhanced-globe.js", "musicmap.js"],
+      "resources": ["styles/*.css", "three.min.js", "enhanced-globe.js", "musicmap.js"],
       "matches": ["*://*.rateyourmusic.com/*"]
     }
   ]

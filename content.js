@@ -615,6 +615,270 @@ function addUniqueProfileIdentifiers() {
   });
   
   console.log(`${profileElements.length} profile element(s) enhanced with unique identifiers!`);
+  
+  // Remove specific button cell elements
+  removeUnwantedButtonCells();
+}
+
+// Function to inject music-title class to bubble_header elements
+function injectMusicTitleClass() {
+  console.log("Injecting music-title class to bubble_header elements...");
+  
+  const bubbleHeaders = document.querySelectorAll('.bubble_header');
+  
+  bubbleHeaders.forEach((element, index) => {
+    if (!element.classList.contains('music-title')) {
+      element.classList.add('music-title');
+      console.log(`Added music-title class to bubble_header ${index + 1}:`, element);
+    }
+  });
+  
+  console.log(`Processed ${bubbleHeaders.length} bubble_header elements`);
+}
+
+// Function to add custom class to specific bubble_header element
+function addCustomBubbleHeaderClass() {
+  console.log("Adding custom class to specific bubble_header element...");
+  
+  // Find the specific bubble_header element that contains "music" text
+  const bubbleHeaders = document.querySelectorAll('.bubble_header');
+  
+  bubbleHeaders.forEach((element, index) => {
+    if (element.textContent.trim() === 'music') {
+      element.classList.add('bubble_header_music-title-name');
+      console.log(`Added bubble_header_music-title-name class to element:`, element);
+    }
+  });
+}
+
+// Function to add custom class to film bubble_header element
+function addCustomFilmBubbleHeaderClass() {
+  console.log("Adding custom class to film bubble_header element...");
+  
+  // Find the specific bubble_header element that contains "film" text
+  const bubbleHeaders = document.querySelectorAll('.bubble_header');
+  
+  bubbleHeaders.forEach((element, index) => {
+    if (element.textContent.trim() === 'film') {
+      element.classList.add('bubble_header_film-title-name');
+      console.log(`Added bubble_header_film-title-name class to element:`, element);
+    }
+  });
+}
+
+// Function to add compact class to a SPECIFIC bubble_content element
+// This targets ONLY the user bio bubble_content on profile pages
+function addBubbleContentCompactClass() {
+  console.log("Adding bubble-content-compact class to specific bubble_content element...");
+  
+  // Very specific selector for user bio section on profile pages
+  // Look for bubble_content that:
+  // 1. Contains rendered_text with user bio
+  // 2. Has a div with padding:14px (specific to bio sections)
+  // 3. Is within the profile area (profilehii or near profile elements)
+  
+  const bubbleContentElements = document.querySelectorAll('.bubble_content');
+  
+  bubbleContentElements.forEach((element) => {
+    // Check for the specific structure that indicates user bio
+    const hasPaddingDiv = element.querySelector('div[style*="padding:14px"]');
+    const hasRenderedText = element.querySelector('.rendered_text');
+    
+    // Check if it's in a profile context (has profilehii ancestor or is near profile elements)
+    const isInProfile = element.closest('.profilehii') || 
+                       element.closest('#content')?.querySelector('.profilehii') ||
+                       element.closest('table.mbgen');
+    
+    // Only apply to THIS specific type of bubble_content
+    if (hasPaddingDiv && hasRenderedText && isInProfile && !element.classList.contains('bubble-content-compact')) {
+      element.classList.add('bubble-content-compact');
+      console.log(`✅ Added bubble-content-compact class to user bio bubble_content:`, element);
+    }
+  });
+}
+
+// Function to add unique class to recommendations section
+function addRecommendationsSectionClass() {
+  console.log("Adding rym-recommendations-section class to recommendations div...");
+  
+  // Find divs with text-align:center that contain "Recommendations:" text
+  const centerDivs = document.querySelectorAll('div[style*="text-align:center"]');
+  
+  centerDivs.forEach((element) => {
+    // Check if this div contains the recommendations links
+    const hasRecommendationsText = element.textContent && element.textContent.includes('Recommendations:');
+    const hasRecommendationsLink = element.querySelector('a[href*="/recommendations/"]');
+    
+    // Only apply to the recommendations section
+    if (hasRecommendationsText && hasRecommendationsLink && !element.classList.contains('rym-recommendations-section')) {
+      element.classList.add('rym-recommendations-section');
+      console.log(`✅ Added rym-recommendations-section class to recommendations div:`, element);
+    }
+  });
+}
+
+// Manual function to add class to currently selected element (for console use)
+function addCompactClassToSelectedElement() {
+  const selection = window.getSelection();
+  let element = selection.anchorNode;
+  
+  // Traverse up to find the bubble_content element
+  while (element && !element.classList?.contains('bubble_content')) {
+    element = element.parentElement;
+  }
+  
+  if (element && element.classList.contains('bubble_content')) {
+    element.classList.add('bubble-content-compact');
+    console.log('✅ Added bubble-content-compact class to selected element:', element);
+    return element;
+  } else {
+    console.error('❌ No bubble_content element found in selection');
+    return null;
+  }
+}
+
+// Export function for console use
+window.addCompactToSelected = addCompactClassToSelectedElement;
+
+// Observer to handle dynamically added bubble_content and recommendations elements
+function setupBubbleContentObserver() {
+  try {
+    const targetNode = document.body || document.documentElement;
+    if (!targetNode) {
+      console.error('Bubble content observer: no target node');
+      return;
+    }
+    
+    let scheduled = false;
+    const observer = new MutationObserver(() => {
+      if (scheduled) return;
+      scheduled = true;
+      setTimeout(() => {
+        addBubbleContentCompactClass();
+        addRecommendationsSectionClass();
+        scheduled = false;
+      }, 50);
+    });
+    
+    observer.observe(targetNode, { childList: true, subtree: true });
+    console.log('Bubble content and recommendations observer set up');
+  } catch (e) {
+    console.error('Error setting bubble content observer:', e);
+  }
+}
+
+// Function to remove unwanted button cell elements
+function removeUnwantedButtonCells() {
+  console.log("Removing unwanted button cell elements...");
+  
+  // Target the specific cell class that was selected
+  const unwantedCells = document.querySelectorAll('.rym-ext-button-cell-14');
+  
+  unwantedCells.forEach((cell, index) => {
+    const parentRow = cell.closest('tr');
+    if (parentRow) {
+      console.log(`Removing button row ${index + 1} containing rym-ext-button-cell-14:`, parentRow);
+      parentRow.remove();
+    } else {
+      console.log(`Removing button cell ${index + 1}:`, cell);
+      cell.remove();
+    }
+  });
+  
+  // Also remove any empty table rows that might be left behind
+  const emptyRows = document.querySelectorAll('tr:empty, tr:has(td:empty):not(:has(td:not(:empty)))');
+  emptyRows.forEach((row, index) => {
+    console.log(`Removing empty row ${index + 1}:`, row);
+    row.remove();
+  });
+  
+  console.log(`Removed ${unwantedCells.length} unwanted button cell elements`);
+}
+
+// Remove empty spacer rows built as a full-width TD (any colspan), e.g. <td style="width:100%" colspan="2|5"></td>
+function removeEmptySpacerRows() {
+  try {
+    let removedCount = 0;
+
+    // Strategy 1: Directly target empty full-width TDs with any colspan
+    const emptyFullWidthCells = document.querySelectorAll('td[colspan][style*="width:100%"]');
+    emptyFullWidthCells.forEach(td => {
+      const isEmpty = td.textContent.trim() === '' && td.children.length === 0;
+      if (!isEmpty) return;
+      const parentRow = td.closest('tr');
+      if (parentRow) {
+        parentRow.remove();
+        removedCount += 1;
+      } else {
+        td.remove();
+        removedCount += 1;
+      }
+    });
+
+    // Strategy 2: Fallback for rows that are a single empty TD (any colspan)
+    const candidateRows = document.querySelectorAll('tr');
+    candidateRows.forEach(tr => {
+      const cells = tr.querySelectorAll('td');
+      if (cells.length === 1) {
+        const td = cells[0];
+        const styleAttr = (td.getAttribute('style') || '').toLowerCase();
+        const hasFullWidth = styleAttr.includes('width:100%');
+        const isEmpty = td.textContent.trim() === '' && td.children.length === 0;
+        if (hasFullWidth && isEmpty) {
+          tr.remove();
+          removedCount += 1;
+        }
+      } else if (cells.length > 0) {
+        // If row has multiple cells but all are empty, remove the row
+        const allEmpty = Array.from(cells).every(cell => cell.textContent.trim() === '' && cell.children.length === 0);
+        if (allEmpty) {
+          tr.remove();
+          removedCount += 1;
+        }
+      }
+    });
+
+    // Strategy 3: Remove narrow empty spacer cells (10px wide, vertical-align:top)
+    const emptySpacerCells = document.querySelectorAll('td[style*="vertical-align:top"]');
+    emptySpacerCells.forEach(td => {
+      const isEmpty = td.textContent.trim() === '' && td.children.length === 0 && !td.className;
+      const width = td.offsetWidth;
+      if (isEmpty && width <= 15) {
+        td.remove();
+        removedCount += 1;
+      }
+    });
+
+    if (removedCount > 0) {
+      console.log(`Removed ${removedCount} empty spacer row(s).`);
+    }
+  } catch (e) {
+    console.error('Error removing empty spacer rows:', e);
+  }
+}
+
+// Observe DOM changes and keep removing spacer rows proactively
+function setupSpacerRowObserver() {
+  try {
+    const targetNode = document.body || document.documentElement;
+    if (!targetNode) {
+      console.error('Spacer row observer: no target node');
+      return;
+    }
+    let scheduled = false;
+    const observer = new MutationObserver(() => {
+      if (scheduled) return;
+      scheduled = true;
+      setTimeout(() => {
+        removeEmptySpacerRows();
+        scheduled = false;
+      }, 50);
+    });
+    observer.observe(targetNode, { childList: true, subtree: true });
+    console.log('Spacer row observer set up');
+  } catch (e) {
+    console.error('Error setting spacer row observer:', e);
+  }
 }
 
 function restyleProfilePicture() {
@@ -1091,9 +1355,22 @@ function initializeRYMExtension() {
     repositionPlatformLogos();
     addUniqueProfileIdentifiers();
     restyleProfilePicture();
+    injectMusicTitleClass();
+    addCustomBubbleHeaderClass();
+    addCustomFilmBubbleHeaderClass();
+    addBubbleContentCompactClass();
+    addRecommendationsSectionClass();
+    setupBubbleContentObserver();
+    
+    // Remove empty spacer rows detected on profile pages
+    removeEmptySpacerRows();
+    setupSpacerRowObserver();
     
     // Add unique class to usermap element for Three.js targeting
     setTimeout(() => addUsermapUniqueClass(), 500);
+    
+    // Initialize theme controller
+    initializeThemeController();
     
     console.log('Core UI improvements completed successfully');
   } catch (error) {
@@ -1141,6 +1418,10 @@ function initializeRYMExtension() {
   
   // Export debug functions for console use
   window.debugRYMGlobe = debugGlobeInitialization;
+  
+  // Export removal function for console use
+  window.removeUnwantedElements = removeUnwantedButtonCells;
+  window.removeEmptySpacerRows = removeEmptySpacerRows;
   window.forceGlobeReinit = () => {
     if (window.enhancedGlobeManager) {
       const container = document.querySelector('.rym-music-globe-container');
@@ -1260,6 +1541,411 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 }
 
 console.log("📜 RYM Extension content script fully loaded!");
+
+// ========================================
+// RYM Theme Controller System
+// ========================================
+
+// Theme controller for managing RYM extension themes
+class RYMThemeController {
+  constructor() {
+    this.availableThemes = {
+      'auto': 'Auto',
+      'light': 'OK Computer',
+      'night': 'Night', 
+      'loveless': 'Loveless',
+      'stereolab': 'Stereolab',
+      'lasvegas': 'Las Vegas'
+    };
+    
+    // RYM's original theme cycling order (without our custom themes)
+    this.originalThemes = ['light', 'loveless', 'night'];
+    
+    // Extended theme cycling order (includes our custom themes)
+    this.extendedThemes = ['auto', 'light', 'loveless', 'night', 'stereolab', 'lasvegas'];
+    
+    this.currentTheme = this.getCurrentTheme();
+    this.init();
+  }
+  
+  init() {
+    console.log('🎨 RYM Theme Controller initialized');
+    
+    // Apply saved theme on load
+    this.applyTheme(this.currentTheme);
+    
+    // Override RYM's original theme cycling if it exists
+    this.overrideOriginalThemeCycling();
+    
+    // Set up theme button if it exists
+    this.setupThemeButton();
+    
+    // Export global functions for console access
+    this.exportGlobalFunctions();
+  }
+  
+  getCurrentTheme() {
+    // Check localStorage first (our extension's preference)
+    let theme = localStorage.getItem('rym_extension_theme');
+    
+    // If no extension theme, check RYM's original theme
+    if (!theme) {
+      theme = localStorage.getItem('theme') || 'auto';
+    }
+    
+    // Validate theme exists in our available themes
+    if (!this.availableThemes[theme]) {
+      theme = 'auto';
+    }
+    
+    return theme;
+  }
+  
+  applyTheme(themeName) {
+    const body = document.body || document.querySelector('#page_body');
+    if (!body) return;
+    
+    // Handle auto theme (cycles through original RYM themes based on time or preference)
+    if (themeName === 'auto') {
+      themeName = this.getAutoTheme();
+    }
+    
+    // Remove all existing theme classes
+    Object.keys(this.availableThemes).forEach(theme => {
+      if (theme !== 'auto') {
+        body.classList.remove(`theme_${theme}`);
+      }
+    });
+    
+    // Apply new theme class
+    body.classList.add(`theme_${themeName}`);
+    
+    // Store in both our extension storage and RYM's original storage
+    localStorage.setItem('rym_extension_theme', this.currentTheme);
+    localStorage.setItem('theme', themeName === 'auto' ? this.getAutoTheme() : themeName);
+    
+    console.log(`🎨 Applied theme: ${themeName} (original: ${this.currentTheme})`);
+    
+    // Update theme button display if it exists
+    this.updateThemeButtonDisplay();
+    
+    // Dispatch custom event for other parts of the extension
+    window.dispatchEvent(new CustomEvent('rymThemeChanged', { 
+      detail: { theme: themeName, originalTheme: this.currentTheme }
+    }));
+  }
+  
+  getAutoTheme() {
+    // Check if user prefers dark mode
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'night';
+    }
+    
+    // Time-based theme selection
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 18) {
+      return 'light';  // Day: 6 AM - 6 PM
+    } else if (hour >= 18 && hour < 22) {
+      return 'loveless';    // Evening: 6 PM - 10 PM
+    } else {
+      return 'night';  // Night: 10 PM - 6 AM
+    }
+  }
+  
+  cycleTheme() {
+    const currentIndex = this.extendedThemes.indexOf(this.currentTheme);
+    const nextIndex = (currentIndex + 1) % this.extendedThemes.length;
+    const nextTheme = this.extendedThemes[nextIndex];
+    
+    this.switchTheme(nextTheme);
+    return nextTheme;
+  }
+  
+  switchTheme(themeName) {
+    if (!this.availableThemes[themeName]) {
+      console.warn(`Theme "${themeName}" not found. Available themes:`, Object.keys(this.availableThemes));
+      return;
+    }
+    
+    this.currentTheme = themeName;
+    this.applyTheme(themeName);
+    
+    console.log(`🎨 Switched to theme: ${themeName}`);
+  }
+  
+  overrideOriginalThemeCycling() {
+    // Aggressively override RYM's theme cycling function
+    const self = this;
+    
+    // Define our override function
+    const overrideThemeCycle = () => {
+      Object.defineProperty(window, 'theme_cycle', {
+        value: function() {
+          console.log('🔄 Intercepted RYM theme cycle, using extended theme cycling');
+          self.cycleTheme();
+        },
+        writable: true,
+        configurable: true
+      });
+    };
+    
+    // Override immediately
+    overrideThemeCycle();
+    
+    // Re-override periodically in case RYM redefines it
+    setInterval(overrideThemeCycle, 500);
+    
+    console.log('🔗 Aggressively overrode RYM theme cycling');
+    
+    // Override theme-related click handlers
+    this.setupThemeClickHandlers();
+    
+    // Setup MutationObserver to catch dynamically added theme buttons
+    this.setupThemeButtonObserver();
+  }
+  
+  setupThemeClickHandlers() {
+    // Find and override theme buttons with multiple selectors
+    const themeButtons = document.querySelectorAll('.header_theme_button, [onclick*="theme"], [onclick*="Theme"], .header_theme_buttons button');
+    
+    themeButtons.forEach(button => {
+      // Mark as processed to avoid duplicate handlers
+      if (button.dataset.rymExtensionProcessed) return;
+      button.dataset.rymExtensionProcessed = 'true';
+      
+      // Remove original onclick handlers
+      button.removeAttribute('onclick');
+      
+      // Add our custom handler with capture phase to intercept before RYM's handler
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.cycleTheme();
+      }, true); // Capture phase
+      
+      // Also add in bubble phase for redundancy
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.cycleTheme();
+      });
+    });
+    
+    if (themeButtons.length > 0) {
+      console.log(`🔗 Setup ${themeButtons.length} theme button handler(s)`);
+    }
+  }
+  
+  setupThemeButtonObserver() {
+    // Watch for dynamically added theme buttons
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.addedNodes.length) {
+          // Check if any added nodes are theme buttons or contain theme buttons
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === 1) { // Element node
+              if (node.matches && node.matches('.header_theme_button, [onclick*="theme"]')) {
+                this.setupThemeClickHandlers();
+              } else if (node.querySelector) {
+                const buttons = node.querySelectorAll('.header_theme_button, [onclick*="theme"]');
+                if (buttons.length > 0) {
+                  this.setupThemeClickHandlers();
+                }
+              }
+            }
+          });
+        }
+      }
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    console.log('🔍 Theme button observer activated');
+  }
+  
+  setupThemeButton() {
+    // Call multiple times to ensure we catch the theme button
+    setTimeout(() => this.setupThemeClickHandlers(), 100);
+    setTimeout(() => this.setupThemeClickHandlers(), 500);
+    setTimeout(() => this.setupThemeClickHandlers(), 1000);
+    setTimeout(() => this.setupThemeClickHandlers(), 2000);
+  }
+  
+  updateThemeButtonDisplay() {
+    // Update any theme button text to show current theme
+    const themeButtons = document.querySelectorAll('.header_theme_button_mode');
+    themeButtons.forEach(button => {
+      const displayName = this.availableThemes[this.currentTheme] || this.currentTheme;
+      button.textContent = displayName;
+    });
+  }
+  
+  // Quick switch methods for console use
+  switchToAuto() { this.switchTheme('auto'); }
+  switchToLight() { this.switchTheme('light'); }
+  switchToNight() { this.switchTheme('night'); }
+  switchToLoveless() { this.switchTheme('loveless'); }
+  switchToStereolab() { this.switchTheme('stereolab'); }
+  switchToLasVegas() { this.switchTheme('lasvegas'); }
+  
+  exportGlobalFunctions() {
+    // Export functions for console access
+    window.rymThemeController = this;
+    
+    window.listThemes = () => {
+      console.log('🎨 Available themes:', this.availableThemes);
+      return this.availableThemes;
+    };
+    
+    window.switchTheme = (themeName) => {
+      this.switchTheme(themeName);
+    };
+    
+    window.getCurrentTheme = () => {
+      console.log(`🎨 Current theme: ${this.currentTheme}`);
+      return this.currentTheme;
+    };
+    
+    window.cycleTheme = () => {
+      return this.cycleTheme();
+    };
+    
+    window.showThemeSelector = () => {
+      this.showThemeSelector();
+    };
+    
+    console.log('🌍 Theme controller functions exported to window object');
+  }
+  
+  showThemeSelector() {
+    // Create a simple theme selector UI
+    const existingSelector = document.getElementById('rym-theme-selector');
+    if (existingSelector) {
+      existingSelector.remove();
+    }
+    
+    const selector = document.createElement('div');
+    selector.id = 'rym-theme-selector';
+    selector.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--rym-bg-modal, rgba(0,0,0,0.9));
+      border: 1px solid var(--rym-border, rgba(255,255,255,0.1));
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 10000;
+      box-shadow: var(--rym-shadow-strong, 0 8px 32px rgba(0,0,0,0.3));
+      backdrop-filter: blur(10px);
+      color: var(--rym-text-primary, #fff);
+      font-family: Arial, sans-serif;
+      min-width: 300px;
+    `;
+    
+    const title = document.createElement('h3');
+    title.textContent = 'Select Theme';
+    title.style.cssText = `
+      margin: 0 0 15px 0;
+      color: var(--rym-primary, #42A5F5);
+      text-align: center;
+    `;
+    selector.appendChild(title);
+    
+    // Create theme buttons
+    Object.entries(this.availableThemes).forEach(([themeKey, themeName]) => {
+      const button = document.createElement('button');
+      button.textContent = themeName;
+      button.style.cssText = `
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px;
+        background: ${themeKey === this.currentTheme ? 'var(--rym-primary, #42A5F5)' : 'transparent'};
+        color: var(--rym-text-primary, #fff);
+        border: 1px solid var(--rym-border, rgba(255,255,255,0.1));
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      `;
+      
+      button.addEventListener('click', () => {
+        this.switchTheme(themeKey);
+        selector.remove();
+      });
+      
+      button.addEventListener('mouseenter', () => {
+        if (themeKey !== this.currentTheme) {
+          button.style.background = 'var(--rym-hover-bg, rgba(255,255,255,0.05))';
+        }
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        if (themeKey !== this.currentTheme) {
+          button.style.background = 'transparent';
+        }
+      });
+      
+      selector.appendChild(button);
+    });
+    
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = '✕';
+    closeButton.style.cssText = `
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--rym-text-muted, rgba(255,255,255,0.6));
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      width: 20px;
+      height: 20px;
+    `;
+    closeButton.addEventListener('click', () => selector.remove());
+    selector.appendChild(closeButton);
+    
+    // Close on outside click
+    selector.addEventListener('click', (e) => {
+      if (e.target === selector) {
+        selector.remove();
+      }
+    });
+    
+    document.body.appendChild(selector);
+  }
+}
+
+// Initialize theme controller when DOM is ready
+let rymThemeController;
+
+function initializeThemeController() {
+  if (!rymThemeController) {
+    rymThemeController = new RYMThemeController();
+    console.log('🎨 RYM Theme Controller initialized successfully');
+    
+    // Verify all themes are properly registered
+    console.log('📋 Available themes:', Object.keys(rymThemeController.availableThemes));
+    console.log('🔄 Theme cycling order:', rymThemeController.extendedThemes);
+    console.log('✨ Current theme:', rymThemeController.currentTheme);
+    console.log('💡 Use window.showThemeSelector() to see all themes, or window.cycleTheme() to cycle through them');
+  }
+}
+
+// Initialize immediately if DOM is ready, otherwise wait
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  initializeThemeController();
+} else {
+  document.addEventListener('DOMContentLoaded', initializeThemeController);
+}
 
 // REMOVED: Simple map replacement moved to main initialization to prevent duplicates
 // This section has been consolidated into the main initialization above

@@ -1,11 +1,11 @@
 .ui_search {
     position: relative !important;
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.05), rgba(3, 29, 83, 0.1)), rgba(37, 36, 36, 0.144) !important;
+    background: var(--rym-bg-secondary) !important;
     border-radius: 10px !important;
     padding: 12px 16px !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
+    border: 1px solid var(--rym-border) !important;
     max-width: 360px !important;
     width: 100% !important;
     height: 32px !important;
@@ -15,33 +15,33 @@
   }
   
   .ui_search:hover {
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.05), rgba(3, 29, 83, 0.12)), rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(145, 252, 252, 0.15) !important;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.07) !important;
+    background: var(--rym-bg-tertiary) !important;
+    border-color: var(--rym-primary-alpha) !important;
+    box-shadow: 0 3px 8px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
   }
   
   .ui_search:focus-within {
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.1), rgba(3, 29, 83, 0.2)), rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(145, 252, 252, 0.3) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 12px rgba(145, 252, 252, 0.1) !important;
+    background: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong), 0 0 12px var(--rym-primary-alpha) !important;
     border-width: 1.5px !important;
   }
   
   .ui_search_rest {
     margin-top: .5em;
     width: 35em !important;
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.1), rgba(3, 29, 83, 0.2)) !important;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    background: var(--rym-bg-gradient-subtle) !important;
+    box-shadow: 1px 1px 3px var(--rym-shadow);
     border-radius: 15px !important;
     display: none;
     backdrop-filter: blur(15px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--rym-border) !important;
   }
   
   #ui_search_input_main_search {
     background: transparent !important;
     border: none !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
     font-size: 15px !important;
     width: 300px !important;
     overflow: hidden !important;
@@ -55,7 +55,7 @@
   }
   
   #ui_search_input_main_search::placeholder {
-    color: rgba(255, 255, 255, 0.4) !important;
+    color: var(--rym-text-muted) !important;
     font-weight: 300 !important;
     transition: all 0.3s ease !important;
   }
@@ -70,10 +70,10 @@
     left: -8px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: var(--rym-text-muted) !important;
     font-size: 15px !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+    filter: drop-shadow(0 1px 2px var(--rym-shadow)) !important;
     padding-left: 10px !important;
   }
   
@@ -82,7 +82,7 @@
     right: 0px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: var(--rym-text-muted) !important;
     font-size: 15px !important;
     cursor: pointer !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -96,7 +96,7 @@
   
   #ui_search_main_search:hover #ui_search_icon_main_search,
   #ui_search_main_search:focus-within #ui_search_icon_main_search {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: var(--rym-text-primary) !important;
     transform: translateY(-50%) scale(1.1) !important;
   }
   
@@ -123,10 +123,10 @@
     right: -2px !important;
     bottom: -2px !important;
     border-radius: 12px !important;
-    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid var(--rym-border-light) !important;
     pointer-events: none !important;
     animation: focusRing 0.3s ease-out !important;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 15px var(--rym-primary-alpha) !important;
   }
   @keyframes focusRing {
     from {
@@ -141,12 +141,12 @@
   
   /* Styling for ui_search_type */
   .ui_search_type {
-    background: linear-gradient(135deg, rgba(38, 14, 82, 0.1), rgba(3, 29, 83, 0.2)) !important;
+    background: var(--rym-bg-gradient-subtle) !important;
     border-radius: 12px 12px 12px 12px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(145, 252, 252, 0.15) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow) !important;
+    border: 1px solid var(--rym-border) !important;
     font-size: 14px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--rym-text-primary) !important;
     width: 100% !important;
     max-width: none !important;
     transition: all 0.2s ease !important;
@@ -155,12 +155,12 @@
   
   /* Search object label (like "Search:") */
   .ui_search_object_label {
-    color: white !important;
+    color: var(--rym-text-primary) !important;
     font-weight: 500 !important;
     margin-right: 8px !important;
     font-size: 13px !important;
     letter-spacing: 0.5px !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    text-shadow: 0 1px 2px var(--rym-shadow) !important;
   }
   
   /* Object selector (dropdown-like menu) */
@@ -180,26 +180,26 @@
     font-weight: 500 !important;
     cursor: pointer !important;
     margin: 0 2px !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
     position: relative !important;
     overflow: hidden !important;
   }
   
   /* Hover state for selector items */
   .ui_search_scope_selector_item:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    background-color: var(--rym-hover-bg) !important;
+    color: var(--rym-text-primary) !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 2px 6px var(--rym-shadow) !important;
   }
   
   /* Active/selected selector item */
   .ui_search_scope_selector_item.ui_search_active {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: white !important;
+    background-color: var(--rym-active-bg) !important;
+    color: var(--rym-text-primary) !important;
     font-weight: 600 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow) !important;
+    text-shadow: 0 1px 2px var(--rym-shadow) !important;
   }
   
   /* Add shine effect on hover */
@@ -210,7 +210,7 @@
     left: -60% !important;
     width: 20% !important;
     height: 200% !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: var(--rym-primary-alpha) !important;
     transform: rotate(30deg) !important;
     transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) !important;
     opacity: 0 !important;
@@ -223,19 +223,19 @@
   
   /* Styling for search results frame to match ui_search_type */
   .ui_search_results_frame {
-    background: linear-gradient(135deg, rgba(145, 252, 252, 0.15), rgba(3, 29, 83, 0.25)) !important;
+    background: var(--rym-bg-gradient-subtle) !important;
     border-radius: 10px 10px 12px 12px !important;
     padding: 10px 0 !important;
     margin-top: 2px !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 20px var(--rym-shadow-strong), 0 2px 8px var(--rym-shadow) !important;
+    border: 1px solid var(--rym-border) !important;
     max-height: 90vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     transition: all 0.3s ease !important;
     backdrop-filter: blur(15px) !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.1) !important;
+    scrollbar-color: var(--rym-primary-alpha) var(--rym-bg-tertiary) !important;
     animation: resultsFadeIn 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
   }
   
@@ -243,12 +243,12 @@
     from { 
       opacity: 0 !important; 
       transform: translateY(-12px) !important; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+      box-shadow: 0 2px 10px var(--rym-shadow) !important;
     }
     to { 
       opacity: 1 !important; 
       transform: translateY(0) !important; 
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 8px 20px var(--rym-shadow-strong), 0 2px 8px var(--rym-shadow) !important;
     }
   }
   
@@ -258,19 +258,19 @@
   }
   
   .ui_search_results_frame::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1) !important;
+    background: var(--rym-bg-tertiary) !important;
     border-radius: 10px !important;
   }
   
   .ui_search_results_frame::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: var(--rym-primary-alpha) !important;
     border-radius: 10px !important;
     border: 1px solid transparent !important;
     background-clip: content-box !important;
   }
   
   .ui_search_results_frame::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.3) !important;
+    background-color: var(--rym-active-bg) !important;
   }
   
   /* Search results container */
@@ -284,15 +284,15 @@
   .ui_search_results > div, 
   .ui_search_results > a {
     padding: 12px 16px !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid var(--rym-border-light) !important;
     transition: all 0.2s ease !important;
     display: flex !important;
     align-items: center !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
     text-decoration: none !important;
     position: relative !important;
     overflow: hidden !important;
-    background: linear-gradient(to right, rgba(145, 252, 252, 0.03), rgba(3, 29, 83, 0.05)) !important;
+    background: var(--rym-bg-secondary) !important;
   }
   
   .ui_search_results > div:last-child, 
@@ -302,8 +302,8 @@
   
   .ui_search_results > div:hover, 
   .ui_search_results > a:hover {
-    background: linear-gradient(to right, rgba(145, 252, 252, 0.12), rgba(3, 29, 83, 0.18)) !important;
-    color: white !important;
+    background: var(--rym-hover-bg) !important;
+    color: var(--rym-text-primary) !important;
     transform: translateX(3px) !important;
     padding-left: 20px !important;
   }
@@ -322,40 +322,40 @@
     font-weight: 500 !important;
     font-size: 14px !important;
     margin-bottom: 3px !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
     transition: all 0.2s ease !important;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+    text-shadow: 0 1px 1px var(--rym-shadow) !important;
   }
   
   .ui_search_results > div:hover .result_title, 
   .ui_search_results > a:hover .result_title {
-    color: white !important;
+    color: var(--rym-primary-light) !important;
     letter-spacing: 0.3px !important;
   }
   
   /* Result description/subtitle */
   .ui_search_results .result_description {
     font-size: 12px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: var(--rym-text-secondary) !important;
     transition: all 0.2s ease !important;
   }
   
   .ui_search_results > div:hover .result_description, 
   .ui_search_results > a:hover .result_description {
-    color: white !important;
+    color: var(--rym-text-primary) !important;
   }
   
   /* Selected/active result */
   .ui_search_results .selected, 
   .ui_search_results .active {
-    background: linear-gradient(to right, rgba(145, 252, 252, 0.18), rgba(3, 29, 83, 0.25)) !important;
-    border-left: 3px solid rgba(145, 252, 252, 0.6) !important;
+    background: var(--rym-active-bg) !important;
+    border-left: 3px solid var(--rym-primary) !important;
     padding-left: 19px !important;
   }
   
   .ui_search_results .selected .result_title, 
   .ui_search_results .active .result_title {
-    color: white !important;
+    color: var(--rym-primary-light) !important;
     font-weight: 600 !important;
   }
   
@@ -363,12 +363,12 @@
   .ui_search_results .empty_results {
     padding: 20px !important;
     text-align: center !important;
-    color: white !important;
+    color: var(--rym-text-secondary) !important;
     font-style: italic !important;
-    background: rgba(0, 0, 0, 0.1) !important;
+    background: var(--rym-bg-tertiary) !important;
     border-radius: 8px !important;
     margin: 10px 15px !important;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: inset 0 1px 3px var(--rym-shadow) !important;
   }
   
   #ui_search_scope_selector_music_main_search {
@@ -385,9 +385,9 @@
   
   /* Styling for the ui_search_object_select dropdown */
   .ui_search_object_select {
-    background-color: rgba(26, 26, 26, 0.95) !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background-color: var(--rym-bg-secondary) !important;
+    color: var(--rym-text-primary) !important;
+    border: 1px solid var(--rym-border) !important;
     border-radius: 8px !important;
     padding: 6px 30px 6px 12px !important;
     font-size: 14px !important;
@@ -398,7 +398,7 @@
     -moz-appearance: none !important;
     cursor: pointer !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 2px 6px var(--rym-shadow), inset 0 1px 1px var(--rym-primary-alpha) !important;
     outline: none !important;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.6)' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") !important;
     background-repeat: no-repeat !important;
@@ -410,37 +410,37 @@
   }
   
   .ui_search_object_select:hover {
-    background-color: rgba(40, 40, 40, 0.95) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.07) !important;
+    background-color: var(--rym-bg-tertiary) !important;
+    border-color: var(--rym-border-light) !important;
+    box-shadow: 0 3px 8px var(--rym-shadow), inset 0 1px 1px var(--rym-primary-alpha) !important;
     transform: translateY(-1px) !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
   }
   
   .ui_search_object_select:focus {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.07) !important;
-    background-color: rgba(50, 50, 50, 0.95) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong), inset 0 1px 1px var(--rym-primary-alpha) !important;
+    background-color: var(--rym-hover-bg) !important;
     transform: translateY(-1px) !important;
     border-width: 1.5px !important;
-    color: white !important;
+    color: var(--rym-text-primary) !important;
   }
   
   /* Styling for the option groups */
   .ui_search_object_select optgroup {
-    background-color: #1a1a1a !important;
-    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: var(--rym-bg-tertiary) !important;
+    color: var(--rym-text-secondary) !important;
     font-weight: 600 !important;
     font-style: normal !important;
     padding: 10px !important;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    text-shadow: 0 1px 1px var(--rym-shadow) !important;
+    border-bottom: 1px solid var(--rym-border-light) !important;
   }
   
   /* Styling for the options */
   .ui_search_object_select option {
-    background-color: #1a1a1a !important;
-    color: rgba(255, 255, 255, 0.85) !important;
+    background-color: var(--rym-bg-secondary) !important;
+    color: var(--rym-text-primary) !important;
     padding: 10px 12px !important;
     transition: all 0.2s ease !important;
     font-weight: 400 !important;
@@ -449,28 +449,28 @@
   /* Hover state for options - this doesn't work in all browsers but adding for those that support it */
   .ui_search_object_select option:hover,
   .ui_search_object_select option:focus {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    color: white !important;
+    background-color: var(--rym-hover-bg) !important;
+    color: var(--rym-text-primary) !important;
   }
   
   /* Selected option */
   .ui_search_object_select option:checked {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: white !important;
+    background-color: var(--rym-active-bg) !important;
+    color: var(--rym-text-primary) !important;
     font-weight: 500 !important;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+    text-shadow: 0 1px 1px var(--rym-shadow) !important;
   }
   
   /* For Firefox which doesn't support styling options well */
   @-moz-document url-prefix() {
     .ui_search_object_select {
-      border-color: rgba(255, 255, 255, 0.15) !important;
-      background-color: rgba(30, 30, 30, 0.95) !important;
+      border-color: var(--rym-border) !important;
+      background-color: var(--rym-bg-secondary) !important;
     }
     
     .ui_search_object_select option,
     .ui_search_object_select optgroup {
-      background-color: #1a1a1a !important;
+      background-color: var(--rym-bg-tertiary) !important;
     }
   }
   
@@ -480,12 +480,12 @@
   }
   
   .ui_search_object_select::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1) !important;
+    background: var(--rym-bg-tertiary) !important;
     border-radius: 10px !important;
   }
   
   .ui_search_object_select::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: var(--rym-primary-alpha) !important;
     border-radius: 10px !important;
     border: 1px solid transparent !important;
     background-clip: content-box !important;
@@ -494,7 +494,7 @@
   /* Focus styling */
   .ui_search_object_select:focus-visible {
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 0 2px var(--rym-border-light), 0 4px 12px var(--rym-shadow-strong) !important;
   }
   
   /* Add focus ring animation similar to the search input */
@@ -506,18 +506,18 @@
     right: -2px !important;
     bottom: -2px !important;
     border-radius: 10px !important;
-    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid var(--rym-border-light) !important;
     pointer-events: none !important;
     animation: focusRing 0.3s ease-out !important;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 15px var(--rym-primary-alpha) !important;
   }
   
   /* Style when dropdown is open */
   .ui_search_object_select.active,
   .ui_search_object_select:active {
-    background-color: rgba(50, 50, 50, 0.95) !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong), inset 0 1px 2px var(--rym-primary-alpha) !important;
   }
   
   /* Make dropdown more visible when open */
@@ -525,5 +525,12 @@
   .ui_search_object_select.expanded {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-    border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+    border-bottom-color: var(--rym-primary) !important;
+  }
+
+  /* Remove background and borders from autocomplete result text elements */
+  .ui_button_text,
+  .ui_search_autocomplete_result {
+    background: transparent !important;
+    border: none !important;
   }

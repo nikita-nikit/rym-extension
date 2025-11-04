@@ -1,0 +1,480 @@
+/* ============================================
+   PROFILE & RATINGS POLISH
+   ============================================
+   Comprehensive styling for profile pages including:
+   - User ratings sections and tables
+   - Sidebar widgets (.mbgen tables)
+   - Profile search forms and inputs
+   - Music toolbar and navigation tabs
+   ============================================ */
+
+.mbgen td, #userlists td, #useralbums td, #userrec td, .discography td {
+    border-left: 0.1px solid rgba(255, 255, 255, 0.02) !important;   
+    border-right: 0.1px solid rgba(255, 255, 255, 0.02) !important;
+}
+
+.mbgen td:last-child {
+    border-right: 0.1px solid rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Subtle hover effect on rating rows */
+#musicrecent .mbgen tbody tr {
+    background-color: var(--rym-bg-secondary) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+#musicrecent .mbgen tbody tr td {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+#musicrecent .mbgen tbody tr:hover {
+    background-color: var(--rym-hover-bg) !important;
+}
+
+#musicrecent .mbgen tbody tr:hover td {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Apply same smooth hover to sidebar widgets (rym-ext-button-cell) */
+.rym-ext-button-cell .mbgen tbody tr {
+    background-color: var(--rym-bg-secondary) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.rym-ext-button-cell .mbgen tbody tr td {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.rym-ext-button-cell .mbgen tbody tr:hover {
+    background-color: var(--rym-hover-bg) !important;
+}
+
+.rym-ext-button-cell .mbgen tbody tr:hover td {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Enhanced album cover hover effect */
+.or_q_thumb_album a {
+    display: block !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    padding: 0 !important;
+}
+
+.or_q_thumb_album a:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    z-index: 10 !important;
+}
+
+/* Make album cover fill entire cell */
+.or_q_thumb_album {
+    padding: 0 !important;
+    line-height: 0 !important;
+    width: auto !important;
+    max-width: 50px !important;
+}
+
+.or_q_thumb_album a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.or_q_thumb_album img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* Polished date badges */
+.date_element {
+    background: linear-gradient(135deg, var(--rym-primary-alpha), rgba(0, 0, 0, 0.05)) !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* Better typography for artist/album names */
+#musicrecent .mbgen tbody tr td:nth-child(3) a {
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
+    text-decoration: none !important;
+}
+
+#musicrecent .mbgen tbody tr td:nth-child(3) a:hover {
+    color: var(--rym-primary-light) !important;
+}
+
+/* Enhanced table appearance */
+#musicrecent .mbgen {
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+}
+
+#musicrecent .mbgen tbody tr td {
+    padding: 12px 10px !important;
+    vertical-align: middle !important;
+}
+
+/* Improved "more..." link styling */
+#musicrecent a[href*="more"] {
+    display: inline-block !important;
+    margin-top: 15px !important;
+    padding: 8px 16px !important;
+    background: var(--rym-primary-alpha) !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    font-weight: 500 !important;
+}
+
+#musicrecent a[href*="more"]:hover {
+    background: var(--rym-active-bg) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Make sidebar tables expand a bit more than default (not unlimited) */
+.rym-ext-button-cell div[style*="height"],
+.rym-ext-button-cell div[style*="overflow:auto"],
+.mbgen td > div[style*="height:300px"] {
+    height: auto !important;
+    max-height: 450px !important;
+    overflow-y: auto !important;
+}
+
+/* ============================================
+   SIDEBAR WIDGETS (.mbgen tables) - ENHANCED
+   ============================================ */
+
+/* Polish the .mbgen table containers */
+.mbgen {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background: var(--rym-bg-secondary) !important;
+    box-shadow: 0 2px 12px var(--rym-shadow) !important;
+}
+
+/* Style the table headers */
+.mbgen th {
+    background: var(--rym-bg-gradient-subtle) !important;
+    padding: 12px 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    border-bottom: 1px solid var(--rym-border) !important;
+    position: relative !important;
+}
+
+/* Settings icon in headers */
+.mbgen th .fa-cog {
+    transition: all 0.3s ease !important;
+    opacity: 0.6 !important;
+}
+
+.mbgen th .fa-cog:hover {
+    opacity: 1 !important;
+    transform: rotate(90deg) !important;
+    color: var(--rym-primary-light) !important;
+}
+
+/* Scrollable content areas within widgets */
+.mbgen td > div[style*="overflow"] {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--rym-primary-alpha) var(--rym-bg-tertiary) !important;
+}
+
+.mbgen td > div[style*="overflow"]::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.mbgen td > div[style*="overflow"]::-webkit-scrollbar-track {
+    background: var(--rym-bg-tertiary) !important;
+    border-radius: 4px !important;
+}
+
+.mbgen td > div[style*="overflow"]::-webkit-scrollbar-thumb {
+    background: var(--rym-primary-alpha) !important;
+    border-radius: 4px !important;
+    transition: background 0.2s ease !important;
+}
+
+.mbgen td > div[style*="overflow"]::-webkit-scrollbar-thumb:hover {
+    background: var(--rym-active-bg) !important;
+}
+
+/* Links within sidebar widgets */
+.mbgen a {
+    transition: color 0.2s ease !important;
+}
+
+.mbgen a:hover {
+    color: var(--rym-primary-light) !important;
+}
+
+/* ============================================
+   PROFILE SEARCH FORM
+   ============================================ */
+
+.profilesearch {
+    text-align: left !important;
+    position: relative !important;
+    background: var(--rym-bg-secondary) !important;
+    border-radius: 12px !important;
+    padding: 10px 12px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
+    border: 1px solid var(--rym-border) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.profilesearch:hover {
+    background: var(--rym-bg-tertiary) !important;
+    border-color: var(--rym-primary-alpha) !important;
+    box-shadow: 0 3px 10px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
+}
+
+.profilesearch:focus-within {
+    background: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong), 0 0 12px var(--rym-primary-alpha) !important;
+}
+
+.profilesearch form {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+.profilesearch label {
+    color: var(--rym-text-primary) !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* Text input */
+.profilesearch input[type="text"],
+.profilesearch #q {
+    background: var(--rym-bg-primary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    color: var(--rym-text-primary) !important;
+    font-size: 15px !important;
+    width: 260px !important;
+    overflow: hidden !important;
+    padding: 8px 12px !important;
+    margin-left: 6px !important;
+    outline: none !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.3px !important;
+    height: 30px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: inset 0 1px 2px var(--rym-shadow) !important;
+}
+
+.profilesearch input[type="text"]::placeholder,
+.profilesearch #q::placeholder {
+    color: var(--rym-text-muted) !important;
+    font-weight: 300 !important;
+    transition: all 0.3s ease !important;
+}
+
+.profilesearch:focus-within input[type="text"]::placeholder,
+.profilesearch:focus-within #q::placeholder {
+    opacity: 0.7 !important;
+    transform: translateX(2px) !important;
+}
+
+.profilesearch input[type="text"]:focus,
+.profilesearch #q:focus {
+    border-color: var(--rym-primary) !important;
+    background: var(--rym-hover-bg) !important;
+    box-shadow: 0 0 0 2px var(--rym-primary-alpha) !important;
+}
+
+/* Select */
+.profilesearch select,
+.profilesearch #type {
+    background-color: var(--rym-bg-secondary) !important;
+    color: var(--rym-text-primary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 5px 28px 5px 10px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 6px var(--rym-shadow), inset 0 1px 1px var(--rym-primary-alpha) !important;
+    outline: none !important;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.6)' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: calc(100% - 10px) center !important;
+    backdrop-filter: blur(8px) !important;
+    max-width: 200px !important;
+}
+
+.profilesearch select:hover,
+.profilesearch #type:hover {
+    background-color: var(--rym-bg-tertiary) !important;
+    border-color: var(--rym-border-light) !important;
+    box-shadow: 0 3px 8px var(--rym-shadow), inset 0 1px 1px var(--rym-primary-alpha) !important;
+    transform: translateY(-1px) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+.profilesearch select:focus,
+.profilesearch #type:focus {
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong), inset 0 1px 1px var(--rym-primary-alpha) !important;
+    background-color: var(--rym-hover-bg) !important;
+    transform: translateY(-1px) !important;
+    border-width: 1.5px !important;
+    color: var(--rym-text-primary) !important;
+}
+
+/* Submit button */
+.profilesearch input[type="submit"],
+.profilesearch button[type="submit"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 30px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--rym-primary) !important;
+    background: var(--rym-primary-alpha) !important;
+    color: var(--rym-text-primary) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 0 10px !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+    cursor: pointer !important;
+    margin-left: 6px !important;
+    min-width: 90px !important;
+    box-sizing: border-box !important;
+}
+
+.profilesearch input[type="submit"]:hover,
+.profilesearch button[type="submit"]:hover {
+    background: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary-light) !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 4px 12px var(--rym-primary-alpha) !important;
+}
+
+.profilesearch input[type="submit"]:active,
+.profilesearch button[type="submit"]:active {
+    box-shadow: 0 2px 6px var(--rym-primary-alpha) !important;
+}
+
+/* Smooth focus ring for the container */
+.profilesearch:focus-within::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: -2px !important;
+    right: -2px !important;
+    bottom: -2px !important;
+    border-radius: 14px !important;
+    border: 2px solid var(--rym-border-light) !important;
+    pointer-events: none !important;
+    box-shadow: 0 0 12px var(--rym-primary-alpha) !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .profilesearch form {
+        gap: 8px !important;
+    }
+    .profilesearch #q {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* ============================================
+   MUSIC TOOLBAR (TABS & NAVIGATION)
+   ============================================ */
+
+.musictoolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 10px !important;
+    padding: 6px !important;
+    box-shadow: 0 2px 8px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.musictoolbar a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 28px !important;
+    padding: 0 10px !important;
+    border-radius: 8px !important;
+    color: var(--rym-text-primary) !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2px !important;
+    border: 1px solid var(--rym-border) !important;
+    background: var(--rym-primary-alpha) !important;
+    transition: all 0.2s ease !important;
+}
+
+.musictoolbar a:hover {
+    background: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 4px 10px var(--rym-primary-alpha) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+.musictoolbar a:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--rym-primary-alpha) !important;
+    border-color: var(--rym-primary) !important;
+}
+
+.musictoolbar a.active,
+.musictoolbar a[style*="background:"] {
+    background: var(--rym-active-bg) !important;
+    border-color: var(--rym-primary) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+.musictoolbar #totalratings {
+    color: var(--rym-primary) !important;
+    font-weight: 700 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .musictoolbar {
+        gap: 6px !important;
+        padding: 6px !important;
+    }
+    .musictoolbar a {
+        height: 28px !important;
+        padding: 0 8px !important;
+        font-size: 12px !important;
+    }
+}
+

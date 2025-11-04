@@ -1,0 +1,255 @@
+/* ========================================
+   RYM Extension - Theme System
+   Centralized color management for all themes
+   ======================================== */
+
+/* Default theme variables - OK Computer Theme */
+:root {
+  /* Primary colors - using 66C1EE as main */
+  --rym-primary: #66C1EE !important;
+  --rym-primary-light: #8AD0F3 !important;
+  --rym-primary-dark: #4BA5CE !important;
+  --rym-primary-alpha: rgba(102, 193, 238, 0.1) !important;
+
+  /* Background colors with white to blue gradient */
+  --rym-bg-primary: #FFFFFF !important;
+  --rym-bg-secondary: #FFFFFF !important;
+  --rym-bg-tertiary: #F8F9FA !important;
+  --rym-bg-modal: rgba(255, 255, 255, 0.95) !important;
+  --rym-bg-gradient: linear-gradient(145deg, #FFFFFF 0%, #66C1EE 100%) !important;
+  --rym-bg-gradient-subtle: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+  
+  /* Profile container specific */
+  --rym-profile-bg: linear-gradient(145deg, #FFFFFF 0%, #F8F9FA 100%) !important;
+  --rym-profile-bg-hover: linear-gradient(145deg, #FFFFFF 0%, #F5F6F7 100%) !important;
+  --rym-profile-border: rgba(134, 154, 165, 0.2) !important;
+  --rym-profile-accent: linear-gradient(90deg, rgba(102, 193, 238, 0.8) 0%, rgba(134, 154, 165, 0.8) 50%, rgba(30, 32, 36, 0.8) 100%) !important;
+  
+  /* Text colors - using black for primary text */
+  --rym-text-primary: #1E2024 !important;
+  --rym-text-secondary: rgba(30, 32, 36, 0.8) !important;
+  --rym-text-muted: #869AA5 !important;
+  --rym-text-inverse: #FFFFFF !important;
+  
+  /* Border and shadow colors */
+  --rym-border: rgba(134, 154, 165, 0.2) !important;
+  --rym-border-light: rgba(134, 154, 165, 0.1) !important;
+  --rym-shadow: rgba(30, 32, 36, 0.1) !important;
+  --rym-shadow-strong: rgba(30, 32, 36, 0.2) !important;
+  
+  /* Header specific */
+  --rym-header-bg: linear-gradient(90deg, #FFFFFF 0%, #F8F9FA 100%) !important;
+  --rym-header-text: #1E2024 !important;
+  
+  /* Interactive states */
+  --rym-hover-bg: rgba(102, 193, 238, 0.08) !important;
+  --rym-active-bg: rgba(102, 193, 238, 0.15) !important;
+  
+  /* Status colors */
+  --rym-success: #4CAF50 !important;
+  --rym-warning: #FF9800 !important;
+  --rym-error: #F44336 !important;
+  --rym-info: #66C1EE !important;
+  
+  /* Music title container specific */
+  --rym-music-title-bg: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%) !important;
+  --rym-music-title-border: rgba(134, 154, 165, 0.2) !important;
+  --rym-music-title-text: #1E2024 !important;
+}
+
+/* Dark Theme (Night) */
+.theme_night {
+  /* Primary colors - more vibrant for dark theme */
+  --rym-primary: #64B5F6 !important;
+  --rym-primary-light: #90CAF9 !important;
+  --rym-primary-dark: #42A5F5 !important;
+  --rym-primary-alpha: rgba(100, 181, 246, 0.15) !important;
+
+  /* Background colors with atmospheric gradients */
+  --rym-bg-primary: #0a0a0f !important;
+  --rym-bg-secondary: #1a1a2e !important;
+  --rym-bg-tertiary: #16213e !important;
+  --rym-bg-modal: rgba(10, 10, 15, 0.95) !important;
+  --rym-bg-gradient: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 100%) !important;
+  --rym-bg-gradient-subtle: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.8) 100%) !important;
+  
+  /* Profile container specific - dark with blue accents */
+  --rym-profile-bg: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 100%) !important;
+  --rym-profile-bg-hover: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+  --rym-profile-border: rgba(100, 181, 246, 0.25) !important;
+  --rym-profile-accent: linear-gradient(90deg, rgba(100, 181, 246, 0.8) 0%, rgba(144, 202, 249, 0.8) 50%, rgba(66, 165, 245, 0.8) 100%) !important;
+  
+  /* Text colors */
+  --rym-text-primary: #e3f2fd !important;
+  --rym-text-secondary: rgba(227, 242, 253, 0.8) !important;
+  --rym-text-muted: rgba(227, 242, 253, 0.6) !important;
+  --rym-text-inverse: #0a0a0f !important;
+  
+  /* Border and shadow colors */
+  --rym-border: rgba(255, 255, 255, 0.12) !important;
+  --rym-border-light: rgba(255, 255, 255, 0.06) !important;
+  --rym-shadow: rgba(0, 0, 0, 0.3) !important;
+  --rym-shadow-strong: rgba(0, 0, 0, 0.5) !important;
+  
+  /* Header specific */
+  --rym-header-bg: linear-gradient(90deg, #001014 0%, #050014 100%) !important;
+  --rym-header-text: rgba(255, 255, 255, 0.85) !important;
+  
+  /* Interactive states */
+  --rym-hover-bg: rgba(100, 181, 246, 0.08) !important;
+  --rym-active-bg: rgba(100, 181, 246, 0.15) !important;
+  
+  /* Status colors - adjusted for dark theme */
+  --rym-success: #66BB6A !important;
+  --rym-warning: #FFA726 !important;
+  --rym-error: #EF5350 !important;
+  --rym-info: #42A5F5 !important;
+  
+  /* Music title container specific - dark theme */
+  --rym-music-title-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%) !important;
+  --rym-music-title-border: rgba(100, 181, 246, 0.3) !important;
+  --rym-music-title-text: #e3f2fd !important;
+}
+
+/* Loveless Theme - Wine to Pink (#2e151b to #BF3B84) */
+.theme_loveless {
+  /* Primary colors - vibrant pink tones */
+  --rym-primary: #BF3B84 !important;
+  --rym-primary-light: #D25BA0 !important;
+  --rym-primary-dark: #9F2B6A !important;
+  --rym-primary-alpha: rgba(191, 59, 132, 0.12) !important;
+
+  /* Background colors with wine to pink gradients */
+  --rym-bg-primary: #2e151b !important;
+  --rym-bg-secondary: #3d1f27 !important;
+  --rym-bg-tertiary: #4d2933 !important;
+  --rym-bg-modal: rgba(46, 21, 27, 0.95) !important;
+  --rym-bg-gradient: linear-gradient(145deg, #2e151b 0%, #BF3B84 100%) !important;
+  --rym-bg-gradient-subtle: linear-gradient(135deg, rgba(46, 21, 27, 0.9) 0%, rgba(191, 59, 132, 0.2) 100%) !important;
+  
+  /* Profile container specific - wine to pink with vibrant accents */
+  --rym-profile-bg: linear-gradient(145deg, #2e151b 0%, #5a2440 100%) !important;
+  --rym-profile-bg-hover: linear-gradient(145deg, #5a2440 0%, #7d2f5a 100%) !important;
+  --rym-profile-border: rgba(191, 59, 132, 0.35) !important;
+  --rym-profile-accent: linear-gradient(90deg, rgba(46, 21, 27, 0.9) 0%, rgba(191, 59, 132, 0.9) 50%, rgba(210, 91, 160, 0.9) 100%) !important;
+  
+  /* Text colors */
+  --rym-text-primary: #ffc9e8 !important;
+  --rym-text-secondary: rgba(255, 201, 232, 0.85) !important;
+  --rym-text-muted: rgba(255, 201, 232, 0.65) !important;
+  --rym-text-inverse: #2e151b !important;
+  
+  /* Border and shadow colors */
+  --rym-border: rgba(255, 201, 232, 0.15) !important;
+  --rym-border-light: rgba(255, 201, 232, 0.08) !important;
+  --rym-shadow: rgba(0, 0, 0, 0.3) !important;
+  --rym-shadow-strong: rgba(0, 0, 0, 0.5) !important;
+  
+  /* Header specific */
+  --rym-header-bg: linear-gradient(90deg, #2e151b 0%, #5a2440 100%) !important;
+  --rym-header-text: rgba(255, 201, 232, 0.9) !important;
+  
+  /* Interactive states */
+  --rym-hover-bg: rgba(191, 59, 132, 0.12) !important;
+  --rym-active-bg: rgba(191, 59, 132, 0.2) !important;
+  
+  /* Status colors */
+  --rym-success: #81C784 !important;
+  --rym-warning: #FFB74D !important;
+  --rym-error: #E57373 !important;
+  --rym-info: #64B5F6 !important;
+  
+  /* Music title container specific - loveless theme */
+  --rym-music-title-bg: linear-gradient(135deg, #2e151b 0%, #5a2440 100%) !important;
+  --rym-music-title-border: rgba(191, 59, 132, 0.4) !important;
+  --rym-music-title-text: #ffc9e8 !important;
+}
+
+/* Additional theme variants you can easily add */
+
+/* Stereolab Theme - Golden Fizz with Forest Green & Casal (#337822 to #336475) */
+.theme_stereolab {
+  --rym-primary: #337822 !important;
+  --rym-primary-light: #3f932a !important;
+  --rym-primary-dark: #285d1b !important;
+  --rym-primary-alpha: rgba(51, 120, 34, 0.12) !important;
+
+  /* Forest Green & Casal backgrounds with natural gradients */
+  --rym-bg-primary: #1a3c11 !important;
+  --rym-bg-secondary: #234d19 !important;
+  --rym-bg-tertiary: #2a5a1d !important;
+  --rym-bg-modal: rgba(26, 60, 17, 0.95) !important;
+  --rym-bg-gradient: linear-gradient(145deg, #337822 0%, #336475 100%) !important;
+  --rym-bg-gradient-subtle: linear-gradient(135deg, rgba(51, 120, 34, 0.9) 0%, rgba(51, 100, 117, 0.3) 100%) !important;
+  
+  /* Profile container specific - Forest Green to Casal with Golden Fizz accents */
+  --rym-profile-bg: linear-gradient(145deg, #337822 0%, #2d6b3f 100%) !important;
+  --rym-profile-bg-hover: linear-gradient(145deg, #2d6b3f 0%, #336475 100%) !important;
+  --rym-profile-border: rgba(243, 252, 74, 0.35) !important;
+  --rym-profile-accent: linear-gradient(90deg, rgba(51, 120, 34, 0.9) 0%, rgba(51, 100, 117, 0.9) 50%, rgba(243, 252, 74, 0.9) 100%) !important;
+  
+  --rym-text-primary: #f3fc4a !important;
+  --rym-text-secondary: rgba(243, 252, 74, 0.85) !important;
+  --rym-text-muted: rgba(243, 252, 74, 0.65) !important;
+  --rym-text-inverse: #1a3c11 !important;
+  
+  --rym-border: rgba(243, 252, 74, 0.18) !important;
+  --rym-border-light: rgba(243, 252, 74, 0.1) !important;
+  --rym-shadow: rgba(0, 0, 0, 0.3) !important;
+  --rym-shadow-strong: rgba(0, 0, 0, 0.5) !important;
+  
+  --rym-header-bg: linear-gradient(90deg, #337822 0%, #2d6b3f 100%) !important;
+  --rym-header-text: rgba(243, 252, 74, 0.9) !important;
+  
+  --rym-hover-bg: rgba(243, 252, 74, 0.12) !important;
+  --rym-active-bg: rgba(243, 252, 74, 0.2) !important;
+  
+  /* Music title container specific - stereolab theme */
+  --rym-music-title-bg: linear-gradient(135deg, #337822 0%, #2d6b3f 100%) !important;
+  --rym-music-title-border: rgba(243, 252, 74, 0.4) !important;
+  --rym-music-title-text: #f3fc4a !important;
+}
+
+/* Las Vegas Theme - Deep Blue to Red (#172467 to #ED2008) */
+.theme_lasvegas {
+  --rym-primary: #F9D477 !important;
+  --rym-primary-light: #fce09b !important;
+  --rym-primary-dark: #d4b556 !important;
+  --rym-primary-alpha: rgba(249, 212, 119, 0.12) !important;
+
+  /* Blue to red gradient with subtle accents */
+  --rym-bg-primary: #172467 !important;
+  --rym-bg-secondary: #1e2d75 !important;
+  --rym-bg-tertiary: #253283 !important;
+  --rym-bg-modal: rgba(23, 36, 103, 0.95) !important;
+  --rym-bg-gradient: linear-gradient(145deg, #172467 0%, #ED2008 100%) !important;
+  --rym-bg-gradient-subtle: linear-gradient(135deg, rgba(23, 36, 103, 0.9) 0%, rgba(237, 32, 8, 0.15) 100%) !important;
+  
+  /* Profile container specific - subtle gradient transitions */
+  --rym-profile-bg: linear-gradient(145deg, #172467 0%, #2a3582 100%) !important;
+  --rym-profile-bg-hover: linear-gradient(145deg, #2a3582 0%, #3d4399 100%) !important;
+  --rym-profile-border: rgba(249, 212, 119, 0.35) !important;
+  --rym-profile-accent: linear-gradient(90deg, rgba(23, 36, 103, 0.8) 0%, rgba(88, 50, 85, 0.8) 50%, rgba(249, 212, 119, 0.8) 100%) !important;
+  
+  --rym-text-primary: #F9D477 !important;
+  --rym-text-secondary: rgba(249, 212, 119, 0.85) !important;
+  --rym-text-muted: rgba(249, 212, 119, 0.65) !important;
+  --rym-text-inverse: #172467 !important;
+  
+  --rym-border: rgba(237, 32, 8, 0.12) !important;
+  --rym-border-light: rgba(237, 32, 8, 0.06) !important;
+  --rym-shadow: rgba(0, 0, 0, 0.4) !important;
+  --rym-shadow-strong: rgba(0, 0, 0, 0.6) !important;
+  
+  --rym-header-bg: linear-gradient(90deg, #172467 0%, #243071 100%) !important;
+  --rym-header-text: rgba(249, 212, 119, 0.9) !important;
+  
+  --rym-hover-bg: rgba(249, 212, 119, 0.12) !important;
+  --rym-active-bg: rgba(249, 212, 119, 0.2) !important;
+  
+  /* Music title container specific - las vegas theme */
+  --rym-music-title-bg: linear-gradient(135deg, #172467 0%, #2a3582 100%) !important;
+  --rym-music-title-border: rgba(249, 212, 119, 0.4) !important;
+  --rym-music-title-text: #F9D477 !important;
+}
+

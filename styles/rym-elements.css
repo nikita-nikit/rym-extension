@@ -1,0 +1,550 @@
+/* ========================================
+   RYM Extension - Additional RYM Elements Theming
+   Comprehensive theming for RYM website elements
+   ======================================== */
+
+/* ============================================ */
+/* GENERAL RYM WEBSITE ELEMENTS */
+/* ============================================ */
+
+/* Main content areas */
+.bubble_content,
+.page_content,
+.main_content {
+    background: var(--rym-bg-primary) !important;
+    color: var(--rym-text-primary) !important;
+    transition: background 0.3s ease, color 0.3s ease !important;
+}
+
+/* Note: .bubble_header styles moved to profile.css to avoid conflicts */
+
+/* Content wrappers and containers */
+.content_wrapper,
+.page_wrapper,
+.main_wrapper {
+    background: var(--rym-bg-gradient) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+/* ============================================ */
+/* TABLES AND DATA DISPLAY */
+/* ============================================ */
+
+/* General RYM tables */
+table.mbgen,
+table.release_page_chart,
+table.chart_details,
+table.artist_discography,
+table.release_tracks {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow) !important;
+}
+
+/* Table headers */
+table.mbgen th,
+table.release_page_chart th,
+table.chart_details th,
+table.artist_discography th,
+table.release_tracks th,
+.table_header,
+.chart_header {
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border-bottom: 1px solid var(--rym-border) !important;
+    padding: 8px 12px !important;
+    font-weight: 600 !important;
+}
+
+/* Table cells */
+table.mbgen td,
+table.release_page_chart td,
+table.chart_details td,
+table.artist_discography td,
+table.release_tracks td {
+    background: var(--rym-bg-secondary) !important;
+    color: var(--rym-text-primary) !important;
+    border-bottom: 1px solid var(--rym-border-light) !important;
+    padding: 6px 12px !important;
+    transition: background 0.2s ease !important;
+}
+
+/* Table row hover effects */
+table.mbgen tr:hover td,
+table.release_page_chart tr:hover td,
+table.chart_details tr:hover td,
+table.artist_discography tr:hover td,
+table.release_tracks tr:hover td {
+    background: var(--rym-hover-bg) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+/* ============================================ */
+/* FORMS AND INPUT ELEMENTS */
+/* ============================================ */
+
+/* Form containers */
+.form_container,
+.review_form,
+.rating_form,
+.comment_form {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    box-shadow: 0 2px 8px var(--rym-shadow) !important;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+    background: var(--rym-bg-primary) !important;
+    color: var(--rym-text-primary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    transition: border-color 0.2s ease, background 0.2s ease !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--rym-primary) !important;
+    background: var(--rym-bg-primary) !important;
+    box-shadow: 0 0 0 2px var(--rym-primary-alpha) !important;
+    outline: none !important;
+}
+
+/* Buttons */
+button,
+input[type="button"],
+input[type="submit"],
+.button,
+.btn,
+.submit_button {
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border: 1px solid var(--rym-primary-dark) !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.button:hover,
+.btn:hover,
+.submit_button:hover {
+    background: var(--rym-primary-light) !important;
+    border-color: var(--rym-primary) !important;
+    box-shadow: 0 2px 8px var(--rym-primary-alpha) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ============================================ */
+/* NAVIGATION AND MENUS */
+/* ============================================ */
+
+/* Navigation menus */
+.nav_menu,
+.menu_container,
+.dropdown_menu {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+/* Menu items */
+.nav_item,
+.menu_item,
+.dropdown_item {
+    color: var(--rym-text-primary) !important;
+    padding: 8px 16px !important;
+    border-bottom: 1px solid var(--rym-border-light) !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.nav_item:hover,
+.menu_item:hover,
+.dropdown_item:hover {
+    background: var(--rym-hover-bg) !important;
+    color: var(--rym-text-primary) !important;
+}
+
+.nav_item:last-child,
+.menu_item:last-child,
+.dropdown_item:last-child {
+    border-bottom: none !important;
+}
+
+/* ============================================ */
+/* CONTENT BOXES AND CARDS */
+/* ============================================ */
+
+/* Generic content boxes */
+.content_box,
+.info_box,
+.release_box,
+.artist_box,
+.album_box {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow) !important;
+    transition: all 0.2s ease !important;
+}
+
+.content_box:hover,
+.info_box:hover,
+.release_box:hover,
+.artist_box:hover,
+.album_box:hover {
+    border-color: var(--rym-primary-alpha) !important;
+    box-shadow: 0 4px 12px var(--rym-shadow-strong) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ============================================ */
+/* RATINGS AND REVIEWS */
+/* ============================================ */
+
+/* Rating containers */
+.rating_container,
+.review_container,
+.comment_container {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 1px 4px var(--rym-shadow) !important;
+}
+
+/* Rating stars and elements */
+.rating_stars,
+.star_rating,
+.rating_display {
+    color: var(--rym-primary) !important;
+    filter: drop-shadow(0 1px 2px var(--rym-shadow)) !important;
+}
+
+/* ============================================ */
+/* LISTS AND CHARTS */
+/* ============================================ */
+
+/* Chart and list containers */
+.chart_container,
+.list_container,
+.discography_container {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow) !important;
+}
+
+/* List items */
+.chart_item,
+.list_item,
+.discography_item {
+    background: var(--rym-bg-primary) !important;
+    border: 1px solid var(--rym-border-light) !important;
+    border-radius: 6px !important;
+    padding: 12px !important;
+    margin: 4px 0 !important;
+    color: var(--rym-text-primary) !important;
+    transition: all 0.2s ease !important;
+}
+
+.chart_item:hover,
+.list_item:hover,
+.discography_item:hover {
+    background: var(--rym-hover-bg) !important;
+    border-color: var(--rym-primary-alpha) !important;
+    transform: translateX(4px) !important;
+}
+
+/* ============================================ */
+/* LINKS AND TEXT ELEMENTS */
+/* ============================================ */
+
+/* General links */
+a,
+.link {
+    color: var(--rym-primary) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+a:hover,
+.link:hover {
+    color: var(--rym-primary-light) !important;
+    text-decoration: underline !important;
+}
+
+/* Note: General heading and text styles removed to prevent conflicts with component-specific styles */
+
+/* Muted text */
+.muted,
+.secondary_text,
+.meta_info {
+    color: var(--rym-text-muted) !important;
+}
+
+/* ============================================ */
+/* PAGINATION AND NAVIGATION */
+/* ============================================ */
+
+/* Pagination */
+.pagination,
+.page_navigation {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 4px !important;
+}
+
+.pagination a,
+.pagination span,
+.page_navigation a,
+.page_navigation span {
+    background: var(--rym-bg-primary) !important;
+    color: var(--rym-text-primary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.pagination a:hover,
+.page_navigation a:hover {
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border-color: var(--rym-primary-dark) !important;
+}
+
+.pagination .current,
+.page_navigation .current {
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border-color: var(--rym-primary-dark) !important;
+}
+
+/* ============================================ */
+/* MODAL AND OVERLAY ELEMENTS */
+/* ============================================ */
+
+/* Modals and overlays */
+.modal,
+.overlay,
+.popup,
+.dialog {
+    background: var(--rym-bg-modal) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 12px !important;
+    color: var(--rym-text-primary) !important;
+    box-shadow: 0 8px 32px var(--rym-shadow-strong) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* Modal headers */
+.modal_header,
+.popup_header,
+.dialog_header {
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border-bottom: 1px solid var(--rym-border) !important;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 16px !important;
+    font-weight: 600 !important;
+}
+
+/* Modal content */
+.modal_content,
+.popup_content,
+.dialog_content {
+    background: var(--rym-bg-secondary) !important;
+    color: var(--rym-text-primary) !important;
+    padding: 16px !important;
+}
+
+/* ============================================ */
+/* SPECIFIC RYM PAGE ELEMENTS */
+/* ============================================ */
+
+/* Release page elements */
+.release_page_header,
+.album_header,
+.artist_header {
+    background: var(--rym-bg-gradient) !important;
+    color: var(--rym-text-primary) !important;
+    border-bottom: 2px solid var(--rym-primary) !important;
+    padding: 16px !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+/* Sidebar elements */
+.sidebar,
+.side_panel {
+    background: var(--rym-bg-secondary) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    color: var(--rym-text-primary) !important;
+}
+
+/* Footer elements */
+.footer,
+.page_footer {
+    background: var(--rym-bg-tertiary) !important;
+    color: var(--rym-text-secondary) !important;
+    border-top: 1px solid var(--rym-border) !important;
+    padding: 16px !important;
+}
+
+/* ============================================ */
+/* UTILITY CLASSES */
+/* ============================================ */
+
+/* Background utilities */
+.bg-primary { background: var(--rym-bg-primary) !important; }
+.bg-secondary { background: var(--rym-bg-secondary) !important; }
+.bg-tertiary { background: var(--rym-bg-tertiary) !important; }
+
+/* Text color utilities */
+.text-primary { color: var(--rym-text-primary) !important; }
+.text-secondary { color: var(--rym-text-secondary) !important; }
+.text-muted { color: var(--rym-text-muted) !important; }
+.text-inverse { color: var(--rym-text-inverse) !important; }
+
+/* Border utilities */
+.border { border: 1px solid var(--rym-border) !important; }
+.border-light { border: 1px solid var(--rym-border-light) !important; }
+.border-primary { border: 1px solid var(--rym-primary) !important; }
+
+/* ============================================ */
+/* RESPONSIVE DESIGN */
+/* ============================================ */
+
+@media screen and (max-width: 768px) {
+    .content_box,
+    .info_box,
+    .release_box,
+    .artist_box,
+    .album_box {
+        padding: 12px !important;
+        margin: 4px 0 !important;
+    }
+    
+    .modal,
+    .overlay,
+    .popup,
+    .dialog {
+        margin: 8px !important;
+        border-radius: 8px !important;
+    }
+    
+    table.mbgen,
+    table.release_page_chart,
+    table.chart_details,
+    table.artist_discography,
+    table.release_tracks {
+        font-size: 14px !important;
+    }
+    
+    table.mbgen td,
+    table.release_page_chart td,
+    table.chart_details td,
+    table.artist_discography td,
+    table.release_tracks td {
+        padding: 4px 8px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form_container,
+    .review_form,
+    .rating_form,
+    .comment_form {
+        padding: 12px !important;
+        margin: 4px !important;
+    }
+    
+    button,
+    input[type="button"],
+    input[type="submit"],
+    .button,
+    .btn,
+    .submit_button {
+        padding: 6px 12px !important;
+        font-size: 14px !important;
+    }
+    
+    .chart_container,
+    .list_container,
+    .discography_container {
+        padding: 12px !important;
+    }
+}
+
+/* ============================================ */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* ============================================ */
+
+/* Focus indicators */
+*:focus {
+    outline: 2px solid var(--rym-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .content_box,
+    .info_box,
+    .release_box,
+    .artist_box,
+    .album_box {
+        border-width: 2px !important;
+    }
+    
+    button,
+    input[type="button"],
+    input[type="submit"],
+    .button,
+    .btn,
+    .submit_button {
+        border-width: 2px !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}

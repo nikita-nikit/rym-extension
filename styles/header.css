@@ -1,11 +1,11 @@
 #page_header {
-    background: linear-gradient(90deg, #001014 0%, #050014 100%) !important;
+    background: var(--rym-header-bg) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 0.6em 1em !important;
     gap: 1em !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 2px 8px var(--rym-shadow-strong) !important;
     position: sticky !important;
     top: 0 !important;
     z-index: 1000 !important;
@@ -45,7 +45,7 @@
   .header_mod_roles,
   .header_theme_buttons,
   .main.header_item.sonemic {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--rym-header-text) !important;
     background-color: transparent !important;
     text-decoration: none !important;
     user-select: none !important;

@@ -1,6 +1,202 @@
-/* Seattle Sweet Pink gradient background */
-body, #page_body {
-   /* background: linear-gradient(130deg, #559dfb 0%, #fd9fa4 100%) !important; */
-   background: #f0f0f0 !important;
-    background-attachment: fixed !important;
+/* ========================================
+   RYM Extension - Body and Global Styles
+   Global page styling and body background
+   ======================================== */
+
+/* Global body styling with theme-aware background */
+body {
+    background: var(--rym-bg-gradient, #ffffff) !important;
+    min-height: 100vh !important;
+    transition: background 0.3s ease !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif !important;
+}
+
+/* Global text color inheritance */
+body, body * {
+    color: var(--rym-text-primary, #1a1a1a) !important;
+}
+
+/* Ensure proper text rendering */
+* {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Compact bubble content - no bottom margin */
+.bubble-content-compact {
+    margin-bottom: 0 !important;
+}
+
+/* Recommendations section with bottom padding */
+.rym-recommendations-section {
+    padding-bottom: 10px !important;
+}
+
+/* ========================================
+   Shoutbox Comment Area Styling
+   Slick, dark design with no white backgrounds
+   ======================================== */
+
+/* Main shoutbox container */
+#shoutbox_commentarea {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    padding: 0px !important;
+    backdrop-filter: blur(10px) !important;
+    overflow: hidden !important;
+}
+
+/* Comment display area */
+.smallcomment_area {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--rym-border) !important;
+    padding: 8px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--rym-primary) transparent !important;
+}
+
+/* Custom scrollbar for webkit browsers */
+.smallcomment_area::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+.smallcomment_area::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.smallcomment_area::-webkit-scrollbar-thumb {
+    background: var(--rym-primary) !important;
+    border-radius: 2px !important;
+}
+
+.smallcomment_area::-webkit-scrollbar-thumb:hover {
+    background: var(--rym-primary-light) !important;
+}
+
+/* Individual comments */
+#shoutbox_commentarea .comment {
+    background: transparent !important;
+    border: none !important;
+    border-left: 2px solid transparent !important;
+    padding: 8px 8px 8px 6px !important;
+    margin-bottom: 4px !important;
+    transition: all 0.2s ease !important;
+}
+
+#shoutbox_commentarea .comment:hover {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border-left-color: var(--rym-primary) !important;
+}
+
+#shoutbox_commentarea .comment:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Comment table styling */
+#shoutbox_commentarea .commenttbl {
+    width: 100% !important;
+    border-spacing: 0 !important;
+}
+
+#shoutbox_commentarea .commenttbl td {
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+/* Comment profile picture cell */
+#shoutbox_commentarea .commenttblpic {
+    width: 44px !important;
+    padding-right: 8px !important;
+}
+
+#shoutbox_commentarea .commenttblpic img {
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    border: 2px solid var(--rym-primary) !important;
+    transition: all 0.2s ease !important;
+    object-fit: cover !important;
+}
+
+#shoutbox_commentarea .commenttblpic img:hover {
+    border-color: var(--rym-primary-light) !important;
+    box-shadow: 0 0 12px var(--rym-primary) !important;
+}
+
+/* Comment content area */
+#shoutbox_commentarea .commenttbl .comment_body {
+    color: var(--rym-text-primary) !important;
+    line-height: 1.4 !important;
+    font-size: 13px !important;
+}
+
+/* Comment author links */
+#shoutbox_commentarea .commenttbl a {
+    color: var(--rym-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: all 0.2s ease !important;
+}
+
+#shoutbox_commentarea .commenttbl a:hover {
+    color: var(--rym-primary-light) !important;
+    text-shadow: 0 0 8px var(--rym-primary) !important;
+}
+
+/* Comment metadata (date, time) */
+#shoutbox_commentarea .comment_date {
+    color: var(--rym-text-muted) !important;
+    font-size: 11px !important;
+    margin-top: 2px !important;
+}
+
+/* ========================================
+   Comment Button Styling
+   Slick, minimal button design
+   ======================================== */
+
+/* Remove background from button wrapper div */
+#shoutbox_commentarea > div[style*="background"] {
+    background: transparent !important;
+    border: none !important;
+    height: auto !important;
+}
+
+/* Comment button container */
+.commentbutton {
+    padding: 10px !important;
+    background: transparent !important;
+}
+
+/* Write a Comment button */
+#shoutbox_dummybutton {
+    width: 100% !important;
+    height: 38px !important;
+    padding: 0 16px !important;
+    background: var(--rym-primary) !important;
+    color: var(--rym-text-inverse) !important;
+    border: 1px solid var(--rym-primary) !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+#shoutbox_dummybutton:hover {
+    background: var(--rym-primary-light) !important;
+    border-color: var(--rym-primary-light) !important;
+    box-shadow: 0 0 16px var(--rym-primary) !important;
+}
+
+#shoutbox_dummybutton:active {
+    background: var(--rym-primary-dark) !important;
+    border-color: var(--rym-primary-dark) !important;
+    box-shadow: 0 0 8px var(--rym-primary) !important;
 }
