@@ -23,8 +23,14 @@ body, body * {
     -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* Compact bubble content - no bottom margin */
+/* Compact bubble content - no bottom margin and no top padding */
 .bubble-content-compact {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Action buttons bubble content - no bottom margin */
+.rym-ext-bubble-content-actions {
     margin-bottom: 0 !important;
 }
 

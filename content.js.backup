@@ -697,6 +697,29 @@ function addBubbleContentCompactClass() {
   });
 }
 
+// Function to add unique class to bubble_content that contains action buttons
+// This targets ONLY the specific bubble_content with platform profile links (RYM/Glitchwave)
+function addActionButtonsBubbleContentClass() {
+  console.log("Adding unique class to action buttons bubble_content...");
+  
+  const bubbleContentElements = document.querySelectorAll('.bubble_content');
+  
+  bubbleContentElements.forEach((element) => {
+    // Check for the specific structure:
+    // 1. Has a div with text-align:right and padding styles
+    // 2. Contains action button links to Sonemic/Glitchwave
+    const hasRightAlignedDiv = element.querySelector('div[style*="text-align:right"]');
+    const hasSonemicLink = element.querySelector('a[href*="rateyourmusic.com/~"], a[href*="sonemic.com/~"]');
+    const hasGlitchwaveLink = element.querySelector('a[href*="glitchwave.com/user/"]');
+    
+    // Only apply to the specific bubble_content with platform profile links
+    if (hasRightAlignedDiv && (hasSonemicLink || hasGlitchwaveLink) && !element.classList.contains('rym-ext-bubble-content-actions')) {
+      element.classList.add('rym-ext-bubble-content-actions');
+      console.log(`✅ Added rym-ext-bubble-content-actions class to platform links bubble_content:`, element);
+    }
+  });
+}
+
 // Function to add unique class to recommendations section
 function addRecommendationsSectionClass() {
   console.log("Adding rym-recommendations-section class to recommendations div...");
@@ -755,6 +778,7 @@ function setupBubbleContentObserver() {
       scheduled = true;
       setTimeout(() => {
         addBubbleContentCompactClass();
+        addActionButtonsBubbleContentClass();
         addRecommendationsSectionClass();
         scheduled = false;
       }, 50);
@@ -1359,6 +1383,7 @@ function initializeRYMExtension() {
     addCustomBubbleHeaderClass();
     addCustomFilmBubbleHeaderClass();
     addBubbleContentCompactClass();
+    addActionButtonsBubbleContentClass();
     addRecommendationsSectionClass();
     setupBubbleContentObserver();
     
