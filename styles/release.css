@@ -1,0 +1,182 @@
+/* ========================================
+   RYM Extension - Release Page Styling
+   Color changes only - preserving original layout
+   ======================================== */
+
+/* Main release right column container */
+#column_container_right.release_right_column {
+  background: var(--rym-bg-secondary) !important;
+}
+
+/* Section containers */
+#column_container_right .section_main_info,
+#column_container_right .section_outer {
+  background: var(--rym-bg-primary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Album title */
+#column_container_right .album_title {
+  color: var(--rym-text-primary) !important;
+}
+
+/* Album shortcut input */
+#column_container_right .album_shortcut {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+  color: var(--rym-text-secondary) !important;
+}
+
+/* Artist links */
+#column_container_right a.artist,
+#column_container_right .album_artist_small a {
+  color: var(--rym-primary) !important;
+}
+
+#column_container_right a.artist:hover,
+#column_container_right .album_artist_small a:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* All text elements */
+#column_container_right,
+#column_container_right .page_section,
+#column_container_right .album_artist_small,
+#column_container_right .show-for-small {
+  color: var(--rym-text-primary) !important;
+}
+
+/* Color bar table */
+#column_container_right table.color_bar {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+#column_container_right table.color_bar td {
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Info labels */
+#column_container_right .release_pri_genres,
+#column_container_right .release_sec_genres,
+#column_container_right .release_descriptors,
+#column_container_right .info_hdr {
+  color: var(--rym-text-primary) !important;
+}
+
+#column_container_right .info_content {
+  color: var(--rym-text-secondary) !important;
+}
+
+/* Genre and descriptor tags */
+#column_container_right .genre,
+#column_container_right .descriptor {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+  color: var(--rym-text-primary) !important;
+}
+
+#column_container_right .genre a,
+#column_container_right .descriptor a {
+  color: var(--rym-text-primary) !important;
+}
+
+/* Track listings */
+#column_container_right .tracklist,
+#column_container_right .tracks {
+  background: var(--rym-bg-secondary) !important;
+}
+
+#column_container_right .track {
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-border-light) !important;
+}
+
+/* Credits and info sections */
+#column_container_right .album_info,
+#column_container_right .credits_section {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+  color: var(--rym-text-primary) !important;
+}
+
+/* General links */
+#column_container_right a {
+  color: var(--rym-primary) !important;
+}
+
+#column_container_right a:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* Buttons */
+#column_container_right button,
+#column_container_right .btn,
+#column_container_right input[type="button"],
+#column_container_right input[type="submit"] {
+  background: var(--rym-primary) !important;
+  color: var(--rym-text-inverse) !important;
+  border-color: var(--rym-primary) !important;
+}
+
+#column_container_right button:hover,
+#column_container_right .btn:hover,
+#column_container_right input[type="button"]:hover,
+#column_container_right input[type="submit"]:hover {
+  background: var(--rym-primary-dark) !important;
+}
+
+/* Rating section */
+#column_container_right .rating_container,
+#column_container_right .avg_rating {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-primary) !important;
+}
+
+#column_container_right .avg_rating .avg_rating_num {
+  color: var(--rym-primary) !important;
+}
+
+/* Statistics */
+#column_container_right .num_ratings,
+#column_container_right .num_reviews {
+  color: var(--rym-text-secondary) !important;
+}
+
+/* Tables */
+#column_container_right table {
+  background: var(--rym-bg-secondary) !important;
+}
+
+#column_container_right table th {
+  background: var(--rym-bg-tertiary) !important;
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+#column_container_right table td {
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-border-light) !important;
+}
+
+/* Reviews */
+#column_container_right .review,
+#column_container_right .comment {
+  background: var(--rym-bg-secondary) !important;
+  border-color: var(--rym-primary) !important;
+  color: var(--rym-text-primary) !important;
+}
+
+/* Dividers */
+#column_container_right hr {
+  background: var(--rym-border) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Metadata and small text */
+#column_container_right .metadata,
+#column_container_right .smallfont,
+#column_container_right small {
+  color: var(--rym-text-muted) !important;
+}

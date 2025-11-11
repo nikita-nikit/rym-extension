@@ -216,30 +216,44 @@ function addUniqueProfileIdentifiers() {
 
 // Function to remove unwanted button cell elements
 function removeUnwantedButtonCells() {
-  console.log("Removing unwanted button cell elements...");
+  console.log("Checking for unwanted button cell elements...");
   
-  // Target the specific cell class that was selected
-  const unwantedCells = document.querySelectorAll('.rym-ext-button-cell-14');
+  let removedCount = 0;
   
-  unwantedCells.forEach((cell, index) => {
-    const parentRow = cell.closest('tr');
-    if (parentRow) {
-      console.log(`Removing button row ${index + 1} containing rym-ext-button-cell-14:`, parentRow);
-      parentRow.remove();
-    } else {
-      console.log(`Removing button cell ${index + 1}:`, cell);
+  // Remove any elements with or_q_ownership class (Wishlist, etc.)
+  const ownershipElements = document.querySelectorAll('.or_q_ownership, [class*="or_q_ownership"]');
+  ownershipElements.forEach((element) => {
+    console.log(`Removing or_q_ownership element:`, element);
+    element.remove();
+    removedCount++;
+  });
+  
+  // Remove empty or near-empty button cells that only contain whitespace
+  const buttonCells = document.querySelectorAll('.rym-ext-button-cell');
+  
+  buttonCells.forEach((cell) => {
+    // Check if cell is empty or only contains whitespace
+    const textContent = cell.textContent.trim();
+    const hasButtons = cell.querySelectorAll('.btn, .tool_btn, a[title], button').length > 0;
+    const hasImages = cell.querySelectorAll('img').length > 0;
+    const hasLinks = cell.querySelectorAll('a[href]').length > 0;
+    
+    // If cell has no text, no buttons, no images, and no meaningful links, remove it
+    if (textContent.length === 0 && !hasButtons && !hasImages && !hasLinks) {
+      console.log(`Removing empty button cell:`, cell);
       cell.remove();
+      removedCount++;
     }
   });
   
-  // Also remove any empty table rows that might be left behind
+  // Also remove empty table rows that might be left behind
   const emptyRows = document.querySelectorAll('tr:empty, tr:has(td:empty):not(:has(td:not(:empty)))');
   emptyRows.forEach((row, index) => {
     console.log(`Removing empty row ${index + 1}:`, row);
     row.remove();
   });
   
-  console.log(`Removed ${unwantedCells.length} unwanted button cell elements`);
+  console.log(`Removed ${removedCount} unwanted elements, ${ownershipElements.length} ownership elements, and ${emptyRows.length} empty rows`);
 }
 
 function restyleProfilePicture() {

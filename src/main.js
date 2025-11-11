@@ -57,6 +57,9 @@ function initializeRYMExtension() {
     // Initialize theme controller
     initializeThemeController();
     
+    // Initialize cursor shimmer effect for toolbar
+    initializeCursorShimmer();
+    
     console.log('Core UI improvements completed successfully');
   } catch (error) {
     console.error('Error during core UI initialization:', error);
@@ -225,6 +228,48 @@ function setupDebugFunctions() {
   
   // Export utility for selecting bubble content
   window.addCompactToSelected = addCompactClassToSelectedElement;
+}
+
+// Initialize cursor shimmer effect for toolbar buttons
+function initializeCursorShimmer() {
+  // Function to add shimmer tracking to toolbar elements
+  function addShimmerTracking() {
+    const toolbarButtons = document.querySelectorAll('.musictoolbar a');
+    
+    toolbarButtons.forEach(button => {
+      // Skip if already initialized
+      if (button.hasAttribute('data-shimmer-initialized')) return;
+      button.setAttribute('data-shimmer-initialized', 'true');
+      
+      button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        button.style.setProperty('--mouse-x', `${x}%`);
+        button.style.setProperty('--mouse-y', `${y}%`);
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        button.style.setProperty('--mouse-x', '50%');
+        button.style.setProperty('--mouse-y', '50%');
+      });
+    });
+  }
+  
+  // Initial setup
+  setTimeout(addShimmerTracking, 500);
+  
+  // Re-run when toolbar might be dynamically added/updated
+  const observer = new MutationObserver(() => {
+    addShimmerTracking();
+  });
+  
+  // Observe the document for toolbar additions
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 }
 
 // Run when DOM is ready

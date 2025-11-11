@@ -57,29 +57,13 @@
     background: transparent !important;
 }
 
-/* Enhanced album cover hover effect */
-.or_q_thumb_album a {
-    display: block !important;
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 4px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-    transition: all 0.3s ease !important;
-    padding: 0 !important;
-}
-
-.or_q_thumb_album a:hover {
-    transform: scale(1.08) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-    z-index: 10 !important;
-}
-
-/* Make album cover fill entire cell */
+/* Album cover styling - no hover effect */
 .or_q_thumb_album {
     padding: 0 !important;
     line-height: 0 !important;
     width: auto !important;
-    max-width: 50px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
 }
 
 .or_q_thumb_album a {
@@ -94,6 +78,9 @@
     max-width: none !important;
     object-fit: cover !important;
     display: block !important;
+    border-radius: 4px !important;
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
 }
 
 /* Polished date badges */
@@ -123,7 +110,7 @@
 }
 
 #musicrecent .mbgen tbody tr td {
-    padding: 12px 10px !important;
+    padding: 8px 8px !important;
     vertical-align: middle !important;
 }
 
@@ -416,36 +403,57 @@
     flex-wrap: wrap !important;
     align-items: center !important;
     gap: 8px !important;
-    background: var(--rym-bg-secondary) !important;
-    border: 1px solid var(--rym-border) !important;
-    border-radius: 10px !important;
-    padding: 6px !important;
-    box-shadow: 0 2px 8px var(--rym-shadow), inset 0 1px 2px var(--rym-primary-alpha) !important;
-    backdrop-filter: blur(8px) !important;
+    background: linear-gradient(135deg, 
+                var(--rym-bg-secondary) 0%, 
+                var(--rym-bg-tertiary) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 16px !important;
+    padding: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(24px) saturate(200%) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) brightness(1.1) !important;
+    position: relative !important;
+    overflow: visible !important;
 }
 
 .musictoolbar a {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 28px !important;
-    padding: 0 10px !important;
-    border-radius: 8px !important;
+    height: 32px !important;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
     color: var(--rym-text-primary) !important;
     text-decoration: none !important;
     font-size: 13px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.2px !important;
-    border: 1px solid var(--rym-border) !important;
-    background: var(--rym-primary-alpha) !important;
-    transition: all 0.2s ease !important;
+    letter-spacing: 0.3px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.04) 0%, 
+                rgba(255, 255, 255, 0.02) 100%) !important;
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+                inset 0 0.5px 0 rgba(255, 255, 255, 0.06) !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
 .musictoolbar a:hover {
-    background: var(--rym-hover-bg) !important;
-    border-color: var(--rym-primary) !important;
-    box-shadow: 0 4px 10px var(--rym-primary-alpha) !important;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.04) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 4px 12px var(--rym-primary-alpha), 
+                0 2px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     color: var(--rym-text-primary) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    backdrop-filter: blur(10px) saturate(140%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(140%) brightness(1.05) !important;
 }
 
 .musictoolbar a:focus {
@@ -454,16 +462,190 @@
     border-color: var(--rym-primary) !important;
 }
 
+.musictoolbar a::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.05) 30%,
+                transparent 60%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    pointer-events: none !important;
+}
+
+.musictoolbar a:hover::before {
+    opacity: 1 !important;
+}
+
 .musictoolbar a.active,
 .musictoolbar a[style*="background:"] {
-    background: var(--rym-active-bg) !important;
-    border-color: var(--rym-primary) !important;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.06) 50%,
+                rgba(255, 255, 255, 0.04) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 16px var(--rym-primary-alpha), 
+                0 2px 8px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.08) !important;
     color: var(--rym-text-primary) !important;
+    backdrop-filter: blur(10px) saturate(150%) brightness(1.08) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(150%) brightness(1.08) !important;
+    transform: scale(1.01) !important;
 }
 
 .musictoolbar #totalratings {
     color: var(--rym-primary) !important;
     font-weight: 700 !important;
+}
+
+/* ============================================
+   THEME-SPECIFIC BUTTON COLORS
+   ============================================ */
+
+/* OK Computer (Light) Theme - Blue hover */
+.theme_light .musictoolbar a:hover {
+    background: linear-gradient(135deg, 
+                rgba(102, 193, 238, 0.12) 0%, 
+                rgba(102, 193, 238, 0.06) 100%) !important;
+    border-color: rgba(102, 193, 238, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(102, 193, 238, 0.15), 
+                0 2px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(102, 193, 238, 0.15) !important;
+}
+
+.theme_light .musictoolbar a:hover::before {
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(102, 193, 238, 0.2) 0%, 
+                rgba(102, 193, 238, 0.08) 30%,
+                transparent 60%) !important;
+}
+
+.theme_light .musictoolbar a.active,
+.theme_light .musictoolbar a[style*="background:"] {
+    background: linear-gradient(135deg, 
+                rgba(102, 193, 238, 0.18) 0%, 
+                rgba(102, 193, 238, 0.1) 50%,
+                rgba(102, 193, 238, 0.06) 100%) !important;
+    border-color: rgba(102, 193, 238, 0.3) !important;
+}
+
+/* Night Theme - Blue hover */
+.theme_night .musictoolbar a:hover {
+    background: linear-gradient(135deg, 
+                rgba(100, 181, 246, 0.12) 0%, 
+                rgba(100, 181, 246, 0.06) 100%) !important;
+    border-color: rgba(100, 181, 246, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.2), 
+                0 2px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(100, 181, 246, 0.15) !important;
+}
+
+.theme_night .musictoolbar a:hover::before {
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(100, 181, 246, 0.2) 0%, 
+                rgba(100, 181, 246, 0.08) 30%,
+                transparent 60%) !important;
+}
+
+.theme_night .musictoolbar a.active,
+.theme_night .musictoolbar a[style*="background:"] {
+    background: linear-gradient(135deg, 
+                rgba(100, 181, 246, 0.18) 0%, 
+                rgba(100, 181, 246, 0.1) 50%,
+                rgba(100, 181, 246, 0.06) 100%) !important;
+    border-color: rgba(100, 181, 246, 0.3) !important;
+}
+
+/* Loveless Theme - Pink hover */
+.theme_loveless .musictoolbar a:hover {
+    background: linear-gradient(135deg, 
+                rgba(191, 59, 132, 0.12) 0%, 
+                rgba(191, 59, 132, 0.06) 100%) !important;
+    border-color: rgba(191, 59, 132, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(191, 59, 132, 0.2), 
+                0 2px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(191, 59, 132, 0.15) !important;
+}
+
+.theme_loveless .musictoolbar a:hover::before {
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(191, 59, 132, 0.25) 0%, 
+                rgba(191, 59, 132, 0.1) 30%,
+                transparent 60%) !important;
+}
+
+.theme_loveless .musictoolbar a.active,
+.theme_loveless .musictoolbar a[style*="background:"] {
+    background: linear-gradient(135deg, 
+                rgba(191, 59, 132, 0.18) 0%, 
+                rgba(191, 59, 132, 0.1) 50%,
+                rgba(191, 59, 132, 0.06) 100%) !important;
+    border-color: rgba(191, 59, 132, 0.3) !important;
+}
+
+/* Stereolab Theme - Yellow/Green hover */
+.theme_stereolab .musictoolbar a:hover {
+    background: linear-gradient(135deg, 
+                rgba(243, 252, 74, 0.12) 0%, 
+                rgba(243, 252, 74, 0.06) 100%) !important;
+    border-color: rgba(243, 252, 74, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(243, 252, 74, 0.2), 
+                0 2px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(243, 252, 74, 0.15) !important;
+}
+
+.theme_stereolab .musictoolbar a:hover::before {
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(243, 252, 74, 0.25) 0%, 
+                rgba(243, 252, 74, 0.1) 30%,
+                transparent 60%) !important;
+}
+
+.theme_stereolab .musictoolbar a.active,
+.theme_stereolab .musictoolbar a[style*="background:"] {
+    background: linear-gradient(135deg, 
+                rgba(243, 252, 74, 0.18) 0%, 
+                rgba(243, 252, 74, 0.1) 50%,
+                rgba(243, 252, 74, 0.06) 100%) !important;
+    border-color: rgba(243, 252, 74, 0.3) !important;
+}
+
+.theme_stereolab .musictoolbar #totalratings {
+    color: #f3fc4a !important;
+    text-shadow: 0 0 8px rgba(243, 252, 74, 0.4) !important;
+}
+
+/* Las Vegas Theme - Golden hover */
+.theme_lasvegas .musictoolbar a:hover {
+    background: linear-gradient(135deg, 
+                rgba(249, 212, 119, 0.12) 0%, 
+                rgba(249, 212, 119, 0.06) 100%) !important;
+    border-color: rgba(249, 212, 119, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(249, 212, 119, 0.2), 
+                0 2px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(249, 212, 119, 0.15) !important;
+}
+
+.theme_lasvegas .musictoolbar a:hover::before {
+    background: radial-gradient(circle 60px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(249, 212, 119, 0.25) 0%, 
+                rgba(249, 212, 119, 0.1) 30%,
+                transparent 60%) !important;
+}
+
+.theme_lasvegas .musictoolbar a.active,
+.theme_lasvegas .musictoolbar a[style*="background:"] {
+    background: linear-gradient(135deg, 
+                rgba(249, 212, 119, 0.18) 0%, 
+                rgba(249, 212, 119, 0.1) 50%,
+                rgba(249, 212, 119, 0.06) 100%) !important;
+    border-color: rgba(249, 212, 119, 0.3) !important;
 }
 
 @media screen and (max-width: 768px) {

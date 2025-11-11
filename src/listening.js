@@ -127,6 +127,7 @@ function redesignListeningComponent() {
       const albumCover = document.createElement("img");
       albumCover.src = albumCoverSrc;
       albumCover.alt = contentText;
+      albumCover.className = "play_history_item_art";
       
       // Make album cover clickable
       const albumCoverLink = document.createElement("a");
