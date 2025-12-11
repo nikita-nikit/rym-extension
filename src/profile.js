@@ -176,6 +176,13 @@ function addUniqueProfileIdentifiers() {
   // Find and enhance button rows (social action buttons)
   const buttonRows = document.querySelectorAll('tr:has(td#follow_user), tr:has(td[id*="block"]), tr:has(.btn.tool_btn)');
   buttonRows.forEach((row, index) => {
+    // CRITICAL FIX: Skip rows containing profile_image - they are NOT button rows!
+    const hasProfileImage = row.querySelector('#profile_image');
+    if (hasProfileImage) {
+      console.log(`⚠️ Skipping row ${index + 1} - contains profile_image, not a button row`);
+      return;
+    }
+    
     row.classList.add('rym-ext-button-row');
     row.classList.add(`rym-ext-button-row-${index + 1}`);
     
@@ -231,7 +238,22 @@ function removeUnwantedButtonCells() {
   // Remove empty or near-empty button cells that only contain whitespace
   const buttonCells = document.querySelectorAll('.rym-ext-button-cell');
   
+  console.log(`🔍 Checking button rows for empty cells... Found ${buttonCells.length} button cells to check`);
+  
   buttonCells.forEach((cell) => {
+    // CRITICAL FIX: Protect cells with profile_image ID
+    if (cell.id === 'profile_image') {
+      console.log('✅ Protecting button cell - contains profile_image');
+      return;
+    }
+    
+    // CRITICAL FIX: Protect cells with background images
+    const styleAttr = (cell.getAttribute('style') || '').toLowerCase();
+    if (styleAttr.includes('background-image')) {
+      console.log('✅ Protecting button cell - has background-image');
+      return;
+    }
+    
     // Check if cell is empty or only contains whitespace
     const textContent = cell.textContent.trim();
     const hasButtons = cell.querySelectorAll('.btn, .tool_btn, a[title], button').length > 0;
@@ -247,8 +269,31 @@ function removeUnwantedButtonCells() {
   });
   
   // Also remove empty table rows that might be left behind
-  const emptyRows = document.querySelectorAll('tr:empty, tr:has(td:empty):not(:has(td:not(:empty)))');
+  // CRITICAL FIX: Only select truly empty rows (tr:empty), not rows with styled TDs
+  const emptyRows = document.querySelectorAll('tr:empty');
+  
+  console.log(`🔍 Checking for empty rows to remove... Found ${emptyRows.length} potentially empty rows (tr:empty)`);
+  
   emptyRows.forEach((row, index) => {
+    // CRITICAL FIX: Double-check for profile_image before removing
+    const hasProfileImage = row.querySelector('#profile_image');
+    if (hasProfileImage) {
+      console.log(`⚠️ Skipping empty row ${index + 1} - contains profile_image`);
+      return;
+    }
+    
+    // CRITICAL FIX: Check for background images in cells
+    const cells = row.querySelectorAll('td');
+    const hasBackgroundImage = Array.from(cells).some(cell => {
+      const styleAttr = (cell.getAttribute('style') || '').toLowerCase();
+      return styleAttr.includes('background-image');
+    });
+    
+    if (hasBackgroundImage) {
+      console.log(`⚠️ Skipping row ${index + 1} - has background image`);
+      return;
+    }
+    
     console.log(`Removing empty row ${index + 1}:`, row);
     row.remove();
   });

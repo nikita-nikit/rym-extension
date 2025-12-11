@@ -169,10 +169,10 @@
 
 /* Stereolab Theme - Golden Fizz with Forest Green & Casal (#337822 to #336475) */
 .theme_stereolab {
-  --rym-primary: #337822 !important;
-  --rym-primary-light: #3f932a !important;
-  --rym-primary-dark: #285d1b !important;
-  --rym-primary-alpha: rgba(51, 120, 34, 0.12) !important;
+  --rym-primary: #f3fc4a !important;
+  --rym-primary-light: #f9ff7a !important;
+  --rym-primary-dark: #d4db2a !important;
+  --rym-primary-alpha: rgba(243, 252, 74, 0.12) !important;
 
   /* Forest Green & Casal backgrounds with natural gradients */
   --rym-bg-primary: #1a3c11 !important;

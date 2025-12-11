@@ -47,6 +47,10 @@ function initializeRYMExtension() {
     addRecommendationsSectionClass();
     setupBubbleContentObserver();
     
+    // Release page improvements
+    moveTracklistTotalToHeader();
+    setupReleasePageObserver();
+    
     // Remove empty spacer rows detected on profile pages
     removeEmptySpacerRows();
     setupSpacerRowObserver();

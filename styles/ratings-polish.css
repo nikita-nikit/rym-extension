@@ -8,6 +8,65 @@
    - Music toolbar and navigation tabs
    ============================================ */
 
+/* ============================================
+   DISCUSSION SECTION (align with ratings blocks)
+   ============================================ */
+.page_object_section.page_object_section_discussion {
+    background: var(--rym-bg-gradient-subtle) !important;
+    border: 1px solid var(--rym-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px var(--rym-shadow) !important;
+    padding: 0 !important;
+    margin: 12px 0 !important;
+    overflow: hidden !important;
+}
+
+.page_object_section_discussion_header {
+  background: var(--rym-bg-primary) !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+}
+
+.page_object_section_discussion_header .page_object_section_header {
+    color: var(--rym-text-primary) !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+}
+
+.page_object_discussion_threads {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.page_object_discussion_thread {
+    padding: 12px 16px !important;
+    background: var(--rym-bg-primary) !important;
+    border-bottom: 1px solid var(--rym-border-light) !important;
+}
+
+.page_object_discussion_thread:last-child {
+    border-bottom: none !important;
+}
+
+.page_object_discussion_thread a {
+    color: var(--rym-text-primary) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+    font-weight: 500 !important;
+}
+
+.page_object_discussion_thread a:hover {
+    color: var(--rym-primary) !important;
+}
+
+/* Remove border from "more..." link cells */
+.rym-ext-more-cell {
+    border-bottom: none !important;
+}
+
 .mbgen td, #userlists td, #useralbums td, #userrec td, .discography td {
     border-left: 0.1px solid rgba(255, 255, 255, 0.02) !important;   
     border-right: 0.1px solid rgba(255, 255, 255, 0.02) !important;
@@ -591,10 +650,11 @@
 
 /* Stereolab Theme - Yellow/Green hover */
 .theme_stereolab .musictoolbar a:hover {
-    background: linear-gradient(135deg, 
-                rgba(243, 252, 74, 0.12) 0%, 
-                rgba(243, 252, 74, 0.06) 100%) !important;
-    border-color: rgba(243, 252, 74, 0.25) !important;
+    background: linear-gradient(to right, 
+                rgba(243, 252, 74, 0.18) 0%, 
+                rgba(243, 252, 74, 0.1) 50%,
+                rgba(243, 252, 74, 0.05) 100%) !important;
+    border-color: rgba(243, 252, 74, 0.3) !important;
     box-shadow: 0 4px 12px rgba(243, 252, 74, 0.2), 
                 0 2px 6px rgba(0, 0, 0, 0.15),
                 inset 0 1px 0 rgba(243, 252, 74, 0.15) !important;
@@ -609,11 +669,11 @@
 
 .theme_stereolab .musictoolbar a.active,
 .theme_stereolab .musictoolbar a[style*="background:"] {
-    background: linear-gradient(135deg, 
-                rgba(243, 252, 74, 0.18) 0%, 
-                rgba(243, 252, 74, 0.1) 50%,
-                rgba(243, 252, 74, 0.06) 100%) !important;
-    border-color: rgba(243, 252, 74, 0.3) !important;
+    background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+    border-color: rgba(243, 252, 74, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(243, 252, 74, 0.3), 
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(243, 252, 74, 0.2) !important;
 }
 
 .theme_stereolab .musictoolbar #totalratings {

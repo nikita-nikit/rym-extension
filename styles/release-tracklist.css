@@ -1,0 +1,377 @@
+/* ========================================
+   RYM Extension - Release Track Listing Styling
+   ======================================== */
+
+/* ========================================
+   TRACK LISTING SECTION
+   ======================================== */
+
+/* Main track listing container */
+.section_tracklisting {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: 0px solid var(--rym-border) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 2px 8px var(--rym-shadow) !important;
+  overflow: hidden !important;
+}
+
+/* Track listing header */
+.section_tracklisting .release_page_header {
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  padding: 22px 26px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rym-border) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Track listing header title */
+.section_tracklisting .release_page_header h2 {
+  color: var(--rym-text-primary) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.release_page_header.hide-for-small {
+  margin-bottom: 0 !important;
+}
+
+/* Tracklist total when inside header */
+.section_tracklisting .release_page_header .tracklist_total {
+  background: transparent !important;
+  color: var(--rym-text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 0 !important;
+  margin: 0 18px !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  line-height: 1.4 !important;
+}
+
+/* Track credit toggle link */
+.section_tracklisting .track_credit_show_link,
+.section_tracklisting #track_credit_show_link_tracks {
+  background: var(--rym-primary) !important;
+  color: var(--rym-text-inverse) !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: 0px solid var(--rym-primary-dark) !important;
+  white-space: nowrap !important;
+}
+
+.section_tracklisting .track_credit_show_link:hover,
+.section_tracklisting #track_credit_show_link_tracks:hover {
+  background: var(--rym-primary-light) !important;
+  border-color: var(--rym-primary) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 4px var(--rym-shadow) !important;
+}
+
+/* Track listing content area */
+.section_tracklisting .tracklist,
+.section_tracklisting .tracks,
+.section_tracklisting table {
+  background: var(--rym-bg-primary) !important;
+  color: var(--rym-text-primary) !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+/* Track rows */
+.section_tracklisting .track,
+.section_tracklisting tr {
+  border-bottom: 1px solid var(--rym-border-light) !important;
+  transition: background 0.2s ease !important;
+}
+
+.section_tracklisting .track:hover,
+.section_tracklisting tr:hover {
+  background: var(--rym-hover-bg) !important;
+}
+
+/* Track cells */
+.section_tracklisting td,
+.section_tracklisting th {
+  padding: 10px 16px !important;
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-border-light) !important;
+}
+
+.section_tracklisting th {
+  background: var(--rym-bg-tertiary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--rym-text-secondary) !important;
+}
+
+/* Track numbers */
+.section_tracklisting .track_num,
+.section_tracklisting .tracklist_num {
+  color: var(--rym-text-muted) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  min-width: 40px !important;
+}
+
+/* Track titles */
+.section_tracklisting .track_title,
+.section_tracklisting .tracklist_title {
+  color: var(--rym-text-primary) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+/* Track links */
+.section_tracklisting a {
+  color: var(--rym-primary) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.section_tracklisting a:hover {
+  color: var(--rym-primary-light) !important;
+  text-decoration: underline !important;
+}
+
+/* Track duration */
+.section_tracklisting .track_duration,
+.section_tracklisting .tracklist_duration {
+  color: var(--rym-text-muted) !important;
+  font-size: 13px !important;
+  font-variant-numeric: tabular-nums !important;
+  text-align: right !important;
+}
+
+/* Track credits (when expanded) - seamless with tracks */
+.section_tracklisting .track_credits,
+.section_tracklisting .credits_row {
+  background: transparent !important;
+  color: var(--rym-text-secondary) !important;
+  font-size: 12px !important;
+  padding: 4px 16px 4px 56px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+}
+
+.section_tracklisting .track_credits a {
+  color: var(--rym-primary) !important;
+  font-weight: 500 !important;
+}
+
+/* Credit list items inside track listing - seamless appearance */
+.section_tracklisting li.credits,
+.section_tracklisting li.credits.non_featured_credit,
+.section_tracklisting li.credits.featured_credit {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 4px 16px 4px 16px !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Credits container inside track listing - remove box appearance */
+.section_tracklisting ul.credits,
+.section_tracklisting .tracklist_credits {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Track credit labels */
+.section_tracklisting .credit_label {
+  color: var(--rym-text-muted) !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+/* Disc headers (for multi-disc releases) */
+.section_tracklisting .disc_header,
+.section_tracklisting .disc_title {
+  background: var(--rym-bg-secondary) !important;
+  color: var(--rym-text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 10px 16px !important;
+  border-top: 2px solid var(--rym-primary) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+}
+
+/* Total duration row */
+.section_tracklisting .total_duration,
+.section_tracklisting .tracklist_total {
+  background: var(--rym-bg-tertiary) !important;
+  color: var(--rym-text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+  border-top: 2px solid var(--rym-border) !important;
+}
+
+/* Compact mode adjustments */
+.section_tracklisting.compact td,
+.section_tracklisting.compact th {
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+}
+
+/* Empty state */
+.section_tracklisting .no_tracks,
+.section_tracklisting .empty_state {
+  padding: 24px 16px !important;
+  text-align: center !important;
+  color: var(--rym-text-muted) !important;
+  font-style: italic !important;
+}
+
+/* ========================================
+   TRACKS UL/OL - Main Track List Container
+   ======================================== */
+
+/* Main tracks list container */
+#tracks,
+ul.tracks,
+ol.tracks,
+ul.tracklisting,
+ol.tracklisting {
+  background: var(--rym-bg-primary) !important;
+  border: 0px solid var(--rym-border) !important;
+}
+
+/* Individual track item (li) */
+#tracks li.track,
+ul.tracks li.track,
+ol.tracks li.track,
+ul.tracklisting li.track,
+ol.tracklisting li.track {
+  background: var(--rym-bg-primary) !important;
+  border-color: var(--rym-border-light) !important;
+}
+
+#tracks li.track:hover,
+ul.tracks li.track:hover,
+ol.tracks li.track:hover,
+ul.tracklisting li.track:hover,
+ol.tracklisting li.track:hover {
+  background: var(--rym-hover-bg) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Tracklist line container */
+.tracklist_line {
+  background: transparent !important;
+}
+
+/* Track number */
+.tracklist_num {
+  color: var(--rym-text-muted) !important;
+}
+
+/* Track title text/link */
+.tracklist_title a.song,
+.tracklist_title .song {
+  color: var(--rym-primary) !important;
+}
+
+.tracklist_title a.song:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* Track duration */
+.tracklist_duration {
+  color: var(--rym-text-muted) !important;
+}
+
+/* Track credits container (when expanded) - seamless */
+.tracklist_credits,
+.track_credits_line {
+  background: transparent !important;
+  color: var(--rym-text-secondary) !important;
+  border: none !important;
+}
+
+.tracklist_credits a,
+.track_credits_line a {
+  color: var(--rym-primary) !important;
+}
+
+.tracklist_credits a:hover,
+.track_credits_line a:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* Credit role labels */
+.tracklist_credits .credit_role,
+.track_credits_line .credit_role {
+  color: var(--rym-text-muted) !important;
+}
+
+/* Disc separator (for multi-disc releases) */
+.disc_separator,
+.disc_header_line {
+  background: var(--rym-bg-secondary) !important;
+  color: var(--rym-text-primary) !important;
+  border-color: var(--rym-primary) !important;
+}
+
+/* Featured artists in track titles */
+.tracklist_title .feat,
+.tracklist_title .featuring {
+  color: var(--rym-text-secondary) !important;
+}
+
+/* Track metadata (bonus track, live, etc.) */
+.track_metadata,
+.track_note {
+  color: var(--rym-text-muted) !important;
+}
+
+/* Total length/duration styling */
+.section_tracklisting li.track:last-child,
+#tracks li.track:last-child {
+  border-bottom: none !important;
+}
+
+/* Total length row at bottom - style as compact info bar */
+.section_tracklisting .total_length,
+.section_tracklisting .total_duration,
+#tracks + div,
+#tracks + li,
+.tracklisting + div {
+  background: var(--rym-bg-tertiary) !important;
+  color: var(--rym-text-secondary) !important;
+  border-top: 1px solid var(--rym-border) !important;
+  text-align: center !important;
+}
+
+/* If total length appears as text at bottom */
+.section_tracklisting > div:last-child,
+.section_tracklisting > span:last-child {
+  background: var(--rym-bg-tertiary) !important;
+  color: var(--rym-text-secondary) !important;
+  border-top: 1px solid var(--rym-border) !important;
+}
+

@@ -16,11 +16,12 @@
         "src/profile.js",
         "src/bubble-content.js",
         "src/cleanup.js",
+        "src/release.js",
         "src/globe.js",
         "src/theme-controller.js",
         "src/main.js"
       ],
-      "css": ["styles/themes.css", "styles/rym-elements.css", "styles/header.css", "styles/search.css", "styles/listening.css", "styles/profile.css", "styles/body.css", "styles/musicmap.css", "styles/ratings-polish.css", "styles/release.css"]
+      "css": ["styles/themes.css", "styles/rym-elements.css", "styles/header.css", "styles/search.css", "styles/listening.css", "styles/profile.css", "styles/body.css", "styles/musicmap.css", "styles/ratings-polish.css", "styles/release.css", "styles/release-navigation.css", "styles/release-tracklist.css", "styles/release-comments.css"]
     }
   ],
   "web_accessible_resources": [

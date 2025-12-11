@@ -1,0 +1,197 @@
+/* ========================================
+   RYM Extension - Release Navigation Styling
+   ======================================== */
+
+/* ========================================
+   RELEASE NAVIGATION SECTION
+   ======================================== */
+
+/* Main navigation section container */
+.section_release_navigation {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Navigation guidance container - the actual visible box */
+.release_navigation_guidance {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  box-shadow: 0 1px 3px var(--rym-shadow) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Artist guidance row - flexbox layout */
+.release_nav_guidance_artist {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Left navigation container (Previous) */
+.release_nav_guidance_left {
+  flex: 1 !important;
+  text-align: left !important;
+}
+
+/* Right navigation container (Next) */
+.release_nav_guidance_right {
+  flex: 1 !important;
+  text-align: right !important;
+}
+
+/* Navigation links - styled as elegant buttons */
+.section_release_navigation a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 4px 10px !important;
+  background: var(--rym-bg-primary) !important;
+  color: var(--rym-primary) !important;
+  border: 1px solid var(--rym-primary-alpha) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 1px 2px var(--rym-shadow) !important;
+}
+
+.section_release_navigation a:hover {
+  background: var(--rym-primary) !important;
+  color: var(--rym-text-inverse) !important;
+  border-color: var(--rym-primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow-strong), 
+              0 2px 6px var(--rym-primary-alpha) !important;
+}
+
+.section_release_navigation a:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 1px 3px var(--rym-shadow) !important;
+}
+
+/* Navigation icons - properly sized and colored */
+.section_release_navigation .fa {
+  color: inherit !important;
+  font-size: 11px !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Icon animation on hover */
+.section_release_navigation a:hover .fa-caret-left {
+  transform: translateX(-2px) !important;
+}
+
+.section_release_navigation a:hover .fa-caret-right {
+  transform: translateX(2px) !important;
+}
+
+/* ========================================
+   RELEASE NAVIGATION LINKS (Album Images)
+   ======================================== */
+
+/* Ensure navigation wrapper doesn't clip children */
+.release_navigation {
+  overflow: visible !important;
+}
+
+/* Main navigation links container */
+.release_navigation_links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding: 16px 22px !important;
+  margin: 12px 0 24px 0 !important;
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 10px var(--rym-shadow) !important;
+  min-height: 78px !important;
+  overflow: visible !important;
+}
+
+/* Previous/next containers */
+.release_navigation_links .prev_image,
+.release_navigation_links .next_image {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.release_navigation_links .prev_link,
+.release_navigation_links .next_link {
+  margin: 0 !important;
+  padding: 0 14px !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+}
+
+.release_navigation_links .prev_link {
+  text-align: left !important;
+}
+
+.release_navigation_links .next_link {
+  text-align: right !important;
+}
+
+/* Album thumbnail images */
+.release_navigation_links img {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 6px !important;
+  border: 1.5px solid var(--rym-border) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px var(--rym-shadow) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  justify-self: center !important;
+}
+
+.release_navigation_links img:hover {
+  transform: scale(1.08) !important;
+  border-color: var(--rym-primary) !important;
+  box-shadow: 0 4px 10px var(--rym-shadow-strong) !important;
+}
+
+/* Album title links */
+.release_navigation_links a {
+  color: var(--rym-primary) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  padding: 0px 0 !important;
+  display: inline-block !important;
+  line-height: 1.4 !important;
+}
+
+.release_navigation_links a:hover {
+  color: var(--rym-primary-light) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Small text styling */
+.release_navigation_links .small {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--rym-text-primary) !important;
+  margin: 0 !important;
+  padding: 6px 12px !important;
+  line-height: 1.4 !important;
+  border-radius: 6px !important;
+}
+
+.release_navigation_links .small:hover {
+  color: var(--rym-primary) !important;
+  background: var(--rym-primary-alpha) !important;
+}
+

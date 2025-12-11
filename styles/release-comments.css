@@ -1,0 +1,528 @@
+/* ========================================
+   RYM Extension - Release Comments Styling
+   ======================================== */
+
+/* ========================================
+   COMMENTS SECTION
+   ======================================== */
+
+/* Comments section container */
+.section_comments {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+  overflow: visible !important;
+  position: relative !important;
+  margin-bottom: 10px !important;
+}
+
+/* Comments header - styled with gradient like other headers */
+.section_comments .release_page_header {
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  padding: 22px 26px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rym-border) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.section_comments .release_page_header h2 {
+  color: var(--rym-text-primary) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Comments content area */
+.section_comments .color_bar {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Comments container */
+.section_comments .comments {
+  background: var(--rym-bg-primary) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Comments view container */
+.section_comments .comments.view {
+  border: 1px solid var(--rym-border) !important;
+  border-top: none !important;
+  background: var(--rym-bg-primary) !important;
+  border-radius: 0 0 6px 6px !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Comments list */
+.section_comments .comments_list,
+.section_comments ul.comments_list,
+.section_comments ol.comments_list {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  max-height: 520px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Comments list scrollbar styling */
+.section_comments .comments_list::-webkit-scrollbar,
+.section_comments ul.comments_list::-webkit-scrollbar,
+.section_comments ol.comments_list::-webkit-scrollbar {
+  width: 12px !important;
+}
+
+.section_comments .comments_list::-webkit-scrollbar-track,
+.section_comments ul.comments_list::-webkit-scrollbar-track,
+.section_comments ol.comments_list::-webkit-scrollbar-track {
+  background: var(--rym-bg-secondary) !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--rym-border-light) !important;
+}
+
+.section_comments .comments_list::-webkit-scrollbar-thumb,
+.section_comments ul.comments_list::-webkit-scrollbar-thumb,
+.section_comments ol.comments_list::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--rym-primary) 0%, var(--rym-primary-dark) 100%) !important;
+  border-radius: 6px !important;
+  border: 2px solid var(--rym-bg-secondary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.section_comments .comments_list::-webkit-scrollbar-thumb:hover,
+.section_comments ul.comments_list::-webkit-scrollbar-thumb:hover,
+.section_comments ol.comments_list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--rym-primary-light) 0%, var(--rym-primary) 100%) !important;
+  border-color: var(--rym-border) !important;
+}
+
+.section_comments .comments_list::-webkit-scrollbar-thumb:active,
+.section_comments ul.comments_list::-webkit-scrollbar-thumb:active,
+.section_comments ol.comments_list::-webkit-scrollbar-thumb:active {
+  background: var(--rym-primary-dark) !important;
+}
+
+/* Firefox scrollbar styling */
+.section_comments .comments_list {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--rym-primary) var(--rym-bg-secondary) !important;
+}
+
+/* Comment help section */
+.section_comments .comment_help {
+  background: var(--rym-bg-secondary) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  padding: 16px 20px !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 1px 3px var(--rym-shadow) !important;
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+/* Comment help popup/tooltip (when positioned absolutely) */
+.section_comments .comment_help[style*="position"],
+.section_comments .comment_help[style*="left"],
+.section_comments .comment_help[style*="top"] {
+  position: absolute !important;
+  z-index: 9999 !important;
+  background: var(--rym-bg-secondary) !important;
+  border: 2px solid var(--rym-primary) !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 8px 24px var(--rym-shadow-strong), 0 0 0 1px var(--rym-border) !important;
+  max-width: 400px !important;
+  min-width: 300px !important;
+  overflow: visible !important;
+}
+
+.section_comments .comment_help b {
+  color: var(--rym-text-primary) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin-bottom: 12px !important;
+}
+
+/* Comment rules list */
+.section_comments .comment_rules {
+  list-style: disc !important;
+  padding-left: 20px !important;
+  margin: 8px 0 !important;
+}
+
+.section_comments .comment_rules li {
+  color: var(--rym-text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 8px !important;
+  padding-left: 4px !important;
+}
+
+.section_comments .comment_rules li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Individual comments */
+.section_comments .comment {
+  background: var(--rym-bg-primary) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  margin: 12px !important;
+  color: var(--rym-text-primary) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+  overflow: hidden !important;
+  list-style: none !important;
+  display: grid !important;
+  grid-template-columns: 40px 1fr !important;
+  grid-template-rows: auto auto auto !important;
+  gap: 0 !important;
+}
+
+.section_comments .comment:hover {
+  border-color: var(--rym-primary) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow-strong) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Comment profile image */
+.section_comments .comment .comment_img {
+  width: 40px !important;
+  height: 40px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-right: 1px solid var(--rym-border-light) !important;
+  grid-row: 1 / 4 !important;
+  grid-column: 1 !important;
+  margin: 0 !important;
+}
+
+/* Comment header */
+.section_comments .comment_header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 16px 8px 16px !important;
+  background: var(--rym-bg-secondary) !important;
+  border-bottom: 1px solid var(--rym-border-light) !important;
+  margin: 0 !important;
+  grid-row: 1 !important;
+  grid-column: 2 !important;
+}
+
+/* Comment author/user link */
+.section_comments .comment_header .user,
+.section_comments .comment_header a.user {
+  color: var(--rym-primary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.section_comments .comment_header .user:hover,
+.section_comments .comment_header a.user:hover {
+  color: var(--rym-primary-light) !important;
+  text-decoration: underline !important;
+}
+
+/* Comment date */
+.section_comments .comment_header .comment_date {
+  color: var(--rym-text-muted) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+}
+
+/* Comment metadata (author, date, etc.) */
+.section_comments .comment_meta,
+.section_comments .comment_author,
+.section_comments .comment_date {
+  color: var(--rym-text-muted) !important;
+  font-size: 12px !important;
+}
+
+/* Comment text content */
+.section_comments .comment_body,
+.section_comments .comment .comment_body {
+  color: var(--rym-text-primary) !important;
+  line-height: 1.7 !important;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+  font-size: 14.5px !important;
+  background: var(--rym-bg-primary) !important;
+  grid-row: 2 !important;
+  grid-column: 2 !important;
+}
+
+.section_comments .comment_body .rendered_text,
+.section_comments .comment .comment_body .rendered_text {
+  display: block !important;
+  word-wrap: break-word !important;
+}
+
+/* Comment links */
+.section_comments a {
+  color: var(--rym-primary) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.section_comments a:hover {
+  color: var(--rym-primary-light) !important;
+  text-decoration: underline !important;
+}
+
+/* Comment moderation/actions footer */
+.section_comments .comment_mod,
+.section_comments .comment .comment_mod {
+  padding: 8px 5px 10px 16px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-top: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  font-size: 12px !important;
+  grid-row: 3 !important;
+  grid-column: 2 !important;
+}
+
+.section_comments .comment_mod a,
+.section_comments .comment .comment_mod a {
+  color: var(--rym-text-muted) !important;
+  opacity: 0.65 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  font-size: 12px !important;
+}
+
+.section_comments .comment_mod a:hover,
+.section_comments .comment .comment_mod a:hover {
+  color: var(--rym-primary) !important;
+  opacity: 1 !important;
+}
+
+.section_comments .comment_mod .pipe,
+.section_comments .comment .comment_mod .pipe {
+  color: var(--rym-border) !important;
+}
+
+/* Comment actions (reply, edit, delete, etc.) */
+.section_comments .comment_actions,
+.section_comments .comment_links {
+  margin-top: 8px !important;
+  padding-top: 8px !important;
+  border-top: 1px solid var(--rym-border-light) !important;
+}
+
+.section_comments .comment_actions a,
+.section_comments .comment_links a {
+  font-size: 12px !important;
+  margin-right: 12px !important;
+}
+
+/* Load more comments button */
+.section_comments .comments_load {
+  text-align: center !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  padding: 3.5px 5px !important;
+  margin: 12px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px var(--rym-shadow) !important;
+  list-style: none !important;
+}
+
+.section_comments .comments_load:hover {
+  background: linear-gradient(to right, var(--rym-bg-primary) 0%, var(--rym-bg-secondary) 100%) !important;
+  border-color: var(--rym-primary) !important;
+  color: var(--rym-primary) !important;
+  box-shadow: 0 4px 8px var(--rym-shadow-strong) !important;
+  transform: translateY(-2px) !important;
+}
+
+.section_comments .comments_load:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 1px 2px var(--rym-shadow) !important;
+}
+
+.section_comments .comments_load.loading {
+  opacity: 0.6 !important;
+  cursor: wait !important;
+  pointer-events: none !important;
+}
+
+/* ========================================
+   COMMENT POST FORM - Add New Comment
+   ======================================== */
+
+/* Comment post container */
+.section_comments .comments_post {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: 2px solid var(--rym-border) !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 12px !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+  overflow: visible !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.section_comments .comments_post:hover {
+  box-shadow: 0 4px 12px var(--rym-shadow-strong) !important;
+}
+
+/* Loading indicator for comment post */
+.section_comments .comments_post_loading {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: var(--rym-bg-modal) !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+}
+
+.section_comments .comments_post_loading.active {
+  display: flex !important;
+}
+
+/* Comment post inner padding container */
+.section_comments .comments_post > div[style*="padding"] {
+  margin: 1.8px !important;
+  padding: 8px !important;
+  background: var(--rym-bg-primary) !important;
+}
+
+/* Comment textarea - new comment input */
+.section_comments .comment_new,
+.section_comments .comments_post textarea {
+  width: 100% !important;
+  min-height: 100px !important;
+  padding: 12px 16px !important;
+  background: var(--rym-bg-secondary) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  color: var(--rym-text-primary) !important;
+  font-size: 14px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.6 !important;
+  resize: vertical !important;
+  transition: all 0.3s ease !important;
+  box-shadow: inset 0 1px 3px var(--rym-shadow) !important;
+}
+
+/* Respect inline display:none on textarea */
+.section_comments .comment_new[style*="display: none"],
+.section_comments .comment_new[style*="display:none"],
+.section_comments .comments_post textarea[style*="display: none"],
+.section_comments .comments_post textarea[style*="display:none"] {
+  display: none !important;
+}
+
+.section_comments .comment_new:focus,
+.section_comments .comments_post textarea:focus {
+  outline: none !important;
+  border-color: var(--rym-primary) !important;
+  background: var(--rym-bg-primary) !important;
+  box-shadow: 0 0 0 3px var(--rym-primary-alpha), inset 0 1px 3px var(--rym-shadow) !important;
+}
+
+.section_comments .comment_new::placeholder,
+.section_comments .comments_post textarea::placeholder {
+  color: var(--rym-text-muted) !important;
+  opacity: 0.7 !important;
+}
+
+/* Comment post helper text */
+.section_comments .comments_post .comment_help_text,
+.section_comments .comments_post .comment_guidelines {
+  font-size: 12px !important;
+  color: var(--rym-text-muted) !important;
+  margin-top: 8px !important;
+  padding: 8px 12px !important;
+  background: var(--rym-bg-tertiary) !important;
+  border-radius: 4px !important;
+  border-left: 3px solid var(--rym-primary) !important;
+}
+
+/* Character counter */
+.section_comments .comments_post .char_counter {
+  font-size: 12px !important;
+  color: var(--rym-text-muted) !important;
+  margin-top: 6px !important;
+  text-align: right !important;
+}
+
+.section_comments .comments_post .char_counter.warning {
+  color: var(--rym-warning) !important;
+}
+
+.section_comments .comments_post .char_counter.error {
+  color: var(--rym-error) !important;
+  font-weight: 600 !important;
+}
+
+/* Primary/submit button - color only */
+.section_comments .comment_post_add_btn,
+.section_comments .comment_post_btn {
+  background: linear-gradient(
+      to right,
+      var(--rym-primary) 0%,
+      var(--rym-primary-dark) 100%
+    ) !important;
+  color: var(--rym-text-inverse) !important;
+  border: 1px solid var(--rym-primary-dark) !important;
+}
+
+.section_comments .comment_post_add_btn:hover,
+.section_comments .comment_post_btn:hover {
+  background: linear-gradient(
+      to right,
+      var(--rym-primary-light) 0%,
+      var(--rym-primary) 100%
+    ) !important;
+  border-color: var(--rym-primary) !important;
+}
+
+/* Secondary/cancel button - color only */
+.section_comments .comment_post_cancel_btn,
+.section_comments .comment_cancel_btn {
+  background: var(--rym-bg-secondary) !important;
+  color: var(--rym-text-primary) !important;
+  border: 1px solid var(--rym-border) !important;
+}
+
+.section_comments .comment_post_cancel_btn:hover,
+.section_comments .comment_cancel_btn:hover {
+  background: var(--rym-hover-bg) !important;
+  color: var(--rym-primary) !important;
+  border-color: var(--rym-primary) !important;
+}
+

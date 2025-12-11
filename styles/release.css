@@ -1,6 +1,68 @@
 /* ========================================
    RYM Extension - Release Page Styling
    Color changes only - preserving original layout
+   
+   Modular structure:
+   - release.css (this file) - Main layout and sections
+   - release-navigation.css - Navigation between releases
+   - release-tracklist.css - Track listing styles
+   - release-comments.css - Comments section
+   ======================================== */
+
+/* ========================================
+   LEFT COLUMN - Album Artwork & Info
+   ======================================== */
+
+/* Main left column container */
+#column_container_left.release_left_column {
+  background: var(--rym-bg-primary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* Album artwork frame */
+#column_container_left .page_release_art_frame {
+  background: var(--rym-bg-secondary) !important;
+  border-color: var(--rym-border) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow) !important;
+}
+
+/* Album cover image */
+#column_container_left .page_release_art_frame img {
+  border-color: var(--rym-border) !important;
+  box-shadow: 0 2px 8px var(--rym-shadow-strong) !important;
+}
+
+/* Buy/purchase links in left column */
+#column_container_left a {
+  color: var(--rym-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+#column_container_left a:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* Text elements in left column */
+#column_container_left,
+#column_container_left .page_section {
+  color: var(--rym-text-primary) !important;
+}
+
+/* Any buttons or interactive elements */
+#column_container_left button,
+#column_container_left .btn {
+  background: var(--rym-primary) !important;
+  color: var(--rym-text-inverse) !important;
+  border-color: var(--rym-primary) !important;
+}
+
+#column_container_left button:hover,
+#column_container_left .btn:hover {
+  background: var(--rym-primary-dark) !important;
+}
+
+/* ========================================
+   RIGHT COLUMN - Release Details
    ======================================== */
 
 /* Main release right column container */
@@ -13,18 +75,35 @@
 #column_container_right .section_outer {
   background: var(--rym-bg-primary) !important;
   border-color: var(--rym-border) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow) !important;
+  padding: 15px !important;
+}
+
+/* General page section container (album header) */
+#column_container_right .page_section {
+  background: var(--rym-bg-primary) !important;
+  border-color: var(--rym-border) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow) !important;
 }
 
 /* Album title */
 #column_container_right .album_title {
   color: var(--rym-text-primary) !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6em;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 /* Album shortcut input */
 #column_container_right .album_shortcut {
-  background: var(--rym-bg-tertiary) !important;
+  background: var(--rym-bg-primary) !important;
   border-color: var(--rym-border) !important;
-  color: var(--rym-text-secondary) !important;
+  color: var(--rym-text-primary) !important;
 }
 
 /* Artist links */
@@ -50,11 +129,29 @@
 #column_container_right table.color_bar {
   background: var(--rym-bg-tertiary) !important;
   border-color: var(--rym-border) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#column_container_right table.color_bar tr,
+#column_container_right table.color_bar td {
+  height: 8px !important;
+  padding: 0 !important;
 }
 
 #column_container_right table.color_bar td {
-  color: var(--rym-text-primary) !important;
+  color: inherit !important; /* let currentColor mirror the swatch bg */
   border-color: var(--rym-border) !important;
+  position: relative;
+  overflow: visible;
+  transition: box-shadow 260ms ease, filter 260ms ease;
+}
+
+#column_container_right table.color_bar td:hover {
+  box-shadow:
+    0 0 10px 4px currentColor,
+    0 0 14px 8px currentColor;
+  filter: brightness(1.08) saturate(1.12);
 }
 
 /* Info labels */
@@ -70,14 +167,22 @@
 }
 
 /* Genre and descriptor tags */
-#column_container_right .genre,
+#column_container_right .genre {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--rym-text-primary) !important;
+}
+
+#column_container_right .genre a {
+  color: var(--rym-text-primary) !important;
+}
+
 #column_container_right .descriptor {
   background: var(--rym-bg-tertiary) !important;
   border-color: var(--rym-border) !important;
   color: var(--rym-text-primary) !important;
 }
 
-#column_container_right .genre a,
 #column_container_right .descriptor a {
   color: var(--rym-text-primary) !important;
 }
@@ -99,6 +204,45 @@
   background: var(--rym-bg-tertiary) !important;
   border-color: var(--rym-border) !important;
   color: var(--rym-text-primary) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+}
+
+#column_container_right td:has(> table.album_info) {
+  padding: 0 !important;
+}
+
+#column_container_right .album_info tr {
+  border-bottom: 1px solid var(--rym-border-light) !important;
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-primary-dark) !important;
+}
+
+#column_container_right .album_info tr:last-child {
+  border-bottom: none !important;
+}
+
+#column_container_right .album_info th.info_hdr {
+  width: 140px !important;
+  font-weight: 700 !important;
+  color: var(--rym-primary-dark) !important;
+  padding: 8px !important;
+  background: transparent !important;
+  font-size: 16px !important;
+}
+
+#column_container_right .album_info td {
+  padding: 0 !important;
+  color: var(--rym-primary-dark) !important;
+}
+
+#column_container_right .album_info a {
+  color: var(--rym-primary) !important;
+}
+
+#column_container_right .album_info a:hover {
+  color: var(--rym-primary-light) !important;
 }
 
 /* General links */
@@ -128,10 +272,14 @@
 }
 
 /* Rating section */
-#column_container_right .rating_container,
-#column_container_right .avg_rating {
+#column_container_right .rating_container {
   background: var(--rym-bg-tertiary) !important;
   border-color: var(--rym-primary) !important;
+}
+
+#column_container_right .avg_rating {
+  background: transparent !important;
+  border-color: transparent !important;
 }
 
 #column_container_right .avg_rating .avg_rating_num {
@@ -179,4 +327,391 @@
 #column_container_right .smallfont,
 #column_container_right small {
   color: var(--rym-text-muted) !important;
+}
+
+/* ========================================
+   SHARED SECTION HEADERS
+   ======================================== */
+
+/* Release page headers - used across multiple sections */
+#column_container_right .release_page_header,
+.credits_section .release_page_header,
+.release_page_header.hide-for-small {
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  padding: 22px 26px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rym-border) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.release_page_header h2 {
+  margin-top: -5px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Expand button for credits */
+.section_lists ul.lists li.expand_button,
+.expand_button {
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 0 0 6px 6px !important;
+}
+
+/* ========================================
+   CREDITS SECTION
+   ======================================== */
+
+.section_credits {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* Credits list container */
+#column_container_right ul.credits,
+#column_container_right #credits_,
+ul.credits,
+#credits_ {
+  list-style: none !important;
+  padding: 0px !important;
+  margin: 0 !important;
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+}
+
+/* Individual credit list item */
+#column_container_right ul.credits li,
+#column_container_right #credits_ li,
+ul.credits li,
+#credits_ li {
+  padding: 8px 10px !important;
+  margin: 0 0 1px 0 !important;
+  background: var(--rym-bg-primary) !important;
+  border-left: 0px solid var(--rym-primary) !important;
+  border-radius: 4px !important;
+}
+
+#column_container_right ul.credits li:last-child,
+#column_container_right #credits_ li:last-child,
+ul.credits li:last-child,
+#credits_ li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Artist link styling */
+#column_container_right ul.credits li a.artist,
+#column_container_right #credits_ li a.artist,
+ul.credits li a.artist,
+#credits_ li a.artist {
+  color: var(--rym-text-primary) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+#column_container_right ul.credits li a.artist:hover,
+#column_container_right #credits_ li a.artist:hover,
+ul.credits li a.artist:hover,
+#credits_ li a.artist:hover {
+  color: var(--rym-primary) !important;
+}
+
+/* Role names */
+#column_container_right ul.credits li .role_name,
+#column_container_right #credits_ li .role_name,
+ul.credits li .role_name,
+#credits_ li .role_name {
+  color: var(--rym-text-secondary) !important;
+  font-size: 13px !important;
+}
+
+/* ========================================
+   LISTS SECTION
+   ======================================== */
+
+/* Lists section container */
+.section_lists {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+}
+
+/* Lists header */
+.section_lists .release_page_header {
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  padding: 22px 26px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rym-border) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.section_lists .release_page_header h2 {
+  color: var(--rym-text-primary) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  float: none !important;
+}
+
+/* Add to list container */
+.section_lists #addtolist {
+  float: none !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Add to list button */
+.section_lists #add_to_list_btn {
+  background: var(--rym-primary) !important;
+  color: var(--rym-text-inverse) !important;
+  border: 1px solid var(--rym-primary) !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 3px var(--rym-shadow) !important;
+  transition: all 0.2s ease !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.section_lists #add_to_list_btn:hover {
+  background: var(--rym-primary-light) !important;
+  border-color: var(--rym-primary-light) !important;
+  box-shadow: 0 2px 6px var(--rym-shadow-strong) !important;
+}
+
+/* Lists list container */
+.section_lists ul.lists {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1px 0 0 0 !important;
+  background: var(--rym-bg-primary) !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+
+/* Lists not expanded */
+.lists.not_expanded {
+  margin-top: 0px !important;
+}
+
+/* Individual list items */
+.section_lists ul.lists li {
+  padding: 8px 10px !important;
+  margin: 0 0 0px 0 !important;
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* List items in not_expanded lists */
+ul.lists.not_expanded li {
+  background: var(--rym-bg-primary) !important;
+  color: var(--rym-text-primary) !important;
+  border: 1px solid var(--rym-border) !important;
+}
+
+.section_lists ul.lists li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Links inside non-expanded lists */
+ul.lists.not_expanded li a {
+  color: var(--rym-text-primary) !important;
+}
+
+ul.lists.not_expanded li a:hover {
+  color: var(--rym-primary) !important;
+}
+
+/* List links */
+.section_lists ul.lists li a {
+  color: var(--rym-text-primary) !important;
+  text-decoration: none !important;
+}
+
+.section_lists ul.lists li a:hover {
+  color: var(--rym-primary) !important;
+}
+
+/* ========================================
+   CONTRIBUTIONS SECTION (release page)
+   ======================================== */
+div[style*="border-top:1px solid var(--mono-d)"][style*="padding-left:50px"] {
+  background: var(--rym-bg-secondary) !important;
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 8px !important;
+  padding: 0 0 12px 0 !important;
+  margin: 12px 0 !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+}
+
+div[style*="border-top:1px solid var(--mono-d)"][style*="padding-left:50px"] .release_page_header {
+  background: var(--rym-bg-secondary) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  padding: 16px 16px 12px 16px !important;
+  margin: 0 !important;
+}
+
+div[style*="border-top:1px solid var(--mono-d)"][style*="padding-left:50px"] .release_page_header h2 {
+  color: var(--rym-text-primary) !important;
+  margin: 0 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+div[style*="border-top:1px solid var(--mono-d)"][style*="padding-left:50px"] .color_bar {
+  display: none !important;
+  background: transparent !important;
+  border: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.contributor_header {
+  display: block !important;
+  margin: 12px 0 6px 0 !important;
+  color: var(--rym-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.contributor_header + .user,
+.contributor_header + .userd,
+.contributor_header ~ a.user,
+.contributor_header ~ span.userd {
+  color: var(--rym-primary) !important;
+  text-decoration: none !important;
+}
+
+.contributor_header + .user:hover,
+.contributor_header ~ a.user:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* ========================================
+   VIDEOS SECTION
+   ======================================== */
+
+/* Videos section container */
+.section_videos {
+  background: var(--rym-bg-gradient-subtle) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 2px 6px var(--rym-shadow) !important;
+  overflow: hidden !important;
+}
+
+/* Videos header */
+.section_videos .release_page_header {
+  background: linear-gradient(to right, var(--rym-bg-secondary) 0%, var(--rym-bg-primary) 100%) !important;
+  color: var(--rym-text-primary) !important;
+  padding: 22px 26px !important;
+  margin: 0 !important;
+  border: 1px solid var(--rym-border) !important;
+  border-bottom: 1px solid var(--rym-border) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.section_videos .release_page_header h2 {
+  color: var(--rym-text-primary) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Videos content area */
+.section_videos .color_bar {
+  background: var(--rym-bg-tertiary) !important;
+  border-color: var(--rym-border) !important;
+}
+
+/* YouTube container */
+.section_videos .youtube_container {
+  background: var(--rym-bg-primary) !important;
+  padding: 0px !important;
+  border-bottom: 1px solid var(--rym-border-light) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.section_videos .youtube_container:last-child {
+  border-bottom: none !important;
+}
+
+/* YouTube embed */
+.section_videos .youtube_embed {
+  border: 1px solid var(--rym-border) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px var(--rym-shadow) !important;
+}
+
+.section_videos .youtube_embed:hover {
+  border-color: var(--rym-primary) !important;
+  box-shadow: 0 4px 12px var(--rym-shadow-strong) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* YouTube image thumbnail */
+.section_videos .youtube_img {
+  border-radius: 6px !important;
+}
+
+/* YouTube play button */
+.section_videos .youtube_playbutton {
+  transition: all 0.3s ease !important;
+}
+
+.section_videos .youtube_embed:hover .youtube_playbutton {
+  transform: scale(1.1) !important;
+}
+
+/* Video links */
+.section_videos a {
+  color: var(--rym-primary) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.section_videos a:hover {
+  color: var(--rym-primary-light) !important;
+}
+
+/* Video titles and metadata */
+.section_videos .video_title,
+.section_videos .video_info {
+  color: var(--rym-text-primary) !important;
+  margin-top: 8px !important;
+  font-size: 14px !important;
+}
+
+.section_videos .video_meta {
+  color: var(--rym-text-muted) !important;
+  font-size: 12px !important;
+  margin-top: 4px !important;
 }
